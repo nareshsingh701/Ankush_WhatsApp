@@ -21,6 +21,9 @@ import AddData from '../screen/add/addData';
 import LoderChearching from '../screen/otherScreen/loderChearching'
 import LoderData from '../screen/otherScreen/loderData';
 import Url from '../screen/URL/url';
+import DataAdd from '../screen/dataAdd/dataAdd';
+import LoderFile from '../screen/otherScreen/loderFile';
+import LoderLogIn from '../screen/otherScreen/loderLogIn'
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -29,22 +32,25 @@ const Navigation = () => {
             <Stack.Navigator initialRouteName='openScreen'>
                 <Stack.Screen options={{headerShown: false}} name="whatsApp" component={WhatsApp} />
                 <Stack.Screen options={{headerShown: false}} name="screen" component={Screen} />
-                <Stack.Screen options={{headerShown: false}} name="phoneNumber" component={PhoneNumber} /> 
-                <Stack.Screen options={{headerShown: false}} name="calls" component={Calls} />
-                <Stack.Screen options={{headerShown: false}} name="status" component={Status} />
-                <Stack.Screen options={{headerShown: false}} name="camra" component={Camra} />
-                <Stack.Screen options={{headerShown: false}} name="search" component={Search} />
-                <Stack.Screen options={{headerShown: false}} name="openScreen" component={OpenScreen} />
-                <Stack.Screen  options={{headerShown: false}} name="logIn" component={LogIn} />
-                <Stack.Screen options={{headerShown: false}} name="data" component={Data} />
-                <Stack.Screen options={{headerShown: false}} name="loderChearching" component={LoderChearching} />
-                <Stack.Screen options={{headerShown: false}} name="loderData" component={LoderData} />
-                <Stack.Screen options={{headerShown: false}} name="addData" component={AddData} />
-                <Stack.Screen  options={{headerShown: false}} name="loder" component={Loder} />
-                <Stack.Screen  options={{headerShown: false}} name="dataStor" component={DataStor} />
-                <Stack.Screen options={{headerShown: false}} name="loderScreen" component={LoderScreen} />
-                <Stack.Screen  options={{headerShown: false}} name="welcome" component={Welcome} />
-                <Stack.Screen  options={{headerShown: false}} name="url" component={Url} />
+                <Stack.Screen  name="phoneNumber" component={PhoneNumber} /> 
+                <Stack.Screen name="calls" component={Calls} />
+                <Stack.Screen name="status" component={Status} />
+                <Stack.Screen  name="camra" component={Camra} />
+                <Stack.Screen name="search" component={Search} />
+                <Stack.Screen name="openScreen" component={OpenScreen} />
+                <Stack.Screen name="logIn" component={LogIn} />
+                <Stack.Screen name="data" component={Data} />
+                <Stack.Screen name="loderChearching" component={LoderChearching} />
+                <Stack.Screen name="loderData" component={LoderData} />
+                <Stack.Screen  name="addData" component={AddData} />
+                <Stack.Screen  name="loder" component={Loder} />
+                <Stack.Screen  name="dataStor" component={DataStor} />
+                <Stack.Screen  name="loderScreen" component={LoderScreen} />
+                <Stack.Screen   name="welcome" component={Welcome} />
+                <Stack.Screen  name="url" component={Url} />
+                <Stack.Screen  name="loderFile" component={LoderFile} />
+                <Stack.Screen  name="dataAdd" component={DataAdd} />
+                <Stack.Screen  name="loderLogIn" component={LoderLogIn} />
             </Stack.Navigator>
         </NavigationContainer>
     );

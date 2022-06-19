@@ -1,38 +1,24 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Linking } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, ScrollView } from 'react-native'
 import React from 'react'
 
 import color from '../../utils/color';
 
 const Welcome = (props) => {
     return (
-        <View style={styles.container}>
-            <View>
-                <Text style={styles.Text}>Welcome to WhatsApp</Text>
-            </View>
-            <View>
-                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/home.jpg')} />
-            </View>
-            <View style={styles.flex}>
-                <Text style={styles.TextThree}>Read our</Text>
-                <TouchableOpacity onPress={() => Linking.openURL('https://www.whatsapp.com/legal/privacy-policy?lg=en&lc=GB&eea=0')}>
-                    <Text style={styles.TextStyles}>Privacy Policy</Text>
-                </TouchableOpacity>
-
-                <Text style={styles.TextStyle}>.  Top "Agree and continue" to</Text>
-            </View>
-            <View style={styles.flex}>
-                <Text style={styles.center}>accept the</Text>
-                <TouchableOpacity onPress={() => Linking.openURL('https://www.whatsapp.com/legal/terms-of-service?lg=en&lc=GB&eea=0')}>
-                    <Text style={styles.TextTwo}>Terms of Service</Text>
-                </TouchableOpacity>
-            </View>
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+            <Text style={styles.Text}>Welcome to WhatsApp</Text>
+            <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/home.jpg')} />
+            <Text style={styles.TextThree}>Read our
+                <Text onPress={() => Linking.openURL('https://www.whatsapp.com/legal/privacy-policy?lg=en&lc=GB&eea=0')} style={styles.TextStyles}> Privacy Policy</Text>. Top "Agree and continue" to accept the
+                <Text onPress={() => Linking.openURL('https://www.whatsapp.com/legal/terms-of-service?lg=en&lc=GB&eea=0')} style={styles.TextStyles}> Terms of Service</Text>
+            </Text>
             <TouchableOpacity
                 onPress={() => props.navigation.navigate('logIn')}
                 style={styles.View
                 }>
                 <Text style={styles.TouchableOpacityText}>AGREE AND CONTINUR</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -40,14 +26,14 @@ export default Welcome
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        paddingHorizontal: 16,
+        paddingBottom: 20
     },
     Text: {
         textAlign: "center",
-        fontSize: 35,
-        marginTop: 50,
+        fontSize: 22,
+        marginTop: 20,
         color: color.teal_800,
         fontWeight: 'bold'
     },
@@ -55,26 +41,23 @@ const styles = StyleSheet.create({
         height: 250,
         width: 250,
         marginTop: 80,
-        marginLeft: 75
+        alignSelf: 'center'
     },
     TextStyle: {
-        marginTop: 100,
-
         fontSize: 15
     },
     TextThree: {
+        fontSize: 15,
         marginTop: 100,
-        marginLeft: 15,
-        fontSize: 15
+        lineHeight: 24
     },
     TextStyles: {
-        marginTop: 100,
-        marginLeft: 15,
+        marginLeft: 5,
         fontSize: 15,
         color: color.Blue_50,
     },
     TextTwo: {
-        marginLeft: 10,
+        marginLeft: 5,
         fontSize: 15,
         color: color.Blue_50,
         marginTop: 5
@@ -90,9 +73,9 @@ const styles = StyleSheet.create({
         height: 50,
         width: 320,
         backgroundColor: color.teal_800,
-        marginLeft: 40,
         borderRadius: 8,
-        marginTop: 50
+        marginTop: 50,
+        alignSelf: "center",
     },
     TouchableOpacityText: {
         textAlign: 'center',

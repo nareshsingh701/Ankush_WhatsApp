@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, Image, FlatList, Modal } from 'react-native'
-import React, { usrState } from 'react'
+import { StyleSheet, Text, View, Image, FlatList, Modal, TouchableOpacity, TextInput } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import color from '../../utils/color'
 
 const data = [
@@ -88,33 +88,52 @@ const data = [
 ]
 
 const Data = (props) => {
+  const [showTip, setTip] = useState(true);
 
   const renderListData = (listData) => {
     const { item, index } = listData;
     return (
 
       <View style={styles.Container}>
-        <View style={styles.Image} >
-          <View style={styles.ImageStyle}>
-            <Image resizeMode={'cover'} source={item.Image} />
-          </View>
-          <View style={styles.flex} >
-            <View>
-              <Text style={styles.text}>{item.countryName}</Text>
+        <TouchableOpacity onPress={() => props.navigation.navigate('logIn')}>
+          <View style={styles.Image} >
+            <View style={styles.ImageStyle}>
+
+              <Image resizeMode={'cover'} source={item.Image} />
             </View>
-            <View style={styles.And}>
-              <Text style={styles.texts}>{item.countryNumber}</Text>
+            <View style={styles.flex} >
+              <View>
+                <Text style={styles.text}>{item.countryName}</Text>
+              </View>
+              <View style={styles.And}>
+                <Text style={styles.texts}>{item.countryNumber}</Text>
+              </View>
             </View>
           </View>
-        </View>
-
-
-
+        </TouchableOpacity>
       </View >
     )
   }
   return (
     <View>
+      <View style={styles.ViewEight}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('logIn')}>
+          <Image resizeMode={'cover'} style={styles.imageOne} source={require('../../assets/images/left1.png')} />
+        </TouchableOpacity>
+        <View style={styles.ViewTwo}>
+          <TextInput
+            style={styles.TextInputStyle}
+            placeholder='Search countries'
+          />
+        </View>
+        <View>
+          <Text style={styles.textTwo}>Choose a country</Text>
+        </View>
+
+        <TouchableOpacity>
+          <Image resizeMode={'cover'} style={styles.imageTwo} source={require('../../assets/images/two.png')} />
+        </TouchableOpacity>
+      </View>
       <FlatList
 
         data={data}
@@ -166,6 +185,37 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   And: {
-    marginLeft:150
+    marginLeft: 150
+  },
+  ViewEight: {
+    width: 400,
+    height: 50,
+    backgroundColor: color.B_00,
+    flexDirection: 'row'
+  },
+  imageOne: {
+    height: 25,
+    width: 25,
+    marginTop: 13,
+    marginLeft: 20
+  },
+  textTwo: {
+    fontSize: 20,
+    marginLeft: 40,
+    marginTop: 10,
+    color: color.teal_800,
+    fontWeight: 'bold'
+  },
+  imageTwo: {
+    marginLeft: 100,
+    marginTop: 15
+  },
+  ViewTwo: {
+    height: 50,
+    width: 350,
+    backgroundColor: color.B_00,
+  },
+  TextInputStyle:{
+    padding:10
   }
 })

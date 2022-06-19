@@ -5,14 +5,24 @@ import Tooltip from 'react-native-walkthrough-tooltip';
 
 const LogIn = (props) => {
     const [showTip, setTip] = useState(true);
+    const [text, changeText] = useState('');
+  let isButton = text.length <= 9;
+  const onPressNEXT = () => {
+    const combin = text;
+    props.navigation.navigate('loderFile')
+  }
+  const onchange = (value) => {
+    changeText(value)
+  }
     return (
 
         <View style={styles.cantainer}>
+
             <View style={styles.ViewSix}>
                 <Text style={styles.TextSix}>Enter Your phone number</Text>
                 {/* <Modal visible={useState.showTip} /> */}
                 <View style={styles.ViewStyle}>
-                    <TouchableOpacity onPress={()=>props.navigation.navigate('loder')}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('loder')}>
                         <Text style={styles.TextEight}>Help</Text>
                     </TouchableOpacity>
                 </View>
@@ -25,7 +35,7 @@ const LogIn = (props) => {
                 <Text style={styles.TextOne}>What's my number?</Text>
                 <View style={styles.ViewOne} >
                     <TouchableOpacity onPress={() => props.navigation.navigate('data')}>
-                    
+
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => props.navigation.navigate('data')}>
@@ -38,7 +48,7 @@ const LogIn = (props) => {
             </View>
             <View>
                 <View style={styles.ViewThree}>
-                    <Text style={styles.TextThree}>+</Text>
+
                     <TextInput
                         style={styles.TextInputOne}
 
@@ -47,7 +57,7 @@ const LogIn = (props) => {
                     <TextInput
                         style={styles.TextInput}
                         placeholder='Phone number'
-
+                      onChangeText={onchange}
                     />
 
                 </View>
@@ -62,7 +72,8 @@ const LogIn = (props) => {
                 <Text style={styles.TextFive}>Carrier Charges may apply</Text>
             </View>
             <TouchableOpacity
-
+                  disabled={isButton}
+                  onPress={()=> onPressNEXT()}
                 style={styles.textView}>
                 <Text style={styles.TextSeven}>NEXT</Text>
             </TouchableOpacity>
@@ -194,5 +205,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: color.B_000
-    }
+    },
+
 })

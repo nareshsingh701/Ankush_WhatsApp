@@ -89,7 +89,7 @@ flexDirection:'row'
     color:color.B_00
   },
   ViewStyles:{
-    height:80,
+    height:70,
     width:400,
     backgroundColor:color.teal_800,
     marginTop:200
