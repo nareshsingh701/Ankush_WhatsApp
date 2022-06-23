@@ -3,10 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/native'
 
-import WhatsApp from '../screen/phoneNumberScreen/whatsApp';
-import Calls from '../screen/calls';
-import Screen from '../screen/screen';
-import Status from '../screen/status';
+
 import Camra from '../screen/camra';
 import Search from '../screen/search';
 import OpenScreen from '../screen/openScreen';
@@ -24,17 +21,16 @@ import Url from '../screen/URL/url';
 import DataAdd from '../screen/dataAdd/dataAdd';
 import LoderFile from '../screen/otherScreen/loderFile';
 import LoderLogIn from '../screen/otherScreen/loderLogIn'
+import Welcometo from '../screen/welcomeToWhatsApp/welcometo';
+import MainHome from '../screen/home';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='openScreen'>
-                <Stack.Screen options={{headerShown: false}} name="whatsApp" component={WhatsApp} />
-                <Stack.Screen options={{headerShown: false}} name="screen" component={Screen} />
-                <Stack.Screen  name="phoneNumber" component={PhoneNumber} /> 
-                <Stack.Screen name="calls" component={Calls} />
-                <Stack.Screen name="status" component={Status} />
+
+                <Stack.Screen options={{headerShown: false}}  name="phoneNumber" component={PhoneNumber} /> 
                 <Stack.Screen  name="camra" component={Camra} />
                 <Stack.Screen name="search" component={Search} />
                 <Stack.Screen name="openScreen" component={OpenScreen} />
@@ -51,6 +47,8 @@ const Navigation = () => {
                 <Stack.Screen  name="loderFile" component={LoderFile} />
                 <Stack.Screen  name="dataAdd" component={DataAdd} />
                 <Stack.Screen  name="loderLogIn" component={LoderLogIn} />
+                <Stack.Screen  name="welcometo" component={Welcometo} />
+                <Stack.Screen  name="MainHome" component={MainHome} />
             </Stack.Navigator>
         </NavigationContainer>
     );

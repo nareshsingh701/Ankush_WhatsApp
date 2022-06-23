@@ -26,14 +26,16 @@ export default Loder;
 const styles = StyleSheet.create({
   container:{
     flex:1,
+    alignSelf:'center',
+    justifyContent:'center'
   },
   View:{
     height:100,
-    width:350,
+    width:300,
     backgroundColor:'#FFFFFFff',
     borderRadius:10,
-    marginLeft:25,
-    marginTop:300
+  
+  
   },
   ActivityIndicator:{
     marginTop:30, 

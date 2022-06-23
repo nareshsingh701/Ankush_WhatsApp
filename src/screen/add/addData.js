@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Linking, } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Linking, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { launchImageLibrary } from 'react-native-image-picker'
 import color from '../../utils/color'
@@ -6,7 +6,7 @@ import color from '../../utils/color'
 
 
 const AddData = (props) => {
-  const [image,setImage]= useState('');
+  const [image, setImage] = useState('');
   const [text, changeText] = useState('');
   let isButton = text.length <= 1;
 
@@ -30,7 +30,7 @@ const AddData = (props) => {
     });
   }
   return (
-    <View style={styles.container}>
+    <ScrollView style={{ flex: 1, }} contentContainerStyle styles={styles.container}>
       <View style={styles.TextInput}>
         <TextInput
           onChangeText={onchange}
@@ -58,20 +58,18 @@ const AddData = (props) => {
 
       </View>
       <View style={styles.ViewTwo}>
-      <Image resizeMode={'cover'} style={styles.ImagesStyle} source={{uri: image}} />
+        <Image resizeMode={'cover'} style={styles.ImagesStyle} source={{ uri: image }} />
       </View>
-      
+
       <View style={styles.ViewSix} >
-        <TouchableOpacity onPress={() => Linking.openURL('https://faq.whatsapp.com/general?lg=en&lc=GB&eea=0&anid=d887bc8d-a7f2-4244-9238-df759fc8fcdd')}>
-          <Text style={styles.TextStyle}>Visit our Help Centre</Text>
-        </TouchableOpacity>
+          <Text   onPress={() => Linking.openURL('https://faq.whatsapp.com/general?lg=en&lc=GB&eea=0&anid=d887bc8d-a7f2-4244-9238-df759fc8fcdd')} style={styles.TextStyle}>Visit our Help Centre</Text>
         <View style={styles.ViewSeven}>
           <TouchableOpacity disabled={isButton} onPress={() => Linking.openURL('https://faq.whatsapp.com/563219570998715/?helpref=uf_share')} >
             <Text style={styles.TextThree}>NEXT</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -79,12 +77,14 @@ export default AddData
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 20
+  
+    paddingHorizontal: 16,
+    paddingHorizontal:16
   },
   TextInput: {
-    height: 120,
-    width: 360,
+    marginTop:20,
+    height: 80,
+    width: 330,
     backgroundColor: color.gray_50,
     marginHorizontal: 16,
     borderRadius: 5,
@@ -103,52 +103,52 @@ const styles = StyleSheet.create({
     color: color.teal_800
   },
   View: {
-    height: 110,
-    width: 110,
+    marginLeft:25,
+    height: 90,
+    width: 90,
     backgroundColor: color.gray_50,
     borderRadius: 10,
-    marginLeft: 20,
     marginTop: 30,
     flexDirection: 'row'
   },
   Views: {
-    height: 110,
-    width: 110,
+    height: 90,
+    width: 90,
     backgroundColor: color.gray_50,
     borderRadius: 10,
-    marginLeft: 50,
+  marginLeft:50
   },
   ViewStyle: {
-    height: 110,
-    width: 110,
+    height: 90,
+    width: 90,
     backgroundColor: color.gray_50,
     borderRadius: 10,
-    marginLeft: 10,
+    marginLeft: 20,
   },
   ImagesStyles: {
     marginTop: 35,
-    marginLeft: 30,
-    height: 40,
-    width: 40
+    height: 20,
+    width: 20,
+    marginLeft:35
   },
   TextStyle: {
     marginStart: 20,
-    marginLeft: 30,
     fontSize: 15,
     color: color.A_700,
-    marginTop:10
-  
+    marginTop: 10
   },
   ViewSix: {
     flexDirection: 'row',
-    marginTop:80
+    marginTop: 60,
+    alignSelf:'center',
+    marginBottom:20
   },
   ViewSeven: {
     height: 50,
     width: 100,
     backgroundColor: color.teal_800,
-  
-    marginLeft: 100,
+
+    marginLeft: 50,
     borderRadius: 10
   },
   TextThree: {
@@ -158,17 +158,18 @@ const styles = StyleSheet.create({
     color: color.B_00,
     fontWeight: 'bold'
   },
-  ImagesStyle:{
-    height:100,
-    width:100,
-    marginTop:60,
-    marginLeft:50
+  ImagesStyle: {
+    height: 100,
+    width: 100,
+    marginTop: 60,
+  marginLeft:50
   },
-  ViewTwo:{
-    height:200,
-    width:200,
-    backgroundColor:color.B_00,
-    marginTop:30,
-    marginLeft:100
+  ViewTwo: {
+    height: 150,
+    width: 150,
+    backgroundColor: color.B_00,
+    marginTop: 30,
+    alignSelf:'center',
+    borderRadius:100
   }
 })

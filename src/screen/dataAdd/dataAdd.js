@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import color from '../../utils/color'
 import { launchImageLibrary } from 'react-native-image-picker'
@@ -25,14 +25,9 @@ const DataAdd = (props) => {
     });
   }
   return (
-    <View style={styles.container}>
-      <View style={styles.View}>
-        <Text style={styles.Text}>Profile info</Text>
-      </View>
-      <View style={styles.ViewTwo}>
-        <Text style={styles.TextOne}>please provide your name and an optional profile</Text>
-        <Text style={styles.TextOne}>photo</Text>
-      </View>
+    <ScrollView style={{ flex: 1, }} contentContainerStyle styles={styles.container}>
+      <Text style={styles.Text}>Profile info</Text>
+      <Text style={styles.TextOne}>please provide your name and an optional profile photo </Text>
       <View style={styles.ViewOne}>
         <TouchableOpacity onPress={openPicker}>
           <Image resizeMode={'cover'} style={styles.imageOne} source={{ uri: image }} />
@@ -47,13 +42,13 @@ const DataAdd = (props) => {
 
       </View>
       <TouchableOpacity
-       disabled={isButton}
-      onPress={()=> onPressNEXT()}
+        disabled={isButton}
+        onPress={() => onPressNEXT()}
         style={styles.TouchableOpacity}
       >
         <Text style={styles.TextTwo}>NEXT</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -61,7 +56,9 @@ export default DataAdd;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    paddingHorizontal:16,
+    paddingBottom: 20,
+    alignItems:'center'
   },
   ViewTwo: {
     marginTop: 50
@@ -74,16 +71,16 @@ const styles = StyleSheet.create({
     color: color.teal_800
   },
   TextOne: {
-    textAlign: 'center',
-    fontSize: 16,
-
+    fontSize: 15,
+    marginTop:20,
+  marginHorizontal:16
   },
   ViewOne: {
     width: 150,
     height: 150,
     backgroundColor: color.B_00,
     marginTop: 30,
-    marginLeft: 130,
+    alignSelf:'center',
     borderRadius: 80
   },
   imageOne: {
@@ -102,7 +99,7 @@ const styles = StyleSheet.create({
   },
   ViewThree: {
     marginTop: 50,
-    marginLeft: 40,
+    marginLeft: 20
   },
   ImagesStyles: {
     width: 30,
@@ -113,9 +110,10 @@ const styles = StyleSheet.create({
     height: 50,
     width: 100,
     backgroundColor: color.teal_800,
-    marginLeft: 150,
+    alignSelf:'center',
     marginTop: 220,
-    borderRadius: 10
+    borderRadius: 10,
+    marginBottom:20
   },
   TextTwo: {
     textAlign: 'center',
