@@ -19,9 +19,7 @@ const Status = (props) => {
                 <ScrollView>
                     <TouchableOpacity >
                         <View style={styles.Image} >
-                            <View style={styles.ViewThree}>
                                 <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
-                            </View>
                             <View style={styles.flex} >
                                 <Text style={styles.text}>{item.Name}</Text>
                                 <Text style={styles.text}>{item.secendName}</Text>
@@ -53,6 +51,10 @@ export default Status
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
+        padding:1,
+        paddingBottom:40
+        
+        
      
     },
     text: {
@@ -65,9 +67,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'row',
         height: 60,
-        width: 350,
+        width: 400,
         backgroundColor: color.B_00,
-        padding: 5,
+        padding: 10,
         margin: 1
     },
     ImageSix: {
@@ -87,9 +89,9 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
         backgroundColor: color.gray_50,
-         marginTop: 185,
+         marginTop: 350,
         borderRadius: 50,
-        marginLeft: 250
+        marginLeft: 255
     },
     ImagesStyles: {
         height: 25,

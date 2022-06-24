@@ -58,14 +58,12 @@ const Calls = (props) => {
 
   )
 } 
-
-
 export default Calls
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    
   },
-
   flex: {
     flexDirection: 'row',
   },
@@ -74,8 +72,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
     marginLeft: 20,
-  
-
   },
   texts: {
     alignSelf: 'center',
@@ -83,35 +79,32 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     color: '#000',
-
   },
   Image: {
     alignSelf:'center',
     flexDirection: 'row',
     height: 60,
-    width: 350,
+    width: 400,
     backgroundColor: color.B_00,
     margin: 1,
-    padding:5
+    padding:10
   },
   ImageSix: {
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-
   Imagefive: {
     height: 40,
     width: 40,
     marginLeft: 10,
-    marginTop: 10
-
+    marginTop: 5
   },
   Video: {
     height: 60,
     width: 50,
     backgroundColor: color.B_00,
-    marginLeft: 50,
+    marginLeft: 100,
   },
   ViewStyle: {
     height: 50,
@@ -119,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.teal_800,
     marginLeft: 250,
     borderRadius: 50,
-    marginTop: 250
+    marginTop: 350
   },
   ImagesStyles:{
     height:25,

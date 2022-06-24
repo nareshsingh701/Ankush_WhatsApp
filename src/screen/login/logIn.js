@@ -4,6 +4,8 @@ import color from '../../utils/color';
 import Tooltip from 'react-native-walkthrough-tooltip';
 
 const LogIn = (props) => {
+    
+    const [modalVisible, setModalVisible] = useState(false);
     const [showTip, setTip] = useState(true);
     const [text, changeText] = useState('');
     let isButton = text.length <= 9;
@@ -19,10 +21,25 @@ const LogIn = (props) => {
         <ScrollView styles={{ flex: 1 }} contentContainerStyle={styles.cantainer}>
             <View style={styles.ViewSix}>
                 <Text style={styles.TextSix}>Enter Your phone number</Text>
-                <View style={styles.ViewStyle}>
-                    <Text onPress={() => props.navigation.navigate('loder')} style={styles.TextEight}>Help</Text>
-                </View>
-                <TouchableOpacity onPress={() => useState({ show: true })} >
+               
+                    <Modal 
+                            animationType="none"
+                            transparent={true}
+                            visible={modalVisible}
+                            onRequestClose={() => {
+                              setModalVisible(!modalVisible);
+                            }}   
+                    >
+                         <View style={styles.ViewStyle}>
+                       
+                        <TouchableOpacity  onPress={() => props.navigation.navigate('loder')} >
+
+                        <Text  style={styles.TextEight}>Help</Text>
+                        </TouchableOpacity>
+                           </View>
+                     </Modal>
+             
+                <TouchableOpacity  onPress={() => setModalVisible(true)} >
                     <Image resizeMode={'cover'} style={styles.imageTwo} source={require('../../assets/images/dottwo.png')} />
                 </TouchableOpacity>
             </View>
@@ -69,8 +86,9 @@ export default LogIn
 
 const styles = StyleSheet.create({
     cantainer: {
+        flex:1,
         paddingBottom: 20,
-
+paddingHorizontal:16
 
     },
     TextInput: {
@@ -109,10 +127,10 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     imageTwo: {
-        marginLeft: 60,
+        marginLeft: 50,
         width: 30,
         height: 30,
-        marginTop: 10
+        marginTop: 20
     },
     imageOne: {
         marginLeft: 100,
@@ -154,10 +172,10 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     TextSix: {
-        marginLeft: 60,
+        marginLeft: 30,
         color: color.teal_800,
         fontSize: 20,
-        marginTop: 10
+        marginTop: 20
     },
     ViewSix: {
         flexDirection: 'row'
@@ -178,15 +196,17 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     ViewStyle: {
-        marginTop: 10,
+        marginTop: 70,
         borderRadius: 5,
+        marginLeft:200,
         height: 50,
-        width: 100,
-        backgroundColor: '#ffffffff'
+        width: 150,
+        backgroundColor:color.gray_50
     },
     TextEight: {
-        textAlign: 'center',
-        marginTop: 15,
+       
+        textAlign:'center',
+        marginTop:15,
         fontSize: 15,
         fontWeight: 'bold',
         color: color.B_000

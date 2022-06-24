@@ -109,9 +109,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'row',
         height: 60,
-        width: 350,
+        width: 400,
         backgroundColor: color.B_00,
-        padding: 5,
+        padding: 10,
         margin: 1
     },
     ImageSix: {

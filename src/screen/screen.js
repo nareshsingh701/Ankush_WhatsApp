@@ -1,27 +1,93 @@
-import { View, Text,StyleSheet,TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { Component } from "react";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
-const Screen = (props) => {
-  return (
-    <View style={styles.container}>
-<View style={styles.View}>
+class Screen extends Component {
+  state = {
+    modalVisible: false
+  };
 
-</View>
-    </View>
-  )
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  }
+
+  render() {
+    const { modalVisible } = this.state;
+    return (
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+  
+            this.setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => this.setModalVisible(!modalVisible)}
+              >
+              
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      
+      
+          onPress={() => this.setModalVisible(true)}
+        
+        
+    
+      </View>
+    );
+  }
 }
 
-export default Screen;
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center'
-        
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
-    View:{
-      height:50,
-      width:150,
-      backgroundColor:'pink'
-    }
-})
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default Screen;
