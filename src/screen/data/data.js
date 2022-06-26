@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     width: 350,
     backgroundColor: color.B_00,
   },
-  TextInputStyle:{
-    padding:10
+  TextInputStyle: {
+    padding: 10
   }
 })

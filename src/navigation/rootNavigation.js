@@ -29,6 +29,14 @@ import Links from '../screen/modal/links';
 import Gifs from '../screen/modal/gifs';
 import Audio from '../screen/modal/audio';
 import Documents from '../screen/modal/documents';
+import LinkedDevices from '../screen/satting/linkedDevices';
+import NewBroadcase from '../screen/satting/newBroadcase';
+import NewGroup from '../screen/satting/newGroup';
+import Payments from '../screen/satting/payments';
+import Settings from '../screen/satting/settings';
+import StarredMessages from '../screen/satting/starredMessages';
+import Account from '../screen/account/account';
+import Privacy from '../screen/account/privacy';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -36,29 +44,37 @@ const Navigation = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName='MainHome'>
                 {/* <Stack.Screen options={{headerShown: false}}  name="phoneNumber" component={PhoneNumber} />  */}
-                <Stack.Screen name="search" component={Search} />
-                <Stack.Screen name="openScreen" component={OpenScreen} />
-                <Stack.Screen name="logIn" component={LogIn} />
-                <Stack.Screen  name="data" component={Data} />
-                <Stack.Screen name="loderChearching" component={LoderChearching} />
-                <Stack.Screen name="loderData" component={LoderData} />
-                <Stack.Screen  name="addData" component={AddData} />
-                <Stack.Screen name="loder" component={Loder} />
-                <Stack.Screen name="dataStor" component={DataStor} />
-                <Stack.Screen name="loderScreen" component={LoderScreen} />
-                <Stack.Screen name="welcome" component={Welcome} />
-                <Stack.Screen name="loderFile" component={LoderFile} />
-                <Stack.Screen name="dataAdd" component={DataAdd} />
-                <Stack.Screen name="loderLogIn" component={LoderLogIn} />
-                <Stack.Screen name="welcometo" component={Welcometo} />
-                <Stack.Screen name="Screen" component={Screen} />
-                <Stack.Screen  name="MainHome" component={MainHome} />
-                <Stack.Screen  name="Photos" component={Photos} />
-                <Stack.Screen  name="Videos" component={Videos} />
-                <Stack.Screen  name="Links" component={Links} />
-                <Stack.Screen  name="Gifs" component={Gifs} />
-                <Stack.Screen  name="Audio" component={Audio} />
-                <Stack.Screen  name="Documents" component={Documents} />
+                <Stack.Screen options={{headerShown: false}} name="search" component={Search} />
+                <Stack.Screen options={{headerShown: false}} name="openScreen" component={OpenScreen} />
+                <Stack.Screen options={{headerShown: false}} name="logIn" component={LogIn} />
+                <Stack.Screen options={{headerShown: false}} name="data" component={Data} />
+                <Stack.Screen options={{headerShown: false}} name="loderChearching" component={LoderChearching} />
+                <Stack.Screen options={{headerShown: false}} name="loderData" component={LoderData} />
+                <Stack.Screen options={{headerShown: false}} name="addData" component={AddData} />
+                <Stack.Screen options={{headerShown: false}} name="loder" component={Loder} />
+                <Stack.Screen options={{headerShown: false}} name="dataStor" component={DataStor} />
+                <Stack.Screen options={{headerShown: false}} name="loderScreen" component={LoderScreen} />
+                <Stack.Screen options={{headerShown: false}} name="welcome" component={Welcome} />
+                <Stack.Screen options={{headerShown: false}} name="loderFile" component={LoderFile} />
+                <Stack.Screen options={{headerShown: false}} name="dataAdd" component={DataAdd} />
+                <Stack.Screen options={{headerShown: false}} name="loderLogIn" component={LoderLogIn} />
+                <Stack.Screen options={{headerShown: false}} name="welcometo" component={Welcometo} />
+                <Stack.Screen options={{headerShown: false}} name="Screen" component={Screen} />
+                <Stack.Screen options={{headerShown: false}} name="MainHome" component={MainHome} />
+                <Stack.Screen options={{headerShown: false}} name="Photos" component={Photos} />
+                <Stack.Screen options={{headerShown: false}} name="Videos" component={Videos} />
+                <Stack.Screen options={{headerShown: false}} name="Links" component={Links} />
+                <Stack.Screen options={{headerShown: false}} name="Gifs" component={Gifs} />
+                <Stack.Screen options={{headerShown: false}} name="Audio" component={Audio} />
+                <Stack.Screen options={{headerShown: false}} name="Documents" component={Documents} />
+                <Stack.Screen options={{headerShown: false}} name="NewGroup" component={NewGroup} />
+                <Stack.Screen options={{headerShown: false}} name="LinkedDevices" component={LinkedDevices} />
+                <Stack.Screen options={{headerShown: false}} name="NewBroadcase" component={NewBroadcase} />
+                <Stack.Screen options={{headerShown: false}} name="Payments" component={Payments} />
+                <Stack.Screen options={{headerShown: false}} name="Settings" component={Settings} />
+                <Stack.Screen options={{headerShown: false}} name="StarredMessages" component={StarredMessages} />
+                <Stack.Screen name="Account" component={Account} />
+                <Stack.Screen name="Privacy" component={Privacy} />
 
             </Stack.Navigator>
         </NavigationContainer>

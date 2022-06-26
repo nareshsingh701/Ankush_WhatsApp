@@ -4,7 +4,7 @@ import color from '../../utils/color';
 import Tooltip from 'react-native-walkthrough-tooltip';
 
 const LogIn = (props) => {
-    
+
     const [modalVisible, setModalVisible] = useState(false);
     const [showTip, setTip] = useState(true);
     const [text, changeText] = useState('');
@@ -21,33 +21,32 @@ const LogIn = (props) => {
         <ScrollView styles={{ flex: 1 }} contentContainerStyle={styles.cantainer}>
             <View style={styles.ViewSix}>
                 <Text style={styles.TextSix}>Enter Your phone number</Text>
-               
-                    <Modal 
-                            animationType="none"
-                            transparent={true}
-                            visible={modalVisible}
-                            onRequestClose={() => {
-                              setModalVisible(!modalVisible);
-                            }}   
-                    >
-                         <View style={styles.ViewStyle}>
-                       
-                        <TouchableOpacity  onPress={() => props.navigation.navigate('loder')} >
 
-                        <Text  style={styles.TextEight}>Help</Text>
+                <Modal
+                    animationType="none"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                        setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.ViewStyle}>
+
+                        <TouchableOpacity onPress={() => props.navigation.navigate('loder')} >
+
+                            <Text style={styles.TextEight}>Help</Text>
                         </TouchableOpacity>
-                           </View>
-                     </Modal>
-             
-                <TouchableOpacity  onPress={() => setModalVisible(true)} >
+                    </View>
+                </Modal>
+
+                <TouchableOpacity onPress={() => setModalVisible(true)} >
                     <Image resizeMode={'cover'} style={styles.imageTwo} source={require('../../assets/images/dottwo.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.ViewFive}>
                 <Text style={styles.Text}>WhatsApp will need to verify your Phone number. What's my number?</Text>
                 <View style={styles.ViewOne} >
-                    <TouchableOpacity onPress={() => props.navigation.navigate('data')}>
-                    </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => props.navigation.navigate('data')}>
                         <Image resizeMode={'cover'} style={styles.imageOne} source={require('../../assets/images/down.png')} />
                     </TouchableOpacity>
@@ -71,7 +70,9 @@ const LogIn = (props) => {
                 <View style={styles.ViewFour}>
                 </View>
             </View>
-            <Text style={styles.TextFive}>Carrier Charges may apply</Text>
+            <View style={styles.ViewSeven}>
+                <Text style={styles.TextFive}>Carrier Charges may apply</Text>
+            </View>
             <TouchableOpacity
                 disabled={isButton}
                 onPress={() => onPressNEXT()}
@@ -86,9 +87,9 @@ export default LogIn
 
 const styles = StyleSheet.create({
     cantainer: {
-        flex:1,
+        flex: 1,
         paddingBottom: 20,
-paddingHorizontal:16
+        paddingHorizontal: 16
 
     },
     TextInput: {
@@ -118,12 +119,12 @@ paddingHorizontal:16
         borderBottomWidth: 1,
         marginTop: 5,
         borderBottomColor: color.teal_800,
-        marginLeft: 40
+        alignSelf: 'center'
 
     },
     ViewOne: {
         flexDirection: 'row',
-        marginLeft: 140,
+        alignSelf: 'center',
         marginTop: 20
     },
     imageTwo: {
@@ -142,11 +143,11 @@ paddingHorizontal:16
         borderBottomWidth: 1,
         borderColor: color.teal_800,
         flexDirection: 'row',
-        marginLeft: 40
+        marginLeft: 20
     },
     ViewThree: {
         flexDirection: 'row',
-        marginLeft: 70
+        marginLeft: 50
     },
     TextThree: {
         fontSize: 20,
@@ -157,7 +158,7 @@ paddingHorizontal:16
         width: 200,
         borderBottomWidth: 1,
         borderColor: 'green',
-        marginLeft: 140
+        marginLeft: 120
     },
     ViewFive: {
         alignSelf: 'center',
@@ -168,7 +169,7 @@ paddingHorizontal:16
     },
     TextFive: {
         marginTop: 20,
-        marginLeft: 100,
+
         fontSize: 17
     },
     TextSix: {
@@ -184,7 +185,7 @@ paddingHorizontal:16
         height: 50,
         width: 100,
         backgroundColor: color.teal_800,
-        marginLeft: 150,
+       alignSelf:'center',
         marginTop: 200,
         borderRadius: 10
     },
@@ -198,18 +199,21 @@ paddingHorizontal:16
     ViewStyle: {
         marginTop: 70,
         borderRadius: 5,
-        marginLeft:200,
+        marginLeft: 200,
         height: 50,
         width: 150,
-        backgroundColor:color.gray_50
+        backgroundColor: color.gray_50
     },
     TextEight: {
-       
-        textAlign:'center',
-        marginTop:15,
+
+        textAlign: 'center',
+        marginTop: 15,
         fontSize: 15,
         fontWeight: 'bold',
         color: color.B_000
     },
+    ViewSeven:{
+        alignSelf:'center'
+    }
 
 })

@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     ViewStyleOne: {
         height: 50,
         width: 50,
+        marginLeft:30
 
     }
 })

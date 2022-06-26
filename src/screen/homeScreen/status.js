@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity,   } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import color from '../../utils/color'
 
@@ -19,12 +19,12 @@ const Status = (props) => {
                 <ScrollView>
                     <TouchableOpacity >
                         <View style={styles.Image} >
-                                <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
+                            <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
                             <View style={styles.flex} >
                                 <Text style={styles.text}>{item.Name}</Text>
                                 <Text style={styles.text}>{item.secendName}</Text>
                             </View>
-                        
+
                         </View>
                     </TouchableOpacity>
                 </ScrollView>
@@ -38,8 +38,8 @@ const Status = (props) => {
                 keyExtractor={(item, index,) => index.toString()}
                 renderItem={renderListData}
             />
-            <TouchableOpacity  style={styles.ViewStyles}>
-            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/pan.png')} />
+            <TouchableOpacity style={styles.ViewStyles}>
+                <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/pan.png')} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.ViewStyle}>
                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/three.png')} />
@@ -51,11 +51,8 @@ export default Status
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        padding:1,
-        paddingBottom:40
-        
-        
-     
+        padding: 1,
+        paddingHorizontal: 2
     },
     text: {
         fontSize: 15,
@@ -64,24 +61,24 @@ const styles = StyleSheet.create({
         marginLeft: 20,
     },
     Image: {
-        alignSelf: 'center',
         flexDirection: 'row',
         height: 60,
         width: 400,
         backgroundColor: color.B_00,
-        padding: 10,
-        margin: 1
+        padding:5,
+        
     },
     ImageSix: {
         height: 50,
         width: 50,
-        borderRadius: 50
+        borderRadius: 50,
+        marginLeft:30
     },
     ViewStyle: {
         height: 50,
         width: 50,
         backgroundColor: color.teal_800,
-         marginTop: 20,
+        marginTop: 20,
         borderRadius: 50,
         marginLeft: 250
     },
@@ -89,7 +86,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
         backgroundColor: color.gray_50,
-         marginTop: 350,
+        marginTop: 350,
         borderRadius: 50,
         marginLeft: 255
     },

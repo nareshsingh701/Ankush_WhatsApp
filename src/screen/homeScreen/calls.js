@@ -62,6 +62,7 @@ export default Calls
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    paddingHorizontal:2
     
   },
   flex: {
@@ -81,23 +82,24 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   Image: {
-    alignSelf:'center',
+    
     flexDirection: 'row',
     height: 60,
     width: 400,
     backgroundColor: color.B_00,
     margin: 1,
-    padding:10
+    padding:5
   },
   ImageSix: {
     height: 50,
     width: 50,
     borderRadius: 50,
+
   },
   Imagefive: {
     height: 40,
     width: 40,
-    marginLeft: 10,
+    // marginLeft: 10,
     marginTop: 5
   },
   Video: {
@@ -119,5 +121,8 @@ const styles = StyleSheet.create({
     width:25,
     marginLeft:12,
     marginTop:12
+},
+ViewThree:{
+  marginLeft:30
 }
 })

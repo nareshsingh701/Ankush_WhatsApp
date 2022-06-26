@@ -77,7 +77,7 @@ class MainHome extends React.Component {
     if (index === 0) {
       return (
         <React.Fragment>
-          <TouchableOpacity onPress={() => this.setVisible(true)} >
+          <TouchableOpacity  style={styles.TouchableOpacity} onPress={() => this.setVisible(true)} >
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.setModalVisible(true)} >
@@ -88,7 +88,7 @@ class MainHome extends React.Component {
     } else if (index === 1) {
       return (
         <React.Fragment>
-          <TouchableOpacity onPress={() => this.setViewVisible(true)} >
+          <TouchableOpacity  style={styles.TouchableOpacity} onPress={() => this.setViewVisible(true)} >
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.setmostVisible(true)} >
@@ -99,7 +99,7 @@ class MainHome extends React.Component {
     } else if (index === 2) {
       return (
         <React.Fragment>
-          <TouchableOpacity onPress={() => this.setbestVisible(true)} >
+          <TouchableOpacity style={styles.TouchableOpacity} onPress={() => this.setbestVisible(true)} >
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.setfoldVisible(true)} >
@@ -117,7 +117,7 @@ class MainHome extends React.Component {
     const { bestVisible } = this.state;
     const { foldVisible } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1,paddingHorizontal:2 }}>
         <View style={styles.ViewStyle}>
           <Text style={styles.Text}>WhatsApp</Text>
 
@@ -179,22 +179,22 @@ class MainHome extends React.Component {
             }}
           >
             <View style={styles.Modal}  >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=> this.props.navigation.navigate('NewGroup')}>
                 <Text style={styles.ModalText} >New group</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity  onPress={()=> this.props.navigation.navigate('NewBroadcase')}>
                 <Text style={styles.ModalText} >New broadcase</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity  onPress={()=> this.props.navigation.navigate('LinkedDevices')}>
                 <Text style={styles.ModalText} >Linked devices</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity  onPress={()=> this.props.navigation.navigate('StarredMessages')}>
                 <Text style={styles.ModalText} >Starred messages</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity  onPress={()=> this.props.navigation.navigate('Payments')}>
                 <Text style={styles.ModalText} >payments</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity  onPress={()=> this.props.navigation.navigate('Settings')}>
                 <Text style={styles.ModalText} >Settings</Text>
               </TouchableOpacity>
             </View>
@@ -283,7 +283,6 @@ export default MainHome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16
   },
   tabBar: {
     flexDirection: 'row',
@@ -296,7 +295,7 @@ const styles = StyleSheet.create({
   },
   ImagesStyles: {
     marginTop: 15,
-    marginLeft: 10
+    marginLeft: 15
   },
   ViewStyle: {
     backgroundColor: coloe.teal_800,
@@ -313,7 +312,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     marginTop: 30,
-    marginLeft: 200
+   
   },
   Images: {
     height: 20,
@@ -337,7 +336,7 @@ const styles = StyleSheet.create({
   },
   ModalStyle: {
     height: 50,
-    width: 400,
+    width: '100%',
     borderBottomWidth: 0.5,
     backgroundColor: coloe.white,
     marginTop: 10,
@@ -348,7 +347,7 @@ const styles = StyleSheet.create({
   },
   ModalView: {
     height: 150,
-    width: 400,
+    width: '100%',
     backgroundColor: coloe.white,
   },
   Image: {
@@ -389,7 +388,7 @@ const styles = StyleSheet.create({
   },
   ViewStyleModal: {
     height: 50,
-    width: 400,
+    width: '100%',
     backgroundColor: coloe.gray_50,
     flexDirection: 'row'
   },
@@ -423,6 +422,9 @@ const styles = StyleSheet.create({
     marginTop: 15,
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  TouchableOpacity:{
+    marginLeft:180
   }
 
 });
