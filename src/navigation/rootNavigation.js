@@ -37,6 +37,25 @@ import Settings from '../screen/satting/settings';
 import StarredMessages from '../screen/satting/starredMessages';
 import Account from '../screen/account/account';
 import Privacy from '../screen/account/privacy';
+import Lastseen from '../screen/account/lastseen';
+import Profile from '../screen/account/profile';
+import About from '../screen/account/about';
+import Statusprofile from '../screen/account/statusprofile';
+import Defaultmessage from '../screen/account/default message';
+import Groups from '../screen/account/groups';
+import Livelocation from '../screen/account/livelocation';
+import Blocked from '../screen/account/blocked';
+import Fingerprint from '../screen/account/fingerprint';
+import Security from '../../src/security/security';
+import Twostep from '../Threestep/twostep';
+import Step from '../Threestep/step';
+import Change from '../changenumber/change';
+import Changenumber from '../changenumber/changenumber';
+import Request from '../request/request';
+import Delete from '../delete/delete';
+import Chats from '../chats/chats';
+import Wallpaper from '../chats/wallpaper';
+import Chatbackup from '../chats/chatbackup';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -73,8 +92,27 @@ const Navigation = () => {
                 <Stack.Screen options={{headerShown: false}} name="Payments" component={Payments} />
                 <Stack.Screen options={{headerShown: false}} name="Settings" component={Settings} />
                 <Stack.Screen options={{headerShown: false}} name="StarredMessages" component={StarredMessages} />
-                <Stack.Screen name="Account" component={Account} />
-                <Stack.Screen name="Privacy" component={Privacy} />
+                <Stack.Screen options={{headerShown: false}} name="Account" component={Account} />
+                <Stack.Screen options={{headerShown: false}} name="Privacy" component={Privacy} />
+                <Stack.Screen options={{headerShown: false}} name="Lastseen" component={Lastseen} />
+                <Stack.Screen options={{headerShown: false}} name="Profile" component={Profile} />
+                <Stack.Screen options={{headerShown: false}} name="About" component={About} />
+                <Stack.Screen options={{headerShown: false}} name="Statusprofile" component={Statusprofile} />
+                <Stack.Screen options={{headerShown: false}} name="Defaultmessage" component={Defaultmessage} />
+                <Stack.Screen options={{headerShown: false}} name="Groups" component={Groups} />
+                <Stack.Screen options={{headerShown: false}} name="Livelocation" component={Livelocation} />
+                <Stack.Screen options={{headerShown: false}} name="Blocked" component={Blocked} />
+                <Stack.Screen options={{headerShown: false}} name="Fingerprint" component={Fingerprint} />
+                <Stack.Screen options={{headerShown: false}} name="Security" component={Security} />
+                <Stack.Screen options={{headerShown: false}} name="Twostep" component={Twostep} />
+                <Stack.Screen options={{headerShown: false}} name="Step" component={Step} />
+                <Stack.Screen options={{headerShown: false}} name="Change" component={Change} />
+                <Stack.Screen options={{headerShown: false}} name="Changenumber" component={Changenumber} />
+                <Stack.Screen options={{headerShown: false}} name="Request" component={Request} />
+                <Stack.Screen name="Delete" component={Delete} />
+                <Stack.Screen name="Chats" component={Chats} />
+                <Stack.Screen name="Wallpaper" component={Wallpaper} />
+                <Stack.Screen name="Chatbackup" component={Chatbackup} />
 
             </Stack.Navigator>
         </NavigationContainer>

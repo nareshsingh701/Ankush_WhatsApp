@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity,Linking,ScrollView } from 'react-native'
 import React from 'react'
 import color from '../../utils/color'
-const LinkedDevices = () => {
+const LinkedDevices = (props) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> props. navigation.navigate('MainHome')}>
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/left1.png')} />
           </TouchableOpacity>
           <Text style={styles.TextStyle}>Linked devices</Text>

@@ -70,14 +70,14 @@ const NewGroup = (props) => {
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
           <TouchableOpacity onPress={()=>props.navigation.navigate('MainHome')}>
-            <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/colorLeft.png')} />
+            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <View>
             <Text style={styles.TextStyle}>NewGroup</Text>
             <Text style={styles.TextTwoStyle}>Add participants</Text>
           </View>
           < TouchableOpacity   onPress={() => setModalVisible(true)} style={styles.SearchStyle}>
-            <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/two.png')} />
+            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
         </View>
         <Modal
@@ -90,7 +90,7 @@ const NewGroup = (props) => {
         >
           <View style={styles.ViewModal}>
           <TouchableOpacity  onPress={() => setModalVisible(!modalVisible)}>
-            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
+            <Image resizeMode={'cover'} style={styles.ImagesThtee} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <TextInput 
           style={styles.TextInputStyle}
@@ -128,17 +128,19 @@ const styles = StyleSheet.create({
     width: 30
   },
   flexStyle: {
-    flexDirection: 'row'
+   
+    flexDirection: 'row',
+    justifyContent:'space-evenly'
   },
   TextStyle: {
     marginTop: 30,
-    marginLeft: 30,
+   
     fontSize: 20,
     fontWeight: 'bold',
     color: color.B_00
   },
   TextTwoStyle: {
-    marginLeft: 30,
+   
     marginTop: 5,
     color: color.gray_50
   },
@@ -168,7 +170,6 @@ const styles = StyleSheet.create({
   ImageStyle: {
     height: 50,
     width: 50,
-    marginLeft: 20,
     borderRadius: 50
   },
   ViewModal:{
@@ -183,11 +184,15 @@ const styles = StyleSheet.create({
     fontSize:18,
     fontWeight:'600'
   },
+  ImagesThtee:{
+    height:30,
+    width:30,
+     marginHorizontal:16,
+    marginTop:15
+  },
   Images:{
     height:30,
     width:30,
-    marginLeft:20,
-    marginTop:15
-    
+    marginTop:40
   }
 })

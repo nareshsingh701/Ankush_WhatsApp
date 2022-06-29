@@ -137,22 +137,21 @@ const styles = StyleSheet.create({
   },
   ImagesTwo: {
     marginTop: 35,
-    marginLeft: 30,
     height: 30,
     width: 30
   },
   flexStyle: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+
   },
   TextStyle: {
     marginTop: 30,
-    marginLeft: 30,
     fontSize: 20,
     fontWeight: 'bold',
     color: color.B_00
   },
   TextTwoStyle: {
-    marginLeft: 30,
     marginTop: 5,
     color: color.gray_50
   },
@@ -204,7 +203,8 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
   ImagesThree: {
-    marginTop: 40
+    marginTop: 40,
+
   },
   Viewhight: {
     height: 100,
@@ -212,8 +212,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 0.5
   },
-  TextTwo:{
-    textAlign:'center',
-    fontSize:15
+  TextTwo: {
+    textAlign: 'center',
+    fontSize: 15
   }
 })

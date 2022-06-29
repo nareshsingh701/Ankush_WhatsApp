@@ -117,7 +117,7 @@ class MainHome extends React.Component {
     const { bestVisible } = this.state;
     const { foldVisible } = this.state;
     return (
-      <View style={{ flex: 1,paddingHorizontal:2 }}>
+      <View style={{ flex: 1, }}>
         <View style={styles.ViewStyle}>
           <Text style={styles.Text}>WhatsApp</Text>
 
@@ -283,6 +283,7 @@ export default MainHome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
   },
   tabBar: {
     flexDirection: 'row',
@@ -303,7 +304,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     marginTop: 20,
-    marginLeft: 10,
+    marginLeft: 20,
     fontSize: 20,
     fontWeight: 'bold',
     color: coloe.B_00
@@ -425,6 +426,7 @@ const styles = StyleSheet.create({
   },
   TouchableOpacity:{
     marginLeft:180
-  }
+  },
+
 
 });

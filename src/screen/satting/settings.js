@@ -23,6 +23,7 @@ const Satting = (props) => {
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
+        <View style={styles.ViewSeven}></View>
         <TouchableOpacity onPress={()=> props.navigation.navigate('Account')} style={styles.ViewTwoStyles}>
           <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/key.png')} />
           <View style={styles.ViewSix}>
@@ -30,7 +31,7 @@ const Satting = (props) => {
             <Text style={styles.TextFore}>privacy, security, change number</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ViewTwoStyles}>
+        <TouchableOpacity onPress={()=> props.navigation.navigate('Chats')}  style={styles.ViewTwoStyles}>
           <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chatStyle.png')} />
           <View style={styles.ViewSix}>
             <Text style={styles.TextThree}>Chats</Text>
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:color.B_00,
-    paddingBottom:100
   },
   ViewStyle: {
     flexDirection: 'row',
@@ -104,11 +104,12 @@ const styles = StyleSheet.create({
     color: color.B_00
   },
   ViewTwoStyle: {
+    justifyContent:'space-between',
     flexDirection: 'row',
     height: 100,
     width: '100%',
     backgroundColor: color.B_00,
-  borderWidth:0.6
+
   },
   ViewTwoStyles: {
     flexDirection: 'row',
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     height: 30,
     width: 30,
-    marginLeft: 100
+  marginHorizontal:30
   },
   ImagesThree: {
     marginTop: 35,
@@ -171,5 +172,10 @@ const styles = StyleSheet.create({
     marginLeft:5,
     fontWeight:'bold',
     color:color.B_000
+  },
+  ViewSeven:{
+    width:'100%',
+    height:1,
+    backgroundColor:color.gray_50
   }
 })

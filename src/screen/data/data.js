@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   Image: {
     flexDirection: 'row',
     height: 70,
-    width: 400,
+    width: '100%',
     backgroundColor: color.B_00,
     padding: 10,
     margin: 1,
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     marginLeft: 150
   },
   ViewEight: {
-    width: 400,
+    width: '100%',
     height: 50,
     backgroundColor: color.B_00,
     flexDirection: 'row'
