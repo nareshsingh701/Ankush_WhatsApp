@@ -56,6 +56,8 @@ import Delete from '../delete/delete';
 import Chats from '../chats/chats';
 import Wallpaper from '../chats/wallpaper';
 import Chatbackup from '../chats/chatbackup';
+import Chathistory from '../chats/chathistory';
+import Notifications from '../screen/notifications/notifications';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -113,6 +115,8 @@ const Navigation = () => {
                 <Stack.Screen name="Chats" component={Chats} />
                 <Stack.Screen name="Wallpaper" component={Wallpaper} />
                 <Stack.Screen name="Chatbackup" component={Chatbackup} />
+                <Stack.Screen name="Chathistory" component={Chathistory} />
+                <Stack.Screen name="Notifications" component={Notifications} />
 
             </Stack.Navigator>
         </NavigationContainer>

@@ -76,7 +76,7 @@ const Chats = (props) => {
                     </View>
 
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> props.navigation.navigate('Chathistory')}>
                     <View style={styles.flex}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/history.png')} />
                         <Text style={styles.TextThree}>Chat history</Text>

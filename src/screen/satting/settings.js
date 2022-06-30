@@ -38,7 +38,7 @@ const Satting = (props) => {
             <Text style={styles.TextFore}>Theme, wallpapers, chat history</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ViewTwoStyles}>
+        <TouchableOpacity onPress={()=> props.navigation.navigate('Notifications')} style={styles.ViewTwoStyles}>
           <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/nonifications.png')} />
           <View style={styles.ViewSix}>
             <Text style={styles.TextThree}>Notifications</Text>
