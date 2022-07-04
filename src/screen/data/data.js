@@ -117,7 +117,7 @@ const Data = (props) => {
   return (
     <View>
       <View style={styles.ViewEight}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('logIn')}>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Image resizeMode={'cover'} style={styles.imageOne} source={require('../../assets/images/left1.png')} />
         </TouchableOpacity>
         <View style={styles.ViewTwo}>

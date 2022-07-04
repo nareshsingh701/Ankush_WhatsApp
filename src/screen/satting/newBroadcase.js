@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, Modal, TextInput } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, Modal, TextInput,Pressable } from 'react-native'
 import React, { useState } from 'react'
 import color from '../../utils/color'
 
@@ -79,7 +79,7 @@ const NewBroadcase = (props) => {
     <View style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')}>
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
             <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <View>
@@ -98,6 +98,7 @@ const NewBroadcase = (props) => {
             setModalVisible(!modalVisible);
           }}
         >
+          <Pressable onPress={()=> setModalVisible(!modalVisible)} style={{flex:1}}>
           <View style={styles.ViewModal}>
             <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
               <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
@@ -107,6 +108,7 @@ const NewBroadcase = (props) => {
               placeholder='Search...'
             />
           </View>
+          </Pressable>
         </Modal>
       </View>
       <View style={styles.Viewhight}>

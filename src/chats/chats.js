@@ -91,6 +91,8 @@ const Chats = (props) => {
                         setModalVisible(!modalVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.Modal}>
                         <Text style={styles.ModalText}>Choose theme</Text>
                         <View style={styles.flexThree}>
@@ -111,6 +113,7 @@ const Chats = (props) => {
                             <Text onPress={() => setModalVisible(!modalVisible)} style={styles.ModalThree}>OK</Text>
                         </View>
                     </View>
+                    </View>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -120,6 +123,8 @@ const Chats = (props) => {
                         setModalTwoVisible(!modalTwoVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.Modalfore}>
                         <Text style={styles.ModalText}>Font size</Text>
                         <View style={styles.flexThree}>
@@ -135,6 +140,7 @@ const Chats = (props) => {
                             <Text style={styles.TextThree}>Large</Text>
                         </View>
                     </View>
+                    </View>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -144,6 +150,8 @@ const Chats = (props) => {
                         setModalThreeVisible(!modalThreeVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.ScrollView}>
                     <Text style={styles.ModalText}>Font size</Text>
                         <View style={styles.flexThree}>
@@ -171,6 +179,7 @@ const Chats = (props) => {
                             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
                             <Text style={styles.TextThree}>Large</Text>
                         </View>
+                    </View>
                     </View>
                     
                 </Modal>
@@ -258,7 +267,6 @@ const styles = StyleSheet.create({
         width: '90%',
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 250,
         borderRadius: 5
     },
     ModalText: {
@@ -290,16 +298,13 @@ const styles = StyleSheet.create({
         width: '90%',
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 250,
         borderRadius: 5
     },
     ScrollView: {
         width: '90%',
-        height: 500,
+        height: 380,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 30,
-        marginBottom: 50,
         borderRadius:5
     }
 })

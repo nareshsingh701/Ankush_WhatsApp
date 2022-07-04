@@ -2,10 +2,20 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'rea
 import React from 'react'
 import color from '../../utils/color'
 const Privacy = (props) => {
+
+    const renderMyButton = (first, second, screenName) => {
+        return (
+            <TouchableOpacity onPress={() => props.navigation.navigate(screenName)} style={styles.TouchableOpacity}>
+                <Text style={styles.TextTwo}>{first}</Text>
+                <Text style={styles.TextFore}>{second}</Text>
+            </TouchableOpacity>
+        )
+    }
+
     return (
         <View style={styles.cantainer}>
             <View style={styles.ViewStyle}>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Account')}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/LeftTwo.png')} />
                 </TouchableOpacity>
                 <Text style={styles.TextStyle}>Privacy</Text>
@@ -15,19 +25,13 @@ const Privacy = (props) => {
                     <Text style={styles.Text}>who can see my personal info</Text>
                     <Text style={styles.TextThree}>if you don`t share your Last Seen, you won`t be able to see other people`s Last Seen</Text>
                 </View>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Lastseen')} style={styles.TouchableOpacity}>
-                    <Text style={styles.TextTwo}>Last seen</Text>
-                    <Text style={styles.TextFore}>Everyone</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Profile')} style={styles.TouchableOpacity}>
-                    <Text style={styles.TextTwo}>Profile photo</Text>
-                    <Text style={styles.TextFore}>Everyone</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('About')} style={styles.TouchableOpacity}>
+                {renderMyButton('Last seen', 'Everyone', 'Lastseen')}
+                {renderMyButton('Profile photo', 'Everyone', 'Profile')}
+                <TouchableOpacity onPress={() => props.navigation.navigate('About')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>About</Text>
                     <Text style={styles.TextFore}>Everyone</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Statusprofile')} style={styles.TouchableOpacity}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Statusprofile')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>Status</Text>
                     <Text style={styles.TextFore}>My contacts</Text>
                 </TouchableOpacity>
@@ -40,7 +44,7 @@ const Privacy = (props) => {
                 </TouchableOpacity>
                 <View style={styles.TextFive}></View>
                 <Text style={styles.center}>Disappearing Messages</Text>
-                <TouchableOpacity  onPress={()=> props.navigation.navigate('Defaultmessage')} style={styles.TextThreeStyle}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Defaultmessage')} style={styles.TextThreeStyle}>
                     <View style={styles.flex}>
                         <Text style={styles.TextTwo}>Default Message timer</Text>
                         <Text style={styles.ViewforeStyle}>Off</Text>
@@ -48,19 +52,19 @@ const Privacy = (props) => {
                     <Text style={styles.TextThree}>if turned off, you won`t send or receive Read receipts. Read receipts are always send for group chats.</Text>
                 </TouchableOpacity >
                 <View style={styles.TextFive}></View>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Groups')} style={styles.TouchableOpacity}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Groups')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>Groups</Text>
                     <Text style={styles.TextFore}>Everyone</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Livelocation')} style={styles.TouchableOpacity}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Livelocation')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>Live location</Text>
                     <Text style={styles.TextFore}>none</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Blocked')} style={styles.TouchableOpacity}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Blocked')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>Blocked contacts</Text>
                     <Text style={styles.TextFore}>1</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Fingerprint')} style={styles.TouchableOpacity}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Fingerprint')} style={styles.TouchableOpacity}>
                     <Text style={styles.TextTwo}>fingerprint lock</Text>
                     <Text style={styles.TextFore}>Disabled</Text>
                 </TouchableOpacity>
@@ -74,8 +78,8 @@ export default Privacy
 const styles = StyleSheet.create({
     cantainer: {
         flex: 1,
-         backgroundColor: color.B_00,
-         paddingBottom:20,
+        backgroundColor: color.B_00,
+        paddingBottom: 20,
     },
     ViewStyle: {
         height: 100,
@@ -143,8 +147,8 @@ const styles = StyleSheet.create({
     },
     flex: {
         flexDirection: 'row',
-        justifyContent:'space-between',
-        marginHorizontal:16
+        justifyContent: 'space-between',
+        marginHorizontal: 16
     },
     ImageTwo: {
         width: 35,
@@ -156,14 +160,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500'
     },
-    ViewforeStyle:{
-        fontSize:16,
-        fontWeight:'500'
+    ViewforeStyle: {
+        fontSize: 16,
+        fontWeight: '500'
     },
-    TextFive:{
-        height:1,
-        width:'100%',
-        backgroundColor:color.gray_50,
-        marginTop:10
+    TextFive: {
+        height: 1,
+        width: '100%',
+        backgroundColor: color.gray_50,
+        marginTop: 10
     }
 })

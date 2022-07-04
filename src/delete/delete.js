@@ -74,10 +74,13 @@ const Delete = (props) => {
                     setModalVisible(!modalVisible);
                 }}
             >
+                <View style={{flex:1,justifyContent:'center'}}>
+
                 <View style={styles.Modal}>
                     <Text style={styles.ModalText}>Please enter your phone number.</Text>
                     <Text onPress={() => setModalVisible(!modalVisible)}
                         style={styles.ModalTwo}>ok</Text>
+                </View>
                 </View>
             </Modal>
         </ScrollView>
@@ -237,7 +240,6 @@ const styles = StyleSheet.create({
         backgroundColor: color.gray_50,
         alignSelf: 'center',
         borderRadius: 5,
-        marginTop: 250
     },
     ModalText: {
         marginHorizontal: 40,

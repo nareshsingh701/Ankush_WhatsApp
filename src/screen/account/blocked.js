@@ -24,7 +24,7 @@ const Blocked = (props) => {
         return (
             <View style={styles.container}>
                 <View style={styles.ViewStyle}>
-                    <TouchableOpacity onPress={() => props.navigation.navigate('Privacy')}>
+                    <TouchableOpacity onPress={() => props.navigation.goBack()}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/LeftTwo.png')} />
                     </TouchableOpacity>
                     <Text style={styles.TextStyle}>Blocked contacts</Text>

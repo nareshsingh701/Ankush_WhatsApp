@@ -5,7 +5,7 @@ const Payments = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.ViewStyle}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')} >
+        <TouchableOpacity onPress={() => props.navigation.goBack()} >
           <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
         </TouchableOpacity>
         <Text style={styles.TextStyle}>Payments</Text>

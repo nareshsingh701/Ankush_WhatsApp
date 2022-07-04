@@ -41,10 +41,13 @@ const Chathistory = (props) => {
                         setModalVisible(!modalVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.Modal}>
                         <Text style={styles.ModalText}>Are you sure you want to archive ALL chats?</Text>
                         <Text onPress={() => setModalVisible(!modalVisible)}
                             style={styles.TextThree} >CANCEL       <Text onPress={() => setModalVisible(!modalVisible)} >OK</Text></Text>
+                    </View>
                     </View>
                 </Modal>
                 <Modal
@@ -55,6 +58,8 @@ const Chathistory = (props) => {
                         setModalOneVisible(!modalOneVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.ModalTwo}>
                         <Text style={styles.ModalTextTwo}>Clear all chats?</Text>
                         <View style={styles.flexTwo}>
@@ -68,6 +73,7 @@ const Chathistory = (props) => {
                         </View>
                         <Text onPress={() => setModalOneVisible(!modalOneVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalOneVisible(!modalOneVisible)}>CLEAR CHATS</Text></Text>
                     </View>
+                    </View>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -77,6 +83,8 @@ const Chathistory = (props) => {
                         setModalTwoVisible(!modalTwoVisible);
                     }}
                 >
+                    <View style={{flex:1,justifyContent:'center'}}>
+
                     <View style={styles.ModalThree}>
                         <Text style={styles.ModalTextTwo}>Delete all chats?</Text>
                         <View style={styles.flexTwo}>
@@ -84,6 +92,7 @@ const Chathistory = (props) => {
                             <Text style={styles.Textfour}>Also delete media received in chats from the phone gallery</Text>
                         </View>
                         <Text onPress={() => setModalTwoVisible(!modalTwoVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalTwoVisible(!modalTwoVisible)}>DELETE CHATS</Text></Text>
+                    </View>
                     </View>
                 </Modal>
             </ScrollView>
@@ -152,7 +161,6 @@ const styles = StyleSheet.create({
         width: '90%',
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 300,
         borderRadius: 5
     },
     ModalText: {
@@ -179,7 +187,6 @@ const styles = StyleSheet.create({
         height: 250,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 300,
         borderRadius: 5
     },
     ModalTextTwo: {
@@ -200,7 +207,6 @@ const styles = StyleSheet.create({
         backgroundColor: color.gray_50,
         borderRadius: 5,
         alignSelf: 'center',
-        marginTop: 300
     }
 
 

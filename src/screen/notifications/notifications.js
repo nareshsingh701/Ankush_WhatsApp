@@ -9,7 +9,7 @@ const Notifications = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
-                <TouchableOpacity onPress={() => props.navigation.navigate('Settings')}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/LeftTwo.png')} />
                 </TouchableOpacity>
                 <Text style={styles.TextStyle}>Notifications</Text>
@@ -94,6 +94,8 @@ const Notifications = (props) => {
                 }}
 
             >
+                <View style={{flex:1,justifyContent:'flex-end'}}>
+
                 <View style={styles.Modal}>
                     <View style={styles.flexTwo}>
                         <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/share.png')} />
@@ -115,6 +117,7 @@ const Notifications = (props) => {
                         <Image resizeMode={'cover'} style={styles.ImagesFore} source={require('../../assets/images/bot.png')} />
                     </View>
                 </View>
+                </View>
             </Modal>
             <Modal
                 animationType="slide"
@@ -125,6 +128,8 @@ const Notifications = (props) => {
                     setModalOneVisible(!modalOneVisible);
                 }}
             >
+                <View style={{flex:1,justifyContent:'center'}}>
+
                 <View style={styles.ModalTwo}>
                     <Text style={styles.ModalText}>Vibrate</Text>
                     <View style={styles.flexThree}>
@@ -144,6 +149,7 @@ const Notifications = (props) => {
                         <Text style={styles.ModalTextTwo}>Long</Text>
                     </View>
                 </View>
+                </View>
             </Modal>
             <Modal
                 animationType="slide"
@@ -154,9 +160,12 @@ const Notifications = (props) => {
                     setModalTwoVisible(!modalTwoVisible);
                 }}
             >
+                <View style={{flex:1,justifyContent:'center'}}>
+
                 <View style={styles.ModalThree}>
                     <Text style={styles.ModalTextThree}>Popup notifications are no longer available in your version of Android</Text>
                     <Text onPress={() => Linking.openURL('https://faq.whatsapp.com/general/26000003?lg=en&lc=GB&eea=0')} style={styles.ModalTextfore}>LEARN MORE <Text onPress={() => setModalTwoVisible(!modalTwoVisible)}>                       OK</Text></Text>
+                </View>
                 </View>
             </Modal>
             <Modal
@@ -168,6 +177,8 @@ const Notifications = (props) => {
                     setModalThreeVisible(!modalThreeVisible);
                 }}
             >
+                <View style={{flex:1,justifyContent:'center'}}>
+
                 <View style={styles.Modalfore}>
                     <Text style={styles.ModalText}>Light</Text>
                     <View style={styles.flexThree}>
@@ -202,6 +213,7 @@ const Notifications = (props) => {
                         <Image resizeMode={'cover'} style={styles.ImagesFore} source={require('../../assets/images/o.png')} />
                         <Text style={styles.ModalTextTwo}>Purple</Text>
                     </View>
+                </View>
                 </View>
             </Modal>
             </ScrollView>
@@ -323,7 +335,6 @@ const styles = StyleSheet.create({
         height: 250,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 350,
         borderRadius: 20
     },
     flexTwo: {
@@ -356,7 +367,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 300
     },
     ModalText: {
         marginHorizontal: 30,
@@ -378,7 +388,6 @@ const styles = StyleSheet.create({
         backgroundColor: color.gray_50,
         borderRadius: 5,
         alignSelf: 'center',
-        marginTop: 300
     },
     ModalTextThree: {
         marginHorizontal: 30,
@@ -397,7 +406,6 @@ const styles = StyleSheet.create({
         height: 460,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop: 10,
         borderRadius: 5
     }
 })

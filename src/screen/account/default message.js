@@ -7,7 +7,7 @@ const Defaultmessage = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
-                <TouchableOpacity onPress={() => props.navigation.navigate('Privacy')}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/LeftTwo.png')} />
                 </TouchableOpacity>
                 <Text style={styles.TextStyle}>Default message timer</Text>
@@ -42,7 +42,8 @@ export default Defaultmessage
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.B_00
+        backgroundColor: color.B_00,
+        paddingBottom:20
     },
     ViewStyle: {
         height: 100,
@@ -94,10 +95,12 @@ const styles = StyleSheet.create({
         height: 200,
         width: 200,
         alignSelf: 'center',
-        marginTop: 20
+        marginTop: 20,
+    
     },
     Textfore:{
-        color:color.Blue_50
+        color:color.Blue_50,
+       
     }
 
 })

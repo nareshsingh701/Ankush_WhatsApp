@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Modal, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Modal, ScrollView,Pressable} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import color from '../../utils/color';
 import Tooltip from 'react-native-walkthrough-tooltip';
@@ -30,6 +30,7 @@ const LogIn = (props) => {
                         setModalVisible(!modalVisible);
                     }}
                 >
+                    <Pressable onPress={()=> setModalVisible(!modalVisible)} style={{flex:1}}>
                     <View style={styles.ViewStyle}>
 
                         <TouchableOpacity onPress={() => props.navigation.navigate('loder')} >
@@ -37,6 +38,7 @@ const LogIn = (props) => {
                             <Text style={styles.TextEight}>Help</Text>
                         </TouchableOpacity>
                     </View>
+                    </Pressable>
                 </Modal>
 
                 <TouchableOpacity onPress={() => setModalVisible(true)} >

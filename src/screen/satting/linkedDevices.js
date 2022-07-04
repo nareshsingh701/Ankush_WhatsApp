@@ -6,7 +6,7 @@ const LinkedDevices = (props) => {
     <ScrollView style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity onPress={()=> props. navigation.navigate('MainHome')}>
+          <TouchableOpacity onPress={()=> props. navigation.goBack()}>
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/left1.png')} />
           </TouchableOpacity>
           <Text style={styles.TextStyle}>Linked devices</Text>

@@ -64,9 +64,12 @@ const Changenumber = (props) => {
                 }}
 
             >
+                <View style={{flex:1,justifyContent:'center'}}>
+
                 <View style={styles.Modal}>
                     <Text style={styles.ModalStyle}>Please enter your phone number.</Text>
                     <Text  onPress={() => setModalVisible(!modalVisible)} style={styles.ModalTwo}>OK</Text>
+                </View>
                 </View>
 
             </Modal>
@@ -156,7 +159,6 @@ const styles = StyleSheet.create({
         width: 350,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        marginTop:350,
         borderRadius:5
     },
     ModalStyle:{

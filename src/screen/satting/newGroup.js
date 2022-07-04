@@ -1,6 +1,6 @@
 
-import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, Modal,TextInput } from 'react-native'
-import React,{useState} from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, Modal, TextInput, Pressable } from 'react-native'
+import React, { useState } from 'react'
 import color from '../../utils/color'
 
 
@@ -69,14 +69,14 @@ const NewGroup = (props) => {
     <View style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity onPress={()=>props.navigation.navigate('MainHome')}>
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
             <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <View>
             <Text style={styles.TextStyle}>NewGroup</Text>
             <Text style={styles.TextTwoStyle}>Add participants</Text>
           </View>
-          < TouchableOpacity   onPress={() => setModalVisible(true)} style={styles.SearchStyle}>
+          < TouchableOpacity onPress={() => setModalVisible(true)} style={styles.SearchStyle}>
             <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
         </View>
@@ -88,15 +88,17 @@ const NewGroup = (props) => {
             setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.ViewModal}>
-          <TouchableOpacity  onPress={() => setModalVisible(!modalVisible)}>
-            <Image resizeMode={'cover'} style={styles.ImagesThtee} source={require('../../assets/images/colorLeft.png')} />
-          </TouchableOpacity>
-          <TextInput 
-          style={styles.TextInputStyle}
-          placeholder='Search...'
-          />
-          </View>
+          <Pressable onPress={()=> setModalVisible(!modalVisible)} style={{flex:1}} >
+            <View style={styles.ViewModal}>
+              <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+                <Image resizeMode={'cover'} style={styles.ImagesThtee} source={require('../../assets/images/colorLeft.png')} />
+              </TouchableOpacity>
+              <TextInput
+                style={styles.TextInputStyle}
+                placeholder='Search...'
+              />
+            </View>
+          </Pressable>
         </Modal>
       </View>
       <FlatList
@@ -113,8 +115,8 @@ export default NewGroup
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
-   
+
+
   },
   ViewStyle: {
     height: 100,
@@ -128,19 +130,19 @@ const styles = StyleSheet.create({
     width: 30
   },
   flexStyle: {
-   
+
     flexDirection: 'row',
-    justifyContent:'space-evenly'
+    justifyContent: 'space-evenly'
   },
   TextStyle: {
     marginTop: 30,
-   
+
     fontSize: 20,
     fontWeight: 'bold',
     color: color.B_00
   },
   TextTwoStyle: {
-   
+
     marginTop: 5,
     color: color.gray_50
   },
@@ -172,27 +174,27 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 50
   },
-  ViewModal:{
-    flexDirection:'row',
-    height:60,
-    width:'100%',
-    backgroundColor:color.B_00,
-    marginTop:10
+  ViewModal: {
+    flexDirection: 'row',
+    height: 60,
+    width: '100%',
+    backgroundColor: color.B_00,
+    marginTop: 10
   },
-  TextInputStyle:{
-    marginLeft:50,
-    fontSize:18,
-    fontWeight:'600'
+  TextInputStyle: {
+    marginLeft: 50,
+    fontSize: 18,
+    fontWeight: '600'
   },
-  ImagesThtee:{
-    height:30,
-    width:30,
-     marginHorizontal:16,
-    marginTop:15
+  ImagesThtee: {
+    height: 30,
+    width: 30,
+    marginHorizontal: 16,
+    marginTop: 15
   },
-  Images:{
-    height:30,
-    width:30,
-    marginTop:40
+  Images: {
+    height: 30,
+    width: 30,
+    marginTop: 40
   }
 })

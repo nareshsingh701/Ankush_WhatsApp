@@ -58,6 +58,15 @@ import Wallpaper from '../chats/wallpaper';
 import Chatbackup from '../chats/chatbackup';
 import Chathistory from '../chats/chathistory';
 import Notifications from '../screen/notifications/notifications';
+import Storage from '../screen/storage/storage';
+import Manage from '../screen/storage/manage';
+import Network from '../screen/storage/network';
+import Help from '../screen/help/help';
+import LodingTwo from '../screen/otherScreen/lodingtwo';
+import Contact from '../screen/help/contact';
+import App from '../screen/help/app';
+import Invite from '../screen/InviteaFriend/invite';
+import Two from '../screen/text/two';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -117,6 +126,15 @@ const Navigation = () => {
                 <Stack.Screen name="Chatbackup" component={Chatbackup} />
                 <Stack.Screen name="Chathistory" component={Chathistory} />
                 <Stack.Screen name="Notifications" component={Notifications} />
+                <Stack.Screen name="Storage" component={Storage} />
+                <Stack.Screen name="Manage" component={Manage} />
+                <Stack.Screen name="Network" component={Network} />
+                <Stack.Screen name="Help" component={Help} />
+                <Stack.Screen name="LodingTwo" component={LodingTwo} />
+                <Stack.Screen name="Contact" component={Contact} />
+                <Stack.Screen name="App" component={App} />
+                <Stack.Screen name="Invite" component={Invite} />
+                <Stack.Screen name="Two" component={Two} />
 
             </Stack.Navigator>
         </NavigationContainer>

@@ -1,45 +1,56 @@
-import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity,Linking } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
+import React, { useState } from 'react'
 import color from '../../utils/color'
 
 const Chats = (props) => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [uri, setURI] = useState("")
     const data = [
 
         {
-            Name: "India",
-        
-            secendName: "dera",
-            Image: require('../../assets/images/Anshika.jpg'),
+            Name: "Anshika",
+            secendName: "Home",
+            Image: require('../../assets/images/pravesh.jpg'),
         },
         {
             Name: "ANKUSH",
-        
             secendName: "KHAGA",
             Image: require('../../assets/images/priyanshu.jpg'),
         },
         {
             Name: "Anshu",
-        
             secendName: "KHAGA",
-            Image: require('../../assets/images/priyanshu.jpg'),
+            Image: require('../../assets/images/party.jpg'),
         },
         {
             Name: "NARESH",
-    
             secendName: "KHAGA",
             Image: require('../../assets/images/Anshika.jpg'),
         },
         {
-            Name: "India",
-        
-            secendName: "dera",
+            Name: "sonu",
+            secendName: "Arra",
+            Image: require('../../assets/images/sugreev.jpg'),
+        },
+        {
+            Name: "Ankush",
+            secendName: "khaga",
+            Image: require('../../assets/images/ankush.jpg'),
+        },
+        {
+            Name: "NARESH",
+            secendName: "KHAGA",
             Image: require('../../assets/images/Anshika.jpg'),
         },
         {
-            Name: "India",
-        
-            secendName: "dera",
-            Image: require('../../assets/images/Anshika.jpg'),
+            Name: "sonu",
+            secendName: "Arra",
+            Image: require('../../assets/images/sugreev.jpg'),
+        },
+        {
+            Name: "Ankush",
+            secendName: "khaga",
+            Image: require('../../assets/images/ankush.jpg'),
         },
     ]
     const [showTip, setTip] = useState(true);
@@ -48,39 +59,77 @@ const Chats = (props) => {
         const { item, index } = listData;
         return (
 
-            <ScrollView>
-                <View style={styles.Container}>
-                    <TouchableOpacity >
-                        <View style={styles.Image} >
-                            <TouchableOpacity style={styles.ViewStyleOne}>
-                                <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
-                            </TouchableOpacity>
 
-                            <View style={styles.flex} >
-                                <Text style={styles.text}>{item.Name}</Text>
-                                <Text style={styles.text}>{item.secendName}</Text>
+            <View style={styles.Container}>
+                <TouchableOpacity >
+                    <View style={styles.Image} >
+                        <TouchableOpacity onPress={() => {
+                            setURI(item.Image)
+                            setModalVisible(true)
+                        }} style={styles.ViewStyleOne}>
+                            <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
+                        </TouchableOpacity>
 
-                            </View>
-                            <Text style={styles.texts}>{item.Text}</Text>
+                        <View  >
+                            <Text style={styles.text}>{item.Name}</Text>
+                            <Text style={styles.text}>{item.secendName}</Text>
+
                         </View>
-                    </TouchableOpacity>
-                </View >
-            </ScrollView>
+                        <Text style={styles.texts}>{item.Text}</Text>
+                    </View>
+                </TouchableOpacity>
+            </View >
+
         )
     }
     return (
-        <View>
+        <View style={{ flex: 1, }} >
             <FlatList
                 data={data}
                 keyExtractor={(item, index,) => index.toString()}
                 renderItem={renderListData}
             />
+            <View style={{flex:1,justifyContent:'flex-end',marginRight:20,marginBottom:20}}>
             <TouchableOpacity
-            style={styles.ViewStyle}>
+
+                style={styles.ViewStyle}>
                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chats.png')} />
             </TouchableOpacity>
+            </View>
+            <Modal
+                animationType="none"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                    setURI("")
+                }}
+            >
+                <Pressable onPress={() => {
+                    setURI("")
+                    setModalVisible(!modalVisible)
+                }} style={{ flex: 1 }}>
+                    <View style={styles.Modal}>
+                        <Image style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
+                        <View style={styles.flex}>
+                            <TouchableOpacity>
+                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chating.png')} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/colling.png')} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/videocalling.png')} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/info.png')} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Pressable>
+            </Modal>
         </View>
-        
+
     )
 }
 
@@ -112,7 +161,7 @@ const styles = StyleSheet.create({
         width: 400,
         backgroundColor: color.B_00,
         padding: 10,
-        margin: 1
+
     },
     ImageSix: {
         height: 50,
@@ -124,9 +173,9 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         backgroundColor: color.teal_800,
-        marginLeft: 250,
+        alignSelf: 'flex-end',
         borderRadius: 50,
-        margin: 15
+        position:'absolute',
     },
     ImagesStyles: {
         height: 25,
@@ -137,8 +186,22 @@ const styles = StyleSheet.create({
     ViewStyleOne: {
         height: 50,
         width: 50,
-        marginLeft:30
-
+        marginLeft: 30
+    },
+    Modal: {
+        width: '80%',
+        height: '60%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'center',
+        marginTop: '25%'
+    },
+    ImagesTwo: {
+        height: '85%',
+        width: '100%'
+    },
+    flex: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     }
 })
 
