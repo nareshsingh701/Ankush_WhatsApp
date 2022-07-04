@@ -67,6 +67,7 @@ import Contact from '../screen/help/contact';
 import App from '../screen/help/app';
 import Invite from '../screen/InviteaFriend/invite';
 import Two from '../screen/text/two';
+import DataChange from '../screen/dataChange/dataChange';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -135,6 +136,7 @@ const Navigation = () => {
                 <Stack.Screen name="App" component={App} />
                 <Stack.Screen name="Invite" component={Invite} />
                 <Stack.Screen name="Two" component={Two} />
+                <Stack.Screen name="DataChange" component={DataChange} />
 
             </Stack.Navigator>
         </NavigationContainer>

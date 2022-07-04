@@ -2,64 +2,65 @@ import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, 
 import React, { useState } from 'react'
 import color from '../../utils/color'
 
+const data = [
+
+    {
+        Name: "Anshika",
+        secendName: "Home",
+        Image: require('../../assets/images/pravesh.jpg'),
+    },
+    {
+        Name: "ANKUSH",
+        secendName: "KHAGA",
+        Image: require('../../assets/images/priyanshu.jpg'),
+    },
+    {
+        Name: "Anshu",
+        secendName: "KHAGA",
+        Image: require('../../assets/images/party.jpg'),
+    },
+    {
+        Name: "NARESH",
+        secendName: "KHAGA",
+        Image: require('../../assets/images/Anshika.jpg'),
+    },
+    {
+        Name: "sonu",
+        secendName: "Arra",
+        Image: require('../../assets/images/sugreev.jpg'),
+    },
+    {
+        Name: "Ankush",
+        secendName: "khaga",
+        Image: require('../../assets/images/ankush.jpg'),
+    },
+    {
+        Name: "NARESH",
+        secendName: "KHAGA",
+        Image: require('../../assets/images/Anshika.jpg'),
+    },
+    {
+        Name: "sonu",
+        secendName: "Arra",
+        Image: require('../../assets/images/sugreev.jpg'),
+    },
+    {
+        Name: "Ankush",
+        secendName: "khaga",
+        Image: require('../../assets/images/ankush.jpg'),
+    },
+]
 const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [uri, setURI] = useState("")
-    const data = [
-
-        {
-            Name: "Anshika",
-            secendName: "Home",
-            Image: require('../../assets/images/pravesh.jpg'),
-        },
-        {
-            Name: "ANKUSH",
-            secendName: "KHAGA",
-            Image: require('../../assets/images/priyanshu.jpg'),
-        },
-        {
-            Name: "Anshu",
-            secendName: "KHAGA",
-            Image: require('../../assets/images/party.jpg'),
-        },
-        {
-            Name: "NARESH",
-            secendName: "KHAGA",
-            Image: require('../../assets/images/Anshika.jpg'),
-        },
-        {
-            Name: "sonu",
-            secendName: "Arra",
-            Image: require('../../assets/images/sugreev.jpg'),
-        },
-        {
-            Name: "Ankush",
-            secendName: "khaga",
-            Image: require('../../assets/images/ankush.jpg'),
-        },
-        {
-            Name: "NARESH",
-            secendName: "KHAGA",
-            Image: require('../../assets/images/Anshika.jpg'),
-        },
-        {
-            Name: "sonu",
-            secendName: "Arra",
-            Image: require('../../assets/images/sugreev.jpg'),
-        },
-        {
-            Name: "Ankush",
-            secendName: "khaga",
-            Image: require('../../assets/images/ankush.jpg'),
-        },
-    ]
     const [showTip, setTip] = useState(true);
+
+    console.log('props', props);
 
     const renderListData = (listData) => {
         const { item, index } = listData;
+
         return (
-
-
             <View style={styles.Container}>
                 <TouchableOpacity >
                     <View style={styles.Image} >
@@ -121,7 +122,7 @@ const Chats = (props) => {
                             <TouchableOpacity>
                                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/videocalling.png')} />
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=> props.navigation.navigate('DataChange')}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/info.png')} />
                             </TouchableOpacity>
                         </View>
