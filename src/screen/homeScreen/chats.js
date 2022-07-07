@@ -52,6 +52,7 @@ const data = [
 ]
 const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalOneVisible, setModalOneVisible] = useState(false);
     const [uri, setURI] = useState("")
     const [showTip, setTip] = useState(true);
 
@@ -90,12 +91,12 @@ const Chats = (props) => {
                 keyExtractor={(item, index,) => index.toString()}
                 renderItem={renderListData}
             />
-            <View style={{flex:1,justifyContent:'flex-end',marginRight:20,marginBottom:20}}>
-            <TouchableOpacity
+            <View style={{ flex: 1, justifyContent: 'flex-end', marginRight: 20, marginBottom: 20 }}>
+                <TouchableOpacity
 
-                style={styles.ViewStyle}>
-                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chats.png')} />
-            </TouchableOpacity>
+                    style={styles.ViewStyle}>
+                    <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chats.png')} />
+                </TouchableOpacity>
             </View>
             <Modal
                 animationType="none"
@@ -111,19 +112,20 @@ const Chats = (props) => {
                     setModalVisible(!modalVisible)
                 }} style={{ flex: 1 }}>
                     <View style={styles.Modal}>
-                        <Image style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
+
+                        <Image onPress={() => setModalOneVisible(true)} style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
                         <View style={styles.flex}>
                             <TouchableOpacity>
-                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chating.png')} />
+                                <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/chating.png')} />
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/colling.png')} />
+                                <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/colling.png')} />
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/videocalling.png')} />
+                                <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/videocalling.png')} />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={()=> props.navigation.navigate('DataChange')}>
-                                <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/info.png')} />
+                            <TouchableOpacity onPress={() => props.navigation.navigate('DataChange')}>
+                                <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/info.png')} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -176,13 +178,18 @@ const styles = StyleSheet.create({
         backgroundColor: color.teal_800,
         alignSelf: 'flex-end',
         borderRadius: 50,
-        position:'absolute',
+        position: 'absolute',
     },
     ImagesStyles: {
         height: 25,
         width: 25,
         marginLeft: 12,
         marginTop: 12
+    },
+    ImagesStylesTwo: {
+        height: 30,
+        width: 30,
+        marginTop: 10
     },
     ViewStyleOne: {
         height: 50,
@@ -191,18 +198,23 @@ const styles = StyleSheet.create({
     },
     Modal: {
         width: '80%',
-        height: '60%',
+        height: '62%',
         backgroundColor: color.gray_50,
         alignSelf: 'center',
         marginTop: '25%'
     },
     ImagesTwo: {
-        height: '85%',
-        width: '100%'
+        height: '87%',
+        width: '100%',
     },
     flex: {
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+    },
+    ModalTwo: {
+        width: '100%',
+        height: '110%',
+        backgroundColor: color.B_000
     }
 })
 

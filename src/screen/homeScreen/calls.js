@@ -118,7 +118,7 @@ const Calls = (props) => {
         </TouchableOpacity>
       </View>
       <Modal
-        animationType="slide"
+      
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {

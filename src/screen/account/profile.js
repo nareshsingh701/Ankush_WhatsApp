@@ -1,8 +1,38 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import color from '../../utils/color'
-
+import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
 const Profile = (props) => {
+    const [dataone, setDataOne] = useState(false)
+    const [datatwo, setDataTwo] = useState(false)
+    const [datathree, setDataThree] = useState(false)
+    const [datafour, setDataFour] = useState(false)
+
+    const one = () => {
+        setDataOne(true);
+        setDataTwo(false);
+        setDataThree(false);
+        setDataFour(false);
+    }
+    const two = () => {
+        setDataOne(false)
+        setDataTwo(true);
+        setDataThree(false);
+        setDataFour(false);
+    }
+
+    const three = () => {
+        setDataOne(false)
+        setDataTwo(false);
+        setDataThree(true);
+        setDataFour(false);
+    }
+    const four = () => {
+        setDataOne(false)
+        setDataTwo(false);
+        setDataThree(false);
+        setDataFour(true);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
@@ -13,19 +43,51 @@ const Profile = (props) => {
             </View>
             <Text style={styles.TextTwoStyle}>Who can see my Profile Photo</Text>
             <View style={styles.flex}>
-                <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/onlite.png')} />
+            <CircleCheckBox
+                    checked={dataone}
+                    onToggle={() => one()}
+                    labelPosition={LABEL_POSITION.RIGHT}
+                    outerColor='#00695C'
+                    innerColor='#00695C'
+                    filterSize='20'
+                    innerSize='12'
+                />
                 <Text style={styles.TextStyleTwo}>Everyone</Text>
             </View>
             <View style={styles.flex}>
-                <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/24.png')} />
+            <CircleCheckBox
+                    checked={datatwo}
+                    onToggle={() => two()}
+                    labelPosition={LABEL_POSITION.RIGHT}
+                    outerColor='#00695C'
+                    innerColor='#00695C'
+                    filterSize='20'
+                    innerSize='12'
+                />
                 <Text style={styles.TextStyleTwo}>My contacts</Text>
             </View>
             <View style={styles.flex}>
-                <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/24.png')} />
+            <CircleCheckBox
+                    checked={datathree}
+                    onToggle={() => three()}
+                    labelPosition={LABEL_POSITION.RIGHT}
+                    outerColor='#00695C'
+                    innerColor='#00695C'
+                    filterSize='20'
+                    innerSize='12'
+                />
                 <Text style={styles.TextStyleTwo}>My contacts export...</Text>
             </View>
             <View style={styles.flex}>
-                <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/24.png')} />
+            <CircleCheckBox
+                    checked={datafour}
+                    onToggle={() => four()}
+                    labelPosition={LABEL_POSITION.RIGHT}
+                    outerColor='#00695C'
+                    innerColor='#00695C'
+                    filterSize='20'
+                    innerSize='12'
+                />
                 <Text style={styles.TextStyleTwo}>Nobody</Text>
             </View>
      
@@ -65,11 +127,12 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     flex: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginHorizontal:30,
+        marginTop:20
     },
     TextStyleTwo: {
         fontSize: 17,
-        marginTop: 20,
         marginHorizontal: 30,
         fontWeight:'500',
         color:color.B_000

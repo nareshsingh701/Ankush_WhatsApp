@@ -1,12 +1,105 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, Switch,Pressable } from 'react-native'
 import React, { useState } from 'react'
 import color from '../utils/color'
-
+import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
 const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalTwoVisible, setModalTwoVisible] = useState(false);
     const [modalThreeVisible, setModalThreeVisible] = useState(false);
 
+    const [data, setData] = useState(false);
+    const [datatwo, setDataTwo] = useState(false);
+    const [dataThree, setDataThree] = useState(false);
+
+    const [dataone, setDataOne] = useState(false)
+    const [datafour, setDataFour] = useState(false)
+    const [datafive, setDataFive] = useState(false)
+
+    const [datasix, setDataSix] = useState(false)
+    const [dataseven, setDataSeven] = useState(false)
+    const [dataeight, setDataEight] = useState(false)
+
+    const [datafo, setDataFo] = useState(false)
+    const [datafoo, setDataFoo] = useState(false)
+    const [dataso, setDataSo] = useState(false)
+    const [datasoo, setDataSoo] = useState(false)
+    const [dataeo, setDataEo] = useState(false)
+    const one = () => {
+        setDataOne(true);
+        setDataFour(false);
+        setDataFive(false);
+
+    }
+    const two = () => {
+        setDataOne(false)
+        setDataFour(true);
+        setDataFive(false);
+
+    }
+
+    const three = () => {
+        setDataOne(false)
+        setDataFour(false);
+        setDataFive(true);
+
+    }
+    const four = () => {
+        setDataSix(true);
+        setDataSeven(false);
+        setDataEight(false);
+
+    }
+    const five = () => {
+        setDataSix(false)
+        setDataSeven(true);
+        setDataEight(false);
+    }
+    const six = () => {
+        setDataSix(false)
+        setDataSeven(false);
+        setDataEight(true);
+
+    }
+    const seven = () => {
+        setDataFo(true)
+        setDataFoo(false);
+        setDataSo(false);
+        setDataSoo(false);
+        setDataEo(false);
+
+    }
+
+    const eight = () => {
+        setDataFo(false)
+        setDataFoo(true);
+        setDataSo(false);
+        setDataSoo(false);
+        setDataEo(false);
+
+    }
+    const nine = () => {
+        setDataFo(false)
+        setDataFoo(false);
+        setDataSo(true);
+        setDataSoo(false);
+        setDataEo(false);
+
+    }
+    const ten = () => {
+        setDataFo(false)
+        setDataFoo(false);
+        setDataSo(false);
+        setDataSoo(true);
+        setDataEo(false);
+    }
+    const ele = () => {
+        setDataFo(false)
+        setDataFoo(false);
+        setDataSo(false);
+        setDataSoo(false);
+        setDataEo(true);
+
+    }
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
@@ -32,19 +125,25 @@ const Chats = (props) => {
                 </TouchableOpacity>
                 <View style={styles.Line}></View>
                 <Text style={styles.TextTwo}>Chat settings</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setData(!data)}>
                     <View style={styles.flexTwo}>
                         <Text style={styles.TextThree}>Enter is send</Text>
-                        <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../assets/images/off2.png')} />
+                        <Switch
+                            value={data}
+                            onValueChange={() => setData(!data)}
+                        />
                     </View>
                     <Text style={styles.fore}>Enter key will send your message</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setDataTwo(!datatwo)}>
                     <View style={styles.flexTwo}>
                         <Text style={styles.TextThree}>Media visiblility</Text>
-                        <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../assets/images/on.png')} />
+                        <Switch
+                            value={datatwo}
+                            onValueChange={() => setDataTwo(!datatwo)}
+                        />
                     </View>
-                    <Text style={styles.fore}>Show newly downloded media in your phone`s gallery</Text>
+                    <Text style={{marginHorizontal:80,fontSize:16}}>Show newly downloded media in your phone`s gallery</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setModalTwoVisible(true)}>
                     <View style={styles.flexTwo}>
@@ -57,29 +156,32 @@ const Chats = (props) => {
                 <TouchableOpacity>
                     <View style={styles.flexTwo}>
                         <Text style={styles.TextThree}>Keep chats archived</Text>
-                        <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../assets/images/off2.png')} />
+                        <Switch
+                            value={dataThree}
+                            onValueChange={() => setDataThree(!dataThree)}
+                        />
                     </View>
-                    <Text style={styles.fore}>Archived chats will remain archived when you receive a new message</Text>
+                    <Text style={{marginHorizontal:80,fontSize:16}}>Archived chats will remain archived when you receive a new message</Text>
                 </TouchableOpacity>
                 <View style={styles.Line}></View>
                 <TouchableOpacity onPress={() => setModalThreeVisible(true)}>
-                    <View style={styles.flex}>
+                    <View style={styles.flexFive}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/language.png')} />
-                        <Text style={styles.TextThree}>App Language</Text>
+                        <Text style={styles.Textfore}>App Language</Text>
                     </View>
-                    <Text style={styles.fore}>Phone`s language(English)</Text>
+                    <Text style={{marginHorizontal:80,fontSize:16}}>Phone`s language(English)</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Chatbackup')}>
-                    <View style={styles.flex}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Chatbackup')}>
+                    <View style={styles.flexFive}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/backup.png')} />
-                        <Text style={styles.TextThree}>Chat backup</Text>
+                        <Text style={styles.Textfore}>Chat backup</Text>
                     </View>
 
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('Chathistory')}>
-                    <View style={styles.flex}>
+                <TouchableOpacity style={{marginBottom:30}} onPress={() => props.navigation.navigate('Chathistory')}>
+                    <View style={styles.flexFive}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/history.png')} />
-                        <Text style={styles.TextThree}>Chat history</Text>
+                        <Text style={styles.Textfore}>Chat history</Text>
                     </View>
 
                 </TouchableOpacity>
@@ -91,29 +193,53 @@ const Chats = (props) => {
                         setModalVisible(!modalVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <Pressable onPress={()=> setModalVisible(!modalVisible)} style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.Modal}>
-                        <Text style={styles.ModalText}>Choose theme</Text>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/onlite.png')} />
-                            <Text style={styles.TextThree}>System default</Text>
+                        <View style={styles.Modal}>
+                            <Text style={styles.ModalText}>Choose theme</Text>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={dataone}
+                                    onToggle={() => one()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>System default</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={datafour}
+                                    onToggle={() => two()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Light</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={datafive}
+                                    onToggle={() => three()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Dark</Text>
+                            </View>
+                            <View style={styles.flexfour}>
+                                <Text onPress={() => setModalVisible(!modalVisible)}
+                                    style={styles.ModalTwo}>CANCEL</Text>
+                                <Text onPress={() => setModalVisible(!modalVisible)} style={styles.ModalThree}>OK</Text>
+                            </View>
                         </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Light</Text>
-                        </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Dark</Text>
-                        </View>
-                        <View style={styles.flexfour}>
-                            <Text onPress={() => setModalVisible(!modalVisible)}
-                                style={styles.ModalTwo}>CANCEL</Text>
-                            <Text onPress={() => setModalVisible(!modalVisible)} style={styles.ModalThree}>OK</Text>
-                        </View>
-                    </View>
-                    </View>
+                    </Pressable>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -123,24 +249,48 @@ const Chats = (props) => {
                         setModalTwoVisible(!modalTwoVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <Pressable onPress={()=> setModalTwoVisible(!modalTwoVisible)} style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.Modalfore}>
-                        <Text style={styles.ModalText}>Font size</Text>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Small</Text>
+                        <View style={styles.Modalfore}>
+                            <Text style={styles.ModalText}>Font size</Text>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={datasix}
+                                    onToggle={() => four()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Small</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={dataseven}
+                                    onToggle={() => five()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Medium</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={dataeight}
+                                    onToggle={() => six()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Large</Text>
+                            </View>
                         </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/onlite.png')} />
-                            <Text style={styles.TextThree}>Medium</Text>
-                        </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Large</Text>
-                        </View>
-                    </View>
-                    </View>
+                    </Pressable>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -150,38 +300,86 @@ const Chats = (props) => {
                         setModalThreeVisible(!modalThreeVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <Pressable onPress={()=>  setModalThreeVisible(!modalThreeVisible)} style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.ScrollView}>
-                    <Text style={styles.ModalText}>Font size</Text>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Small</Text>
+                        <View style={styles.ScrollView}>
+                            <Text style={styles.ModalText}>App Language</Text>
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={dataone}
+                                    onToggle={() => one()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Small</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={datafo}
+                                    onToggle={() => seven()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Medium</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={datafoo}
+                                    onToggle={() => eight()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Large</Text>
+                            </View>
+
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={dataso}
+                                    onToggle={() => nine()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Small</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={datasoo}
+                                    onToggle={() => ten()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Medium</Text>
+                            </View>
+                            <View style={styles.flexThree}>
+                            <CircleCheckBox
+                                    checked={dataeo}
+                                    onToggle={() => ele()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.TextThree}>Large</Text>
+                            </View>
                         </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/onlite.png')} />
-                            <Text style={styles.TextThree}>Medium</Text>
-                        </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Large</Text>
-                        </View>
-                       
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Small</Text>
-                        </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Medium</Text>
-                        </View>
-                        <View style={styles.flexThree}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/o.png')} />
-                            <Text style={styles.TextThree}>Large</Text>
-                        </View>
-                    </View>
-                    </View>
-                    
+                    </Pressable>
+
                 </Modal>
             </ScrollView>
         </View>
@@ -234,11 +432,16 @@ const styles = StyleSheet.create({
     flexThree: {
         flexDirection: 'row',
         marginHorizontal: 30,
+        marginTop: 20
     },
     flex: {
         flexDirection: 'row',
         marginHorizontal: 30,
         marginBottom: 20
+    },
+    flexFive: {
+        flexDirection: 'row',
+        marginHorizontal: 30,
     },
     flexTwo: {
         flexDirection: 'row',
@@ -247,10 +450,16 @@ const styles = StyleSheet.create({
     },
     TextThree: {
         marginHorizontal: 20,
-        marginTop: 20,
         fontSize: 18,
         fontWeight: '500',
         color: color.B_000
+    },
+    Textfore: {
+        marginHorizontal: 20,
+        fontSize: 18,
+        fontWeight: '500',
+        color: color.B_000,
+        marginTop:20
     },
     fore: {
         marginHorizontal: 80,
@@ -294,7 +503,7 @@ const styles = StyleSheet.create({
         marginLeft: 50
     },
     Modalfore: {
-        height: 220,
+        height: 200,
         width: '90%',
         backgroundColor: color.gray_50,
         alignSelf: 'center',
@@ -305,6 +514,6 @@ const styles = StyleSheet.create({
         height: 380,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
-        borderRadius:5
+        borderRadius: 5
     }
 })

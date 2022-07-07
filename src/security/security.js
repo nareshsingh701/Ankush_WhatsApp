@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Linking } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Linking,Switch } from 'react-native'
+import React, { useState } from 'react'
 import color from '../../src/utils/color'
 import { DefaultTheme } from '@react-navigation/native'
 
 const Security = (props) => {
+    const [data,setData] = useState(false);
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
@@ -17,7 +18,10 @@ const Security = (props) => {
                 <Text style={styles.TextTwo}>Messages and calls in end-to-end encrypted chats stay between you and the people you choose. Not even WhatsApp can read or losten to them.<Text onPress={() => Linking.openURL('https://www.whatsapp.com/security?lg=en&lc=GB&eea=0')} style={styles.Linking}> Learn more</Text></Text>
                 <View style={styles.View}>
                     <Text style={styles.Text}>Show security notifications on this phone</Text>
-                    <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../assets/images/off.png')} />
+                   <Switch 
+                   value={data}
+                    onValueChange={()=>setData(!data)}
+                   />
                 </View>
                 <Text style={styles.TextThree}>Get notified when your security code changes for a contact`s phone in an end-to-end encrypted chat. If you have multiple devices, this setting must be enabled on each device where you want to get notifications.
                     <Text onPress={() => Linking.openURL('https://faq.whatsapp.com/general/security-and-privacy/about-security-code-change-notifications')} style={styles.Linking}> Learn more</Text></Text>

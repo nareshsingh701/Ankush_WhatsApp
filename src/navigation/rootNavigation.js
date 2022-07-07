@@ -68,6 +68,7 @@ import App from '../screen/help/app';
 import Invite from '../screen/InviteaFriend/invite';
 import Two from '../screen/text/two';
 import DataChange from '../screen/dataChange/dataChange';
+import DefaultMessageTime from '../screen/account/defaultMessageTime';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -121,22 +122,23 @@ const Navigation = () => {
                 <Stack.Screen options={{headerShown: false}} name="Change" component={Change} />
                 <Stack.Screen options={{headerShown: false}} name="Changenumber" component={Changenumber} />
                 <Stack.Screen options={{headerShown: false}} name="Request" component={Request} />
-                <Stack.Screen name="Delete" component={Delete} />
-                <Stack.Screen name="Chats" component={Chats} />
-                <Stack.Screen name="Wallpaper" component={Wallpaper} />
-                <Stack.Screen name="Chatbackup" component={Chatbackup} />
-                <Stack.Screen name="Chathistory" component={Chathistory} />
-                <Stack.Screen name="Notifications" component={Notifications} />
-                <Stack.Screen name="Storage" component={Storage} />
-                <Stack.Screen name="Manage" component={Manage} />
-                <Stack.Screen name="Network" component={Network} />
-                <Stack.Screen name="Help" component={Help} />
-                <Stack.Screen name="LodingTwo" component={LodingTwo} />
-                <Stack.Screen name="Contact" component={Contact} />
-                <Stack.Screen name="App" component={App} />
-                <Stack.Screen name="Invite" component={Invite} />
-                <Stack.Screen name="Two" component={Two} />
-                <Stack.Screen name="DataChange" component={DataChange} />
+                <Stack.Screen options={{headerShown: false}} name="Delete" component={Delete} />
+                <Stack.Screen options={{headerShown: false}} name="Chats" component={Chats} />
+                <Stack.Screen options={{headerShown: false}} name="Wallpaper" component={Wallpaper} />
+                <Stack.Screen options={{headerShown: false}} name="Chatbackup" component={Chatbackup} />
+                <Stack.Screen options={{headerShown: false}} name="Chathistory" component={Chathistory} />
+                <Stack.Screen options={{headerShown: false}} name="Notifications" component={Notifications} />
+                <Stack.Screen options={{headerShown: false}} name="Storage" component={Storage} />
+                <Stack.Screen options={{headerShown: false}} name="Manage" component={Manage} />
+                <Stack.Screen options={{headerShown: false}} name="Network" component={Network} />
+                <Stack.Screen options={{headerShown: false}} name="Help" component={Help} />
+                <Stack.Screen options={{headerShown: false}} name="LodingTwo" component={LodingTwo} />
+                <Stack.Screen options={{headerShown: false}} name="Contact" component={Contact} />
+                <Stack.Screen options={{headerShown: false}} name="App" component={App} />
+                <Stack.Screen options={{headerShown: false}} name="Invite" component={Invite} />
+                <Stack.Screen options={{headerShown: false}} name="Two" component={Two} />
+                <Stack.Screen options={{headerShown: false}} name="DataChange" component={DataChange} />
+                <Stack.Screen options={{headerShown: false}} name="DefaultMessageTime" component={DefaultMessageTime} />
 
             </Stack.Navigator>
         </NavigationContainer>

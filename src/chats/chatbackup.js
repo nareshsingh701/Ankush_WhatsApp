@@ -1,7 +1,75 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Switch, Modal, Pressable } from 'react-native'
+import React, { useState } from 'react'
 import color from '../utils/color'
+import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
 const Chatbackup = (props) => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modaloneVisible, setModalOneVisible] = useState(false);
+
+    const [dataone, setDataOne] = useState(false)
+    const [datathree, setDataThree] = useState(false)
+    const [datafour, setDataFour] = useState(false)
+    const [datafive, setDataFive] = useState(false)
+    const [datasix, setDataSix] = useState(false)
+    const [dataseven, setDataSeven] = useState(false)
+    const [dataeight, setDataEight] = useState(false)
+    const [datanine, setDatanine] = useState(false)
+
+    const [data, setData] = useState(false);
+    const [datatwo, setDataTwo] = useState(false);
+
+    const one = () => {
+        setDataOne(true);
+        setDataThree(false);
+        setDataFour(false);
+        setDataFive(false);
+        setDataSix(false);
+    }
+    const two = () => {
+        setDataOne(false);
+        setDataThree(true);
+        setDataFour(false);
+        setDataFive(false);
+        setDataSix(false);
+    }
+
+    const three = () => {
+        setDataOne(false);
+        setDataThree(false);
+        setDataFour(true);
+        setDataFive(false);
+        setDataSix(false);
+    }
+    const four = () => {
+        setDataOne(false);
+        setDataThree(false);
+        setDataFour(false);
+        setDataFive(true);
+        setDataSix(false);
+    }
+    const five = () => {
+        setDataOne(false);
+        setDataThree(false);
+        setDataFour(false);
+        setDataFive(false);
+        setDataSix(true);
+    }
+    const Six = () => {
+        setDataSeven(true);
+        setDataEight(false);
+        setDatanine(false);
+    }
+    const Seven = () => {
+        setDataSeven(false);
+        setDataEight(true);
+        setDatanine(false);
+
+    }
+    const Eight = () => {
+        setDataSeven(false);
+        setDataEight(false);
+        setDatanine(true);
+    }
     return (
         <View style={styles.container} >
             <View style={styles.ViewStyle}>
@@ -32,23 +100,170 @@ const Chatbackup = (props) => {
                     <Text style={styles.Backup}>Google Drive sattings</Text>
                 </View>
                 <Text style={styles.TextTwo}>Back up  your chat history and media to Google Drive. so if yor  change  phone`s your chat history is safe. For added security, you can protect your backup with end-to-end encryption.</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setModalVisible(true)}>
                     <Text style={styles.TextThree}>Back up Google Drive</Text>
                     <Text style={styles.TextTwo}>Never</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setModalOneVisible(!modaloneVisible)} >
                     <Text style={styles.TextThree}>Google Account</Text>
                     <Text style={styles.TextTwo}>None selected</Text>
                 </TouchableOpacity>
-                <View style={styles.flexTwo}>
+                <TouchableOpacity onPress={() => setData(!data)} style={styles.flexThree}>
                     <Text style={styles.BackupThree}>Back up using cellular</Text>
-                    <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/off2.png')} />
-                </View>
-                <View style={styles.flexThree}>
-                    <Text style={styles.BackupThree}>Inclide videos</Text>
-                    <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../assets/images/off2.png')} />
-                </View>
+                    <Switch
+                        value={data}
+                        onValueChange={() => setData(!data)}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setDataTwo(!datatwo)} style={{ marginBottom: 30 }}>
+                    <View style={styles.flexThree}>
+
+                        <Text style={styles.BackupThree}>Inclide videos</Text>
+                        <Switch
+                            value={datatwo}
+                            onValueChange={() => setDataTwo(!datatwo)}
+                        />
+                    </View>
+                    {
+                        datatwo == false ?
+                            <View>
+
+                            </View>
+                            :
+                            <View>
+                                <Text style={styles.TextTwo}>5.2 MB to be uploaded</Text>
+                            </View>
+                    }
+                </TouchableOpacity>
+
             </ScrollView>
+            <Modal
+
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={styles.Modal}>
+                        <Text style={styles.TextFive}>Back up to Google Drive</Text>
+                        <View style={styles.flexTwo}>
+                            <CircleCheckBox
+                                checked={dataone}
+                                onToggle={() => one()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextSix}>Never</Text>
+                        </View>
+                        <View style={styles.flexTwo}>
+                            <CircleCheckBox
+                                checked={datathree}
+                                onToggle={() => two()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextSix}>Only when I tap "Back up"</Text>
+                        </View>
+                        <View style={styles.flexTwo}>
+                            <CircleCheckBox
+                                checked={datafour}
+                                onToggle={() => three()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextSix}>Daily</Text>
+                        </View>
+                        <View style={styles.flexTwo}>
+                            <CircleCheckBox
+                                checked={datafive}
+                                onToggle={() => four()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextSix}>Weekly</Text>
+                        </View>
+                        <View style={styles.flexTwo}>
+                            <CircleCheckBox
+                                checked={datasix}
+                                onToggle={() => five()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextSix}>Monthly</Text>
+                        </View>
+                        <Text onPress={() => setModalVisible(!modalVisible)} style={styles.TextSeven}>CANCEL</Text>
+                    </View>
+                </Pressable>
+            </Modal>
+            <Modal
+
+                transparent={true}
+                visible={modaloneVisible}
+                onRequestClose={() => {
+                    setModalOneVisible(!modaloneVisible);
+                }}
+            >
+                <Pressable onPress={()=> setModalOneVisible(!modaloneVisible)} style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={styles.ModalTwo}>
+                        <Text style={styles.TextFive}>Choose an account</Text>
+                        <View style={styles.flexFour}>
+                            <Text style={styles.TextEight}>Monthly</Text>
+                            <CircleCheckBox
+                                checked={dataseven}
+                                onToggle={() => Six()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                        </View>
+                        <View style={styles.flexFour}>
+                            <Text style={styles.TextEight}>ankushsingh 10535@gmail.com</Text>
+                            <CircleCheckBox
+                                checked={dataeight}
+                                onToggle={() => Seven()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                        </View>
+
+                        <View style={styles.flexFour}>
+                            <Text style={styles.TextEight}>Add account</Text>
+                            <CircleCheckBox
+                                checked={datanine}
+                                onToggle={() => Eight()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='gray'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                        </View>
+                        <Text onPress={()=> setModalOneVisible(!modaloneVisible)} style={styles.TextSeven}>CANCEL</Text>
+                    </View>
+                </Pressable>
+            </Modal>
         </View>
     )
 }
@@ -90,13 +305,18 @@ const styles = StyleSheet.create({
     },
     flexTwo: {
         flexDirection: 'row',
+        marginHorizontal: 30,
+        marginTop: 20
+    },
+    flexFour: {
+        flexDirection: 'row',
+        marginRight: 30,
         justifyContent:'space-between',
-    
+        marginTop:20
     },
     flexThree: {
         flexDirection: 'row',
-        justifyContent:'space-between',
-marginBottom:30
+        justifyContent: 'space-between',
     },
     Backup: {
         marginTop: 20,
@@ -105,7 +325,7 @@ marginBottom:30
     },
     TextTwo: {
         marginHorizontal: 50,
-        marginTop: 10
+
     },
     TextThree: {
         marginHorizontal: 50,
@@ -143,12 +363,53 @@ marginBottom:30
         backgroundColor: color.gray_50,
         marginTop: 20
     },
-    BackupThree:{
-        marginHorizontal:50,
+    BackupThree: {
+        marginHorizontal: 50,
         marginTop: 20,
         fontSize: 16,
         fontWeight: '500',
-      
+    },
+    Modal: {
+        width: '90%',
+        height: '60%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'center',
+        borderRadius: 5
+    },
+    TextFive: {
+        marginTop: 15,
+        marginHorizontal: 30,
+        fontSize: 20,
+        fontWeight: '500',
+        color: color.B_000
+    },
+    TextSix: {
+        marginHorizontal: 30,
+        fontSize: 16,
+        fontWeight: '500',
+        color: color.B_000
+    },
+    TextEight: {
+        fontSize: 16,
+        fontWeight: '500',
+        color: color.B_000,
+        marginHorizontal: 30,
+        marginTop: 10,
+    },
+    TextSeven: {
+        alignSelf: 'flex-end',
+        marginTop: 30,
+        marginRight: 30,
+        color: color.teal_800,
+        fontSize: 16,
+        fontWeight: '500'
+    },
+    ModalTwo: {
+        width: '90%',
+        height: '50%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'center',
+        borderRadius: 5
     }
 
 })

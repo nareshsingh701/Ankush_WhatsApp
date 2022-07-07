@@ -14,7 +14,7 @@ class MainHome extends React.Component {
       { key: 'third', title: 'CALLS' },
     ],
     modalVisible: false,
-    Visible: false,
+    twoVisible: false,
     ViewVisible: false,
     mostVisible: false,
     bestVisible: false,
@@ -24,8 +24,8 @@ class MainHome extends React.Component {
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
-  setVisible = (visible) => {
-    this.setState({ Visible: visible });
+  setTwoVisible = (visible) => {
+    this.setState({ twoVisible: visible });
   }
   setViewVisible = (visible) => {
     this.setState({ ViewVisible: visible });
@@ -96,7 +96,7 @@ class MainHome extends React.Component {
       return (
         <React.Fragment>
 
-          <TouchableOpacity onPress={() => this.setVisible(true)} style={{ marginLeft: 200 }}  >
+          <TouchableOpacity onPress={() => this.setTwoVisible(true)} style={{ marginLeft: 200 }}  >
             <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.setModalVisible(true)} >
@@ -133,7 +133,7 @@ class MainHome extends React.Component {
   }
   render() {
     const { modalVisible } = this.state;
-    const { Visible } = this.state;
+    const { twoVisible } = this.state;
     const { ViewVisible } = this.state;
     const { mostVisible } = this.state;
     const { bestVisible } = this.state;
@@ -147,14 +147,14 @@ class MainHome extends React.Component {
           <Modal
             animationType="fade"
             transparent={true}
-            visible={Visible}
+            visible={twoVisible}
             onRequestClose={() => {
-              this.setVisible(!Visible);
+              this.setTwoVisible(!twoVisible);
             }}
           >
-            <Pressable onPress={() => this.setVisible(!Visible)} style={{ flex: 1 }}>
+            <Pressable onPress={() => this.setTwoVisible(!twoVisible)} style={{ flex: 1 }}>
               <View style={styles.ModalStyle}>
-                <TouchableOpacity onPress={() => this.setVisible(!Visible)}>
+                <TouchableOpacity onPress={() => this.setTwoVisible(!twoVisible)}>
                   <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/Rite.png')} />
                 </TouchableOpacity>
                 <TextInput

@@ -69,7 +69,7 @@ const NewGroup = (props) => {
     <View style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')}>
             <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <View>
@@ -88,7 +88,7 @@ const NewGroup = (props) => {
             setModalVisible(!modalVisible);
           }}
         >
-          <Pressable onPress={()=> setModalVisible(!modalVisible)} style={{flex:1}} >
+          <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flex: 1 }} >
             <View style={styles.ViewModal}>
               <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
                 <Image resizeMode={'cover'} style={styles.ImagesThtee} source={require('../../assets/images/colorLeft.png')} />

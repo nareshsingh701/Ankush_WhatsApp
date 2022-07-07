@@ -79,7 +79,7 @@ const NewBroadcase = (props) => {
     <View style={styles.container}>
       <View style={styles.ViewStyle}>
         <View style={styles.flexStyle}>
-          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')}>
             <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/colorLeft.png')} />
           </TouchableOpacity>
           <View>

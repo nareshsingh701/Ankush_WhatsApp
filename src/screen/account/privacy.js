@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Switch } from 'react-native'
+import React, { useState } from 'react'
 import color from '../../utils/color'
-const Privacy = (props) => {
 
+const Privacy = (props) => {
+    const [data, setData] = useState(false)
     const renderMyButton = (first, second, screenName) => {
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate(screenName)} style={styles.TouchableOpacity}>
@@ -35,16 +36,28 @@ const Privacy = (props) => {
                     <Text style={styles.TextTwo}>Status</Text>
                     <Text style={styles.TextFore}>My contacts</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.TextTwoStyles}>
+                <TouchableOpacity onPress={() => setData(!data)} style={styles.TextTwoStyles}>
                     <View style={styles.flex}>
                         <Text style={styles.TextTwo}>Read receipts</Text>
-                        <Image resizeMode={'cover'} style={styles.ImageTwo} source={require('../../assets/images/on.png')} />
+                        <Switch
+                            value={data}
+                            onValueChange={() => setData(!data)}
+                        />
                     </View>
-                    <Text style={styles.TextThree}>if turned off, you won`t send or receive Read receipts. Read receipts are always send for group chats.</Text>
+                    {
+                        data == false ?
+                            <View>
+                                <Text style={styles.TextThree}>if turned on, you won`t send or receive Read receipts. Read receipts are always send for group chats.</Text>
+                            </View>
+                            :
+                            <View>
+                                <Text style={styles.TextThree}>if turned off, you won`t send or receive Read receipts. Read receipts are always send for group chats.</Text>
+                            </View>
+                    }
                 </TouchableOpacity>
                 <View style={styles.TextFive}></View>
                 <Text style={styles.center}>Disappearing Messages</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate('Defaultmessage')} style={styles.TextThreeStyle}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('DefaultMessageTime')} style={styles.TextThreeStyle}>
                     <View style={styles.flex}>
                         <Text style={styles.TextTwo}>Default Message timer</Text>
                         <Text style={styles.ViewforeStyle}>Off</Text>

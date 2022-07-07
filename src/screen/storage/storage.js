@@ -1,12 +1,51 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, Switch, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import color from '../../utils/color'
+import CheckBox from '@react-native-community/checkbox';
+import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
 const Storage = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalOneVisible, setModalOneVisible] = useState(false);
     const [modalTwoVisible, setModalTwoVisible] = useState(false);
     const [modalThreeVisible, setModalThreeVisible] = useState(false);
 
+    const [data, setData] = useState(false);
+
+    const [CheckBoxone, setCheckBoxOne] = useState(false);
+    const [CheckBoxtwo, setCheckBoxTwo] = useState(false);
+    const [CheckBoxthree, setCheckBoxThree] = useState(false);
+    const [CheckBoxfour, setCheckBoxFour] = useState(false);
+    const [CheckBoxfive, setCheckBoxFive] = useState(false);
+    const [CheckBoxsix, setCheckBoxSix] = useState(false);
+    const [CheckBoxseven, setCheckBoxSeven] = useState(false);
+    const [CheckBoxeight, setCheckBoxEight] = useState(false);
+    const [CheckBoxnine, setCheckBoxNine] = useState(false);
+    const [CheckBoxten, setCheckBoxTen] = useState(false);
+    const [CheckBoxele, setCheckBoxEle] = useState(false);
+    const [CheckBoxtww, setCheckBoxTww] = useState(false);
+
+    const [dataone, setDataOne] = useState(false);
+    const [datatwo, setDataTwo] = useState(false);
+    const [datathree, setDataThree] = useState(false);
+    const one = () => {
+        setDataOne(true);
+        setDataTwo(false);
+        setDataThree(false);
+
+    }
+    const two = () => {
+        setDataOne(false)
+        setDataTwo(true);
+        setDataThree(false);
+
+    }
+
+    const three = () => {
+        setDataOne(false)
+        setDataTwo(false);
+        setDataThree(true);
+
+    }
     return (
         <View style={styles.container}>
             <View style={styles.ViewStyle}>
@@ -33,7 +72,10 @@ const Storage = (props) => {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.flexTwo}>
                     <Text style={styles.TextThree}>Use less data for calls</Text>
-                    <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/off2.png')} />
+                    <Switch
+                        value={data}
+                        onValueChange={() => setData(!data)}
+                    />
                 </TouchableOpacity>
                 <View style={styles.width}></View>
                 <Text style={styles.marginHorizontal}>Media auto-download</Text>
@@ -59,7 +101,7 @@ const Storage = (props) => {
                 <View style={styles.width}></View>
                 <Text style={styles.marginHorizontal}>Media upload quality</Text>
                 <Text style={styles.Textfore} >Choose the quality of media files to be send</Text>
-                <TouchableOpacity  onPress={() => setModalThreeVisible(true)}>
+                <TouchableOpacity onPress={() => setModalThreeVisible(true)}>
                     <View style={styles.ViewTwo}>
                         <Text style={styles.TextOne}>Photo upload quality</Text>
                         <Text style={styles.TextTwo}>Auto (recommended)</Text>
@@ -76,28 +118,48 @@ const Storage = (props) => {
 
 
                 >
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flex: 1, justifyContent: 'center' }}>
                         <View style={styles.Modal}>
                             <Text style={styles.ModalText}>When using mobile data</Text>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chackbox.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxone}
+                                    onValueChange={(CheckBoxone) => setCheckBoxOne(CheckBoxone)}
+                                />
                                 <Text style={styles.ModalThree}>Photos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxtwo}
+                                    onValueChange={(CheckBoxtwo) => setCheckBoxTwo(CheckBoxtwo)}
+                                />
                                 <Text style={styles.ModalThree}>Audio</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxthree}
+                                    onValueChange={(CheckBoxthree) => setCheckBoxThree(CheckBoxthree)}
+                                />
                                 <Text style={styles.ModalThree}>Videos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxfour}
+                                    onValueChange={(CheckBoxfour) => setCheckBoxFour(CheckBoxfour)}
+                                />
                                 <Text style={styles.ModalThree}>Documents</Text>
                             </View>
                             <Text onPress={() => setModalVisible(!modalVisible)} style={styles.ModalFour}>CANCEL<Text onPress={() => setModalVisible(!modalVisible)}>      OK</Text></Text>
                         </View>
-                    </View>
+                    </Pressable>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -108,28 +170,48 @@ const Storage = (props) => {
                         setModalOneVisible(!modalOneVisible);
                     }}
                 >
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <Pressable onPress={() => setModalOneVisible(!modalOneVisible)} style={{ flex: 1, justifyContent: 'center' }}>
                         <View style={styles.Modal}>
                             <Text style={styles.ModalText}>When connected on Wi-Fi</Text>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chackbox.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxfive}
+                                    onValueChange={(CheckBoxfive) => setCheckBoxFive(CheckBoxfive)}
+                                />
                                 <Text style={styles.ModalThree}>Photos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chackbox.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxsix}
+                                    onValueChange={(CheckBoxsix) => setCheckBoxSix(CheckBoxsix)}
+                                />
                                 <Text style={styles.ModalThree}>Audio</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chackbox.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxseven}
+                                    onValueChange={(CheckBoxseven) => setCheckBoxSeven(CheckBoxseven)}
+                                />
                                 <Text style={styles.ModalThree}>Videos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/chackbox.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxeight}
+                                    onValueChange={(CheckBoxeight) => setCheckBoxEight(CheckBoxeight)}
+                                />
                                 <Text style={styles.ModalThree}>Documents</Text>
                             </View>
                             <Text onPress={() => setModalOneVisible(!modalOneVisible)} style={styles.ModalFour}>CANCEL<Text onPress={() => setModalOneVisible(!modalOneVisible)}>      OK</Text></Text>
                         </View>
-                    </View>
+                    </Pressable>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -140,28 +222,48 @@ const Storage = (props) => {
                         setModalTwoVisible(!modalTwoVisible);
                     }}
                 >
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <Pressable onPress={() => setModalTwoVisible(!modalTwoVisible)} style={{ flex: 1, justifyContent: 'center' }}>
                         <View style={styles.Modal}>
                             <Text style={styles.ModalText}>When roaming</Text>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxnine}
+                                    onValueChange={(CheckBoxnine) => setCheckBoxNine(CheckBoxnine)}
+                                />
                                 <Text style={styles.ModalThree}>Photos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxten}
+                                    onValueChange={(CheckBoxten) => setCheckBoxTen(CheckBoxten)}
+                                />
                                 <Text style={styles.ModalThree}>Audio</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxele}
+                                    onValueChange={(CheckBoxele) => setCheckBoxEle(CheckBoxele)}
+                                />
                                 <Text style={styles.ModalThree}>Videos</Text>
                             </View>
                             <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/charak.png')} />
+                                <CheckBox
+                                    style={styles.ImagesThree}
+                                    disabled={false}
+                                    value={CheckBoxtww}
+                                    onValueChange={(CheckBoxtww) => setCheckBoxTww(CheckBoxtww)}
+                                />
                                 <Text style={styles.ModalThree}>Documents</Text>
                             </View>
                             <Text onPress={() => setModalTwoVisible(!modalTwoVisible)} style={styles.ModalFour}>CANCEL<Text onPress={() => setModalTwoVisible(!modalTwoVisible)}>      OK</Text></Text>
                         </View>
-                    </View>
+                    </Pressable>
                 </Modal>
                 <Modal
                     animationType="slide"
@@ -171,25 +273,49 @@ const Storage = (props) => {
                         setModalThreeVisible(!modalThreeVisible);
                     }}
                 >
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <Pressable onPress={() => setModalThreeVisible(!modalThreeVisible)} style={{ flex: 1, justifyContent: 'center' }}>
                         <View style={styles.Modal}>
                             <Text style={styles.ModalText}>Photo upload quality</Text>
                             <Text style={styles.ModalTextTwo}>Best quality photoa are larger and can take longer to send</Text>
-                            <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/onlite.png')} />
-                                <Text style={styles.ModalThree}>Auto (recommended)</Text>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={dataone}
+                                    onToggle={() => one()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.ModalFive}>Auto (recommended)</Text>
                             </View>
-                            <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/o.png')} />
-                                <Text style={styles.ModalThree}>Best quality</Text>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={datatwo}
+                                    onToggle={() => two()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.ModalFive}>Best quality</Text>
                             </View>
-                            <View style={styles.flex}>
-                                <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/o.png')} />
-                                <Text style={styles.ModalThree}>Data saver</Text>
+                            <View style={styles.flexThree}>
+                                <CircleCheckBox
+                                    checked={datathree}
+                                    onToggle={() => three()}
+                                    labelPosition={LABEL_POSITION.RIGHT}
+                                    outerColor='#00695C'
+                                    innerColor='#00695C'
+                                    filterSize='20'
+                                    innerSize='12'
+                                />
+                                <Text style={styles.ModalFive}>Data saver</Text>
                             </View>
                             <Text onPress={() => setModalThreeVisible(!modalThreeVisible)} style={styles.ModalFour}>CANCEL<Text onPress={() => setModalThreeVisible(!modalThreeVisible)}>      OK</Text></Text>
                         </View>
-                    </View>
+                    </Pressable>
                 </Modal>
             </ScrollView>
         </View>
@@ -235,6 +361,11 @@ const styles = StyleSheet.create({
     },
     flex: {
         flexDirection: 'row'
+    },
+    flexThree: {
+        flexDirection: 'row',
+        marginHorizontal: 30,
+        marginTop: 20
     },
     flexTwo: {
         flexDirection: 'row',
@@ -303,6 +434,12 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: color.B_000
     },
+    ModalFive: {
+        fontSize: 18,
+        marginHorizontal: 30,
+        fontWeight: '500',
+        color: color.B_000
+    },
     ModalFour: {
         marginTop: 30,
         marginLeft: 180,
@@ -310,10 +447,10 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: color.teal_800
     },
-    ModalTextTwo:{
-        marginHorizontal:40,
-        fontSize:16,
-        fontWeight:'500',
-        marginTop:10
+    ModalTextTwo: {
+        marginHorizontal: 40,
+        fontSize: 16,
+        fontWeight: '500',
+        marginTop: 10
     }
 })

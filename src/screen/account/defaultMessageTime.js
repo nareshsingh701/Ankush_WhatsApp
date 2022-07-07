@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import color from '../../utils/color'
 import { DefaultTheme } from '@react-navigation/native'
 import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
-const Defaultmessage = (props) => {
+const DefaultMessageTime = (props) => {
     const [dataone, setDataOne] = useState(false);
     const [datatwo, setDataTwo] = useState(false);
     const [datathree, setDataThree] = useState(false);
@@ -39,11 +39,14 @@ const Defaultmessage = (props) => {
                 <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/LeftTwo.png')} />
                 </TouchableOpacity>
-                <Text style={styles.TextStyle}>Default message timer</Text>
+                <Text style={styles.TextStyle}>Default message </Text>
             </View>
             <ScrollView>
                 <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/photo.jpg')} />
                 <Text style={styles.TextTwoStyle}>Start new chats with disappearing message</Text>
+                <Text style={{ marginHorizontal: 30, marginTop: 5 }}>For more privacy and storage, all new messages will disappear from this chat for everyone after the selected duration. Anyone in the chat can change this setting.<Text style={{ color: color.Blue_50 }}>Learn more</Text></Text>
+                <View style={styles.View} />
+                <Text style={styles.TextSS}>Message timer</Text>
                 <View style={styles.flex}>
                     <CircleCheckBox
                         checked={dataone}
@@ -92,13 +95,22 @@ const Defaultmessage = (props) => {
                     />
                     <Text style={styles.TextStyleTwo}>Off</Text>
                 </View>
-                <Text style={styles.TextThree}>When enabled, all new individual chats will start with disappearing messages set to the selected duration. This setting will not affect your existing chats.<Text onPress={() => Linking.openURL('https://faq.whatsapp.com/general/chats/about-disappearing-messages?lg=en&lc=GB&eea=0')} style={styles.Textfore}> Learn more</Text></Text>
+                <View style={styles.View} />
+                <TouchableOpacity onPress={()=>props.navigation.navigate('Defaultmessage')} style={styles.flex} >
+                    <View >
+                        <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/LeftTwo.png')} />
+                    </View>
+                    <View>
+                        <Text style={styles.TextTT}>Try a default message timer</Text>
+                        <Text style={{ marginHorizontal: 30,marginTop:5,marginBottom:50 }}>Start your new chats with disappearing message</Text>
+                    </View>
+                </TouchableOpacity>
             </ScrollView>
         </View>
     )
 }
 
-export default Defaultmessage
+export default DefaultMessageTime;
 
 const styles = StyleSheet.create({
     container: {
@@ -118,6 +130,11 @@ const styles = StyleSheet.create({
         height: 30,
         width: 30
     },
+    ImagesThree: {
+    marginTop:15,
+        height: 30,
+        width: 30
+    },
     TextStyle: {
         alignSelf: 'center',
         marginLeft: 30,
@@ -126,15 +143,15 @@ const styles = StyleSheet.create({
         color: color.B_00
     },
     TextTwoStyle: {
-        marginHorizontal: 16,
+        marginHorizontal: 30,
         marginTop: 30,
-        fontSize: 18,
-        fontWeight: '600'
+        fontSize: 16,
+        fontWeight: '500'
     },
     flex: {
         flexDirection: 'row',
-        marginTop:20,
-        marginHorizontal:30
+        marginTop: 20,
+        marginHorizontal: 30
     },
     TextStyleTwo: {
         fontSize: 17,
@@ -162,7 +179,25 @@ const styles = StyleSheet.create({
     },
     Textfore: {
         color: color.Blue_50,
-
+    },
+    View: {
+        width: '100%',
+        height: 0.5,
+        backgroundColor: color.B_000,
+        marginTop: 10
+    },
+    TextSS: {
+        marginHorizontal: 30,
+        marginTop: 20,
+        fontSize: 18,
+        fontWeight: '500',
+        color: color.B_000
+    },
+    TextTT: {
+        marginHorizontal: 30,
+        fontSize: 16,
+        fontWeight: '500',
+        color: color.B_000
     }
 
 })

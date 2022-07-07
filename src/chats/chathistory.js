@@ -1,9 +1,14 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal } from 'react-native'
 import React, { useState } from 'react'
 import color from '../../src/utils/color';
+import CheckBox from '@react-native-community/checkbox';
 import { DefaultTheme } from '@react-navigation/native'
 
 const Chathistory = (props) => {
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const [CheckBoxone, setCheckBoxOne] = useState(false)
+    const [CheckBoxtwo, setCheckBoxTwo] = useState(false)
+
     const [modalVisible, setModalVisible] = useState(false);
     const [modalOneVisible, setModalOneVisible] = useState(false);
     const [modalTwoVisible, setModalTwoVisible] = useState(false);
@@ -17,7 +22,7 @@ const Chathistory = (props) => {
                 <Text style={styles.TextStyle}>Chat history</Text>
             </View>
             <ScrollView>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('NewGroup')} style={styles.flex}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('NewGroup')} style={styles.flex}>
                     <Image resizeMode={'cover'} style={styles.Images} source={require('../assets/images/14.jpg')} />
                     <Text style={styles.TextTwo}>Export chat</Text>
                 </TouchableOpacity>
@@ -41,13 +46,13 @@ const Chathistory = (props) => {
                         setModalVisible(!modalVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.Modal}>
-                        <Text style={styles.ModalText}>Are you sure you want to archive ALL chats?</Text>
-                        <Text onPress={() => setModalVisible(!modalVisible)}
-                            style={styles.TextThree} >CANCEL       <Text onPress={() => setModalVisible(!modalVisible)} >OK</Text></Text>
-                    </View>
+                        <View style={styles.Modal}>
+                            <Text style={styles.ModalText}>Are you sure you want to archive ALL chats?</Text>
+                            <Text onPress={() => setModalVisible(!modalVisible)}
+                                style={styles.TextThree} >CANCEL       <Text onPress={() => setModalVisible(!modalVisible)} >OK</Text></Text>
+                        </View>
                     </View>
                 </Modal>
                 <Modal
@@ -58,21 +63,33 @@ const Chathistory = (props) => {
                         setModalOneVisible(!modalOneVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.ModalTwo}>
-                        <Text style={styles.ModalTextTwo}>Clear all chats?</Text>
-                        <View style={styles.flexTwo}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyleTwo} source={require('../assets/images/16.jpg')} />
-                            <Text style={styles.Textfour}>Also delete media receive in chats from the phone gallery</Text>
-                        </View>
-                        <View style={styles.flexTwo}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyleTwo} source={require('../assets/images/16.jpg')} />
-                            <Text style={styles.Textfour}>Delete starred messages</Text>
+                        <View style={styles.ModalTwo}>
+                            <Text style={styles.ModalTextTwo}>Clear all chats?</Text>
+                            <TouchableOpacity onPress={() => setToggleCheckBox()} style={styles.flexTwo}>
 
+                                <CheckBox
+                                    style={styles.ImagesStyleTwo}
+                                    disabled={false}
+                                    value={toggleCheckBox}
+                                    onValueChange={(toggleCheckBox) => setToggleCheckBox(toggleCheckBox)}
+                                />
+                                <Text style={styles.Textfour}>Also delete media receive in chats from the phone gallery</Text>
+                            </TouchableOpacity>
+                            <View style={styles.flexTwo}>
+
+                                <CheckBox
+                                    style={styles.ImagesStyleTwo}
+                                    disabled={false}
+                                    value={CheckBoxone}
+                                    onValueChange={(CheckBoxone) => setCheckBoxOne(CheckBoxone)}
+                                />
+                                <Text style={styles.Textfour}>Delete starred messages</Text>
+
+                            </View>
+                            <Text onPress={() => setModalOneVisible(!modalOneVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalOneVisible(!modalOneVisible)}>CLEAR CHATS</Text></Text>
                         </View>
-                        <Text onPress={() => setModalOneVisible(!modalOneVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalOneVisible(!modalOneVisible)}>CLEAR CHATS</Text></Text>
-                    </View>
                     </View>
                 </Modal>
                 <Modal
@@ -83,16 +100,22 @@ const Chathistory = (props) => {
                         setModalTwoVisible(!modalTwoVisible);
                     }}
                 >
-                    <View style={{flex:1,justifyContent:'center'}}>
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
 
-                    <View style={styles.ModalThree}>
-                        <Text style={styles.ModalTextTwo}>Delete all chats?</Text>
-                        <View style={styles.flexTwo}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyleTwo} source={require('../assets/images/16.jpg')} />
-                            <Text style={styles.Textfour}>Also delete media received in chats from the phone gallery</Text>
+                        <View style={styles.ModalThree}>
+                            <Text style={styles.ModalTextTwo}>Delete all chats?</Text>
+                            <View style={styles.flexTwo}>
+                                
+                                <CheckBox
+                                    style={styles.ImagesStyleTwo}
+                                    disabled={false}
+                                    value={CheckBoxtwo}
+                                    onValueChange={(CheckBoxtwo) => setCheckBoxTwo(CheckBoxtwo)}
+                                />
+                                <Text style={styles.Textfour}>Also delete media received in chats from the phone gallery</Text>
+                            </View>
+                            <Text onPress={() => setModalTwoVisible(!modalTwoVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalTwoVisible(!modalTwoVisible)}>DELETE CHATS</Text></Text>
                         </View>
-                        <Text onPress={() => setModalTwoVisible(!modalTwoVisible)} style={styles.Textfive} >CANCEL       <Text onPress={() => setModalTwoVisible(!modalTwoVisible)}>DELETE CHATS</Text></Text>
-                    </View>
                     </View>
                 </Modal>
             </ScrollView>
@@ -132,9 +155,9 @@ const styles = StyleSheet.create({
         width: 25
     },
     ImagesStyleTwo: {
-        marginTop: 20,
-        height: 50,
-        width: 50
+        marginTop: 25,
+
+
     },
     TextStyle: {
         alignSelf: 'center',
@@ -199,7 +222,6 @@ const styles = StyleSheet.create({
     Textfour: {
         marginTop: 30,
         marginHorizontal: 30
-
     },
     ModalThree: {
         width: '90%',
