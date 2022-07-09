@@ -69,6 +69,7 @@ import Invite from '../screen/InviteaFriend/invite';
 import Two from '../screen/text/two';
 import DataChange from '../screen/dataChange/dataChange';
 import DefaultMessageTime from '../screen/account/defaultMessageTime';
+import Chating from '../chats/chating';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -76,69 +77,70 @@ const Navigation = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName='MainHome'>
                 {/* <Stack.Screen options={{headerShown: false}}  name="phoneNumber" component={PhoneNumber} />  */}
-                <Stack.Screen options={{headerShown: false}} name="search" component={Search} />
-                <Stack.Screen options={{headerShown: false}} name="openScreen" component={OpenScreen} />
-                <Stack.Screen options={{headerShown: false}} name="logIn" component={LogIn} />
-                <Stack.Screen options={{headerShown: false}} name="data" component={Data} />
-                <Stack.Screen options={{headerShown: false}} name="loderChearching" component={LoderChearching} />
-                <Stack.Screen options={{headerShown: false}} name="loderData" component={LoderData} />
-                <Stack.Screen options={{headerShown: false}} name="addData" component={AddData} />
-                <Stack.Screen options={{headerShown: false}} name="loder" component={Loder} />
-                <Stack.Screen options={{headerShown: false}} name="dataStor" component={DataStor} />
-                <Stack.Screen options={{headerShown: false}} name="loderScreen" component={LoderScreen} />
-                <Stack.Screen options={{headerShown: false}} name="welcome" component={Welcome} />
-                <Stack.Screen options={{headerShown: false}} name="loderFile" component={LoderFile} />
-                <Stack.Screen options={{headerShown: false}} name="dataAdd" component={DataAdd} />
-                <Stack.Screen options={{headerShown: false}} name="loderLogIn" component={LoderLogIn} />
-                <Stack.Screen options={{headerShown: false}} name="welcometo" component={Welcometo} />
-                <Stack.Screen options={{headerShown: false}} name="Screen" component={Screen} />
-                <Stack.Screen options={{headerShown: false}} name="MainHome" component={MainHome} />
-                <Stack.Screen options={{headerShown: false}} name="Photos" component={Photos} />
-                <Stack.Screen options={{headerShown: false}} name="Videos" component={Videos} />
-                <Stack.Screen options={{headerShown: false}} name="Links" component={Links} />
-                <Stack.Screen options={{headerShown: false}} name="Gifs" component={Gifs} />
-                <Stack.Screen options={{headerShown: false}} name="Audio" component={Audio} />
-                <Stack.Screen options={{headerShown: false}} name="Documents" component={Documents} />
-                <Stack.Screen options={{headerShown: false}} name="NewGroup" component={NewGroup} />
-                <Stack.Screen options={{headerShown: false}} name="LinkedDevices" component={LinkedDevices} />
-                <Stack.Screen options={{headerShown: false}} name="NewBroadcase" component={NewBroadcase} />
-                <Stack.Screen options={{headerShown: false}} name="Payments" component={Payments} />
-                <Stack.Screen options={{headerShown: false}} name="Settings" component={Settings} />
-                <Stack.Screen options={{headerShown: false}} name="StarredMessages" component={StarredMessages} />
-                <Stack.Screen options={{headerShown: false}} name="Account" component={Account} />
-                <Stack.Screen options={{headerShown: false}} name="Privacy" component={Privacy} />
-                <Stack.Screen options={{headerShown: false}} name="Lastseen" component={Lastseen} />
-                <Stack.Screen options={{headerShown: false}} name="Profile" component={Profile} />
-                <Stack.Screen options={{headerShown: false}} name="About" component={About} />
-                <Stack.Screen options={{headerShown: false}} name="Statusprofile" component={Statusprofile} />
-                <Stack.Screen options={{headerShown: false}} name="Defaultmessage" component={Defaultmessage} />
-                <Stack.Screen options={{headerShown: false}} name="Groups" component={Groups} />
-                <Stack.Screen options={{headerShown: false}} name="Livelocation" component={Livelocation} />
-                <Stack.Screen options={{headerShown: false}} name="Blocked" component={Blocked} />
-                <Stack.Screen options={{headerShown: false}} name="Fingerprint" component={Fingerprint} />
-                <Stack.Screen options={{headerShown: false}} name="Security" component={Security} />
-                <Stack.Screen options={{headerShown: false}} name="Twostep" component={Twostep} />
-                <Stack.Screen options={{headerShown: false}} name="Step" component={Step} />
-                <Stack.Screen options={{headerShown: false}} name="Change" component={Change} />
-                <Stack.Screen options={{headerShown: false}} name="Changenumber" component={Changenumber} />
-                <Stack.Screen options={{headerShown: false}} name="Request" component={Request} />
-                <Stack.Screen options={{headerShown: false}} name="Delete" component={Delete} />
-                <Stack.Screen options={{headerShown: false}} name="Chats" component={Chats} />
-                <Stack.Screen options={{headerShown: false}} name="Wallpaper" component={Wallpaper} />
-                <Stack.Screen options={{headerShown: false}} name="Chatbackup" component={Chatbackup} />
-                <Stack.Screen options={{headerShown: false}} name="Chathistory" component={Chathistory} />
-                <Stack.Screen options={{headerShown: false}} name="Notifications" component={Notifications} />
-                <Stack.Screen options={{headerShown: false}} name="Storage" component={Storage} />
-                <Stack.Screen options={{headerShown: false}} name="Manage" component={Manage} />
-                <Stack.Screen options={{headerShown: false}} name="Network" component={Network} />
-                <Stack.Screen options={{headerShown: false}} name="Help" component={Help} />
-                <Stack.Screen options={{headerShown: false}} name="LodingTwo" component={LodingTwo} />
-                <Stack.Screen options={{headerShown: false}} name="Contact" component={Contact} />
-                <Stack.Screen options={{headerShown: false}} name="App" component={App} />
-                <Stack.Screen options={{headerShown: false}} name="Invite" component={Invite} />
-                <Stack.Screen options={{headerShown: false}} name="Two" component={Two} />
-                <Stack.Screen options={{headerShown: false}} name="DataChange" component={DataChange} />
-                <Stack.Screen options={{headerShown: false}} name="DefaultMessageTime" component={DefaultMessageTime} />
+                <Stack.Screen options={{ headerShown: false }} name="search" component={Search} />
+                <Stack.Screen options={{ headerShown: false }} name="openScreen" component={OpenScreen} />
+                <Stack.Screen options={{ headerShown: false }} name="logIn" component={LogIn} />
+                <Stack.Screen options={{ headerShown: false }} name="data" component={Data} />
+                <Stack.Screen options={{ headerShown: false }} name="loderChearching" component={LoderChearching} />
+                <Stack.Screen options={{ headerShown: false }} name="loderData" component={LoderData} />
+                <Stack.Screen options={{ headerShown: false }} name="addData" component={AddData} />
+                <Stack.Screen options={{ headerShown: false }} name="loder" component={Loder} />
+                <Stack.Screen options={{ headerShown: false }} name="dataStor" component={DataStor} />
+                <Stack.Screen options={{ headerShown: false }} name="loderScreen" component={LoderScreen} />
+                <Stack.Screen options={{ headerShown: false }} name="welcome" component={Welcome} />
+                <Stack.Screen options={{ headerShown: false }} name="loderFile" component={LoderFile} />
+                <Stack.Screen options={{ headerShown: false }} name="dataAdd" component={DataAdd} />
+                <Stack.Screen options={{ headerShown: false }} name="loderLogIn" component={LoderLogIn} />
+                <Stack.Screen options={{ headerShown: false }} name="welcometo" component={Welcometo} />
+                <Stack.Screen options={{ headerShown: false }} name="Screen" component={Screen} />
+                <Stack.Screen options={{ headerShown: false }} name="MainHome" component={MainHome} />
+                <Stack.Screen options={{ headerShown: false }} name="Photos" component={Photos} />
+                <Stack.Screen options={{ headerShown: false }} name="Videos" component={Videos} />
+                <Stack.Screen options={{ headerShown: false }} name="Links" component={Links} />
+                <Stack.Screen options={{ headerShown: false }} name="Gifs" component={Gifs} />
+                <Stack.Screen options={{ headerShown: false }} name="Audio" component={Audio} />
+                <Stack.Screen options={{ headerShown: false }} name="Documents" component={Documents} />
+                <Stack.Screen options={{ headerShown: false }} name="NewGroup" component={NewGroup} />
+                <Stack.Screen options={{ headerShown: false }} name="LinkedDevices" component={LinkedDevices} />
+                <Stack.Screen options={{ headerShown: false }} name="NewBroadcase" component={NewBroadcase} />
+                <Stack.Screen options={{ headerShown: false }} name="Payments" component={Payments} />
+                <Stack.Screen options={{ headerShown: false }} name="Settings" component={Settings} />
+                <Stack.Screen options={{ headerShown: false }} name="StarredMessages" component={StarredMessages} />
+                <Stack.Screen options={{ headerShown: false }} name="Account" component={Account} />
+                <Stack.Screen options={{ headerShown: false }} name="Privacy" component={Privacy} />
+                <Stack.Screen options={{ headerShown: false }} name="Lastseen" component={Lastseen} />
+                <Stack.Screen options={{ headerShown: false }} name="Profile" component={Profile} />
+                <Stack.Screen options={{ headerShown: false }} name="About" component={About} />
+                <Stack.Screen options={{ headerShown: false }} name="Statusprofile" component={Statusprofile} />
+                <Stack.Screen options={{ headerShown: false }} name="Defaultmessage" component={Defaultmessage} />
+                <Stack.Screen options={{ headerShown: false }} name="Groups" component={Groups} />
+                <Stack.Screen options={{ headerShown: false }} name="Livelocation" component={Livelocation} />
+                <Stack.Screen options={{ headerShown: false }} name="Blocked" component={Blocked} />
+                <Stack.Screen options={{ headerShown: false }} name="Fingerprint" component={Fingerprint} />
+                <Stack.Screen options={{ headerShown: false }} name="Security" component={Security} />
+                <Stack.Screen options={{ headerShown: false }} name="Twostep" component={Twostep} />
+                <Stack.Screen options={{ headerShown: false }} name="Step" component={Step} />
+                <Stack.Screen options={{ headerShown: false }} name="Change" component={Change} />
+                <Stack.Screen options={{ headerShown: false }} name="Changenumber" component={Changenumber} />
+                <Stack.Screen options={{ headerShown: false }} name="Request" component={Request} />
+                <Stack.Screen options={{ headerShown: false }} name="Delete" component={Delete} />
+                <Stack.Screen options={{ headerShown: false }} name="Chats" component={Chats} />
+                <Stack.Screen options={{ headerShown: false }} name="Wallpaper" component={Wallpaper} />
+                <Stack.Screen options={{ headerShown: false }} name="Chatbackup" component={Chatbackup} />
+                <Stack.Screen options={{ headerShown: false }} name="Chathistory" component={Chathistory} />
+                <Stack.Screen options={{ headerShown: false }} name="Notifications" component={Notifications} />
+                <Stack.Screen options={{ headerShown: false }} name="Storage" component={Storage} />
+                <Stack.Screen options={{ headerShown: false }} name="Manage" component={Manage} />
+                <Stack.Screen options={{ headerShown: false }} name="Network" component={Network} />
+                <Stack.Screen options={{ headerShown: false }} name="Help" component={Help} />
+                <Stack.Screen options={{ headerShown: false }} name="LodingTwo" component={LodingTwo} />
+                <Stack.Screen options={{ headerShown: false }} name="Contact" component={Contact} />
+                <Stack.Screen options={{ headerShown: false }} name="App" component={App} />
+                <Stack.Screen options={{ headerShown: false }} name="Invite" component={Invite} />
+                <Stack.Screen options={{ headerShown: false }} name="Two" component={Two} />
+                <Stack.Screen options={{ headerShown: false }} name="DataChange" component={DataChange} />
+                <Stack.Screen options={{ headerShown: false }} name="DefaultMessageTime" component={DefaultMessageTime} />
+                <Stack.Screen name="Chating" component={Chating} />
 
             </Stack.Navigator>
         </NavigationContainer>

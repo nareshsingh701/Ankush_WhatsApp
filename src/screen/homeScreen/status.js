@@ -30,7 +30,7 @@ const Status = (props) => {
         )
     }
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1,backgroundColor:color.B_00 }}>
             <FlatList
                 data={data}
                 keyExtractor={(item, index,) => index.toString()}

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import color from '../../utils/color'
 
 const Calls = (props) => {
@@ -106,7 +106,7 @@ const Calls = (props) => {
     )
   }
   return (
-    <View style={{ flex: 1, }}>
+    <View style={{ flex: 1,backgroundColor:color.B_00}}>
       <FlatList
         data={data}
         keyExtractor={(item, index,) => index.toString()}

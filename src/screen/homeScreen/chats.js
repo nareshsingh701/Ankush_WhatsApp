@@ -5,87 +5,88 @@ import color from '../../utils/color'
 const data = [
 
     {
-        Name: "Anshika",
+        name: "Anshika",
         secendName: "Home",
-        Image: require('../../assets/images/pravesh.jpg'),
+        imagesone: require('../../assets/images/pravesh.jpg'),
     },
     {
-        Name: "ANKUSH",
+        name: "ANKUSH",
         secendName: "KHAGA",
-        Image: require('../../assets/images/priyanshu.jpg'),
+        imagesone: require('../../assets/images/priyanshu.jpg'),
     },
     {
-        Name: "Anshu",
+        name: "Anshu",
         secendName: "KHAGA",
-        Image: require('../../assets/images/party.jpg'),
+        imagesone: require('../../assets/images/party.jpg'),
     },
     {
-        Name: "NARESH",
+        name: "NARESH",
         secendName: "KHAGA",
-        Image: require('../../assets/images/Anshika.jpg'),
+        imagesone: require('../../assets/images/Anshika.jpg'),
     },
     {
-        Name: "sonu",
+        name: "sonu",
         secendName: "Arra",
-        Image: require('../../assets/images/sugreev.jpg'),
+        imagesone: require('../../assets/images/sugreev.jpg'),
     },
     {
-        Name: "Ankush",
+        name: "Ankush",
         secendName: "khaga",
-        Image: require('../../assets/images/ankush.jpg'),
+        imagesone: require('../../assets/images/ankush.jpg'),
     },
     {
-        Name: "NARESH",
+        name: "NARESH",
         secendName: "KHAGA",
-        Image: require('../../assets/images/Anshika.jpg'),
+        imagesone: require('../../assets/images/Anshika.jpg'),
     },
     {
-        Name: "sonu",
+        name: "sonu",
         secendName: "Arra",
-        Image: require('../../assets/images/sugreev.jpg'),
+        imagesone: require('../../assets/images/sugreev.jpg'),
     },
     {
-        Name: "Ankush",
+        name: "Ankush",
         secendName: "khaga",
-        Image: require('../../assets/images/ankush.jpg'),
+        imagesone: require('../../assets/images/ankush.jpg'),
     },
 ]
 const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalOneVisible, setModalOneVisible] = useState(false);
     const [uri, setURI] = useState("")
-    const [showTip, setTip] = useState(true);
-
+    const [showTip, setTip] = useState("");
     console.log('props', props);
-
+    
     const renderListData = (listData) => {
         const { item, index } = listData;
 
         return (
-            <View style={styles.Container}>
-                <TouchableOpacity >
-                    <View style={styles.Image} >
-                        <TouchableOpacity onPress={() => {
-                            setURI(item.Image)
-                            setModalVisible(true)
-                        }} style={styles.ViewStyleOne}>
-                            <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
-                        </TouchableOpacity>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} style={styles.Container} >
+                <View style={styles.Image} >
+                    <TouchableOpacity onPress={() => {
 
-                        <View  >
-                            <Text style={styles.text}>{item.Name}</Text>
-                            <Text style={styles.text}>{item.secendName}</Text>
+                        setURI(item.imagesone)
 
-                        </View>
-                        <Text style={styles.texts}>{item.Text}</Text>
+                        setModalVisible(true)
+                    }} style={styles.ViewStyleOne}>
+                        <Image style={styles.ImageSix} resizeMode={'cover'} source={item.imagesone} />
+
+                    </TouchableOpacity>
+
+                    <View style={{ width: '60%' }}>
+                        <Text numberOfLines={1} style={styles.text}>{item.name}</Text>
+                        <Text numberOfLines={1} style={styles.text}>{item.secendName}</Text>
+
                     </View>
-                </TouchableOpacity>
-            </View >
+
+                </View>
+            </TouchableOpacity>
+
 
         )
     }
     return (
-        <View style={{ flex: 1, }} >
+        <View style={{ flex: 1, backgroundColor: '#fff' }} >
             <FlatList
                 data={data}
                 keyExtractor={(item, index,) => index.toString()}
@@ -93,7 +94,6 @@ const Chats = (props) => {
             />
             <View style={{ flex: 1, justifyContent: 'flex-end', marginRight: 20, marginBottom: 20 }}>
                 <TouchableOpacity
-
                     style={styles.ViewStyle}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chats.png')} />
                 </TouchableOpacity>
@@ -105,17 +105,18 @@ const Chats = (props) => {
                 onRequestClose={() => {
                     setModalVisible(!modalVisible);
                     setURI("")
+
                 }}
             >
                 <Pressable onPress={() => {
                     setURI("")
+
                     setModalVisible(!modalVisible)
                 }} style={{ flex: 1 }}>
                     <View style={styles.Modal}>
-
                         <Image onPress={() => setModalOneVisible(true)} style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
                         <View style={styles.flex}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} >
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/chating.png')} />
                             </TouchableOpacity>
                             <TouchableOpacity>
@@ -124,7 +125,12 @@ const Chats = (props) => {
                             <TouchableOpacity>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/videocalling.png')} />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => props.navigation.navigate('DataChange')}>
+                            <TouchableOpacity onPress={() => {
+                                setModalVisible(!modalVisible)
+                                props.navigation.navigate('DataChange', {
+                                    data
+                                })
+                            }}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/info.png')} />
                             </TouchableOpacity>
                         </View>
@@ -194,7 +200,7 @@ const styles = StyleSheet.create({
     ViewStyleOne: {
         height: 50,
         width: 50,
-        marginLeft: 30
+        paddingHorizontal: 16
     },
     Modal: {
         width: '80%',

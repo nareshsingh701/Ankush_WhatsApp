@@ -2,14 +2,28 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Modal, Pressable, Swit
 import React, { useState } from 'react'
 import color from '../../utils/color'
 import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
+import CheckBox from '@react-native-community/checkbox';
+
 const DataChange = (props) => {
+    const { route } = props;
+    const { params } = route;
+    const {data}=params;
+    console.log("route", props.route.params.data);
     const [modalVisible, setModalVisible] = useState(false);
     const [modaloneVisible, setModalOneVisible] = useState(false);
-    const [data, setData] = useState(false);
-
+    const [modaltwoVisible, setModalTwoVisible] = useState(false);
+    const [modalthreeVisible, setModalThreeVisible] = useState(false);
+    const [modalfourVisible, setModalFourVisible] = useState(false);
+    const [modalfiveVisible, setModalFiveVisible] = useState(false);
+    const [hellodata, setData] = useState(false);
+    const [CheckBoxone, setCheckBoxOne] = useState(false)
+    const [CheckBoxtwo, setCheckBoxTwo] = useState(false)
     const [dataone, setDataOne] = useState(false);
     const [datatwo, setDataTwo] = useState(false);
     const [datathree, setDataThree] = useState(false);
+    const [datafour, setDataFour] = useState(false);
+    const [datafive, setDataFive] = useState(false);
+    const [datasix, setDataSix] = useState(false);
     const one = () => {
         setDataOne(true);
         setDataTwo(false);
@@ -29,10 +43,29 @@ const DataChange = (props) => {
         setDataThree(true);
 
     }
+    const four = () => {
+        setDataFour(true);
+        setDataFive(false);
+        setDataSix(false);
+
+    }
+    const five = () => {
+        setDataFour(false);
+        setDataFive(true);
+        setDataSix(false);
+
+    }
+
+    const six = () => {
+        setDataFour(false);
+        setDataFive(false);
+        setDataSix(true);
+
+    }
     return (
         <View style={styles.container}>
             <View style={styles.flex}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/Rite.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setModalVisible(true)}>
@@ -40,7 +73,7 @@ const DataChange = (props) => {
                 </TouchableOpacity>
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
                     <Text style={styles.Text}>Atul Singh</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setModalFourVisible(true)}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/i.png')} />
                     </TouchableOpacity>
                 </View>
@@ -82,7 +115,7 @@ const DataChange = (props) => {
                         <Text style={styles.Textcolor}>Video</Text>
                     </TouchableOpacity>
                     <TouchableOpacity >
-                        <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/info.png')} />
+                        <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/pay.png')} />
                         <Text style={styles.Textcolor}>Pay</Text>
                     </TouchableOpacity>
                 </View>
@@ -104,19 +137,21 @@ const DataChange = (props) => {
                 </View>
 
                 <View style={styles.ViewSix}>
-                    <View style={styles.flexFive}>
+                    <TouchableOpacity onPress={() => setModalFiveVisible(true)} style={styles.flexFive}>
                         <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/nonifications.png')} />
                         <View style={styles.flexTwo}>
                             <View style={styles.flexFour}>
                                 <Text style={styles.TextEight}>Mute notifications</Text>
                             </View>
                             <Switch
-                                value={data}
-                                onValueChange={() => setData(!data)}
+                                onChange={() => setModalFiveVisible(true)}
+                                value={hellodata}
+                                onValueChange={() => setData(!hellodata)}
+
                             />
 
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.flexFour}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/songtwo.png')} />
                         <Text style={styles.TextNine}>Custom notifications</Text>
@@ -134,7 +169,7 @@ const DataChange = (props) => {
                     <Text style={styles.TextTen}>messages and calls are end-to-end encrypted. Top to verify.</Text>
                     <TouchableOpacity>
                         <View style={styles.flexFour}>
-                            <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/potoing.png')} />
+                            <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/timer.png')} />
                             <Text style={styles.TextNine} >Disappearing messages</Text>
                         </View>
                         <Text style={styles.TextTen}>off</Text>
@@ -156,14 +191,14 @@ const DataChange = (props) => {
 
                 </View>
                 <View style={styles.ViewThree}>
-                    <View style={styles.flexFour}>
-                        <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/ankush.jpg')} />
+                    <TouchableOpacity onPress={() => setModalTwoVisible(true)} style={styles.flexFour}>
+                        <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/block.png')} />
                         <Text style={styles.TextOne} >Block Atul Singh</Text>
-                    </View>
-                    <View style={styles.flexFour}>
-                        <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/ankush.jpg')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setModalThreeVisible(true)} style={styles.flexFour}>
+                        <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/unlike.png')} />
                         <Text style={styles.TextOne} >Report Atul Singh</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
 
@@ -218,6 +253,134 @@ const DataChange = (props) => {
                     </View >
                 </Pressable>
             </Modal>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modaltwoVisible}
+                onRequestClose={() => {
+                    setModalTwoVisible(!modaltwoVisible);
+                }}
+            >
+                <Pressable onPress={() => setModalTwoVisible(!modaltwoVisible)} style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={styles.ModalFour}>
+                        <Text style={styles.TextModalTwo}>Block Dipak Bhai?</Text>
+                        <Text onPress={() => setModalTwoVisible(!modaltwoVisible)} style={styles.TextTouch}>CANCEL<Text onPress={() => setModalTwoVisible(!modaltwoVisible)}>       BLOCK</Text></Text>
+                    </View>
+                </Pressable>
+            </Modal>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalthreeVisible}
+                onRequestClose={() => {
+                    setModalThreeVisible(!modalthreeVisible);
+                }}
+            >
+                <Pressable onPress={() => setModalThreeVisible(!modalthreeVisible)} style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={styles.ModalFive}>
+                        <Text style={styles.TextModalTwo}>Report Dipak Bhai?</Text>
+                        <Text style={{
+                            marginHorizontal: 30, marginTop: 10,
+                            fontWeight: '500'
+                        }}>The last 5 messages from this contact will be forwarded to WhatsApp. This contact will not be notified.</Text>
+                        <View style={styles.Modalflex}>
+                            <CheckBox
+
+                                disabled={false}
+                                value={CheckBoxone}
+                                onValueChange={(CheckBoxone) => setCheckBoxOne(CheckBoxone)}
+                            />
+                            <Text style={{ marginTop: 5, marginHorizontal: 16, fontWeight: '500' }}>Block contact and delete chat</Text>
+                        </View>
+                        <Text onPress={() => setModalThreeVisible(!modalthreeVisible)} style={styles.TextTouch}>CANCEL<Text onPress={() => setModalThreeVisible(!modalthreeVisible)}>        REPORT</Text></Text>
+                    </View>
+                </Pressable>
+            </Modal>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalfourVisible}
+                onRequestClose={() => {
+                    setModalFourVisible(!modalfourVisible);
+                }}
+            >
+                <Pressable onPress={() => setModalFourVisible(!modalfourVisible)} style={{ flex: 1, justifyContent: 'flex-start' }}>
+                    <View style={styles.ModalSix}>
+                        <TouchableOpacity onPress={() => setModalFourVisible(!modalfourVisible)}>
+                            <Text style={styles.ModalTextFour}>Share</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => setModalFourVisible(!modalfourVisible)}>
+                            <Text style={styles.ModalTextFour}>Edit</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => setModalFourVisible(!modalfourVisible)}>
+                            <Text style={styles.ModalTextFour}>View in address book</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => setModalFourVisible(!modalfourVisible)}>
+                            <Text style={styles.ModalTextFour}>Verify security code</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Pressable>
+            </Modal>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalfiveVisible}
+                onRequestClose={() => {
+                    setModalFiveVisible(!modalfiveVisible);
+                }}
+            >
+                <Pressable onPress={() => setModalFiveVisible(!modalfiveVisible)} style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={styles.ModalStyle}>
+                        <Text numberOfLines={1} style={styles.TextModalTwo}>Mute notifications for time</Text>
+                        <View style={styles.ModalStyleTwo}>
+                            <CircleCheckBox
+                                checked={datafour}
+                                onToggle={() => four()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='#00695C'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextModalThree}>8 hours</Text>
+                        </View>
+                        <View style={styles.ModalStyleTwo}>
+                            <CircleCheckBox
+                                checked={datafive}
+                                onToggle={() => five()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='#00695C'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextModalThree}>1 week</Text>
+                        </View>
+                        <View style={styles.ModalStyleTwo}>
+                            <CircleCheckBox
+                                checked={datasix}
+                                onToggle={() => six()}
+                                labelPosition={LABEL_POSITION.RIGHT}
+                                outerColor='#00695C'
+                                innerColor='#00695C'
+                                filterSize='20'
+                                innerSize='12'
+                            />
+                            <Text style={styles.TextModalThree}>Always</Text>
+                        </View>
+                        <View style={styles.ViewLine} />
+                        <View style={styles.ModalStyleTwo}>
+                            <CheckBox
+                                disabled={false}
+                                value={CheckBoxtwo}
+                                onValueChange={(CheckBoxtwo) => setCheckBoxTwo(CheckBoxtwo)}
+                            />
+                            <Text style={{ marginTop: 5, fontSize: 16, color: color.B_000, marginHorizontal: 5 }}>Show notifications</Text>
+                        </View>
+                        <Text onPress={() => setModalFiveVisible(!modalfiveVisible)} style={styles.TextTouch}>CANCEL<Text onPress={() => setModalFiveVisible(!modalfiveVisible)}>      OK</Text></Text>
+                    </View>
+                </Pressable>
+            </Modal>
         </View >
     )
 }
@@ -250,9 +413,9 @@ const styles = StyleSheet.create({
         borderRadius: 35
     },
     ImagesStylesFour: {
-        height: 20,
-        width: 20,
-        marginTop: 32,
+        height: 25,
+        width: 25,
+        marginTop: 30,
         marginHorizontal: 16,
         borderRadius: 35
     },
@@ -441,7 +604,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 140,
         backgroundColor: color.B_00,
-        marginTop: 10
+        marginTop: 10,
     },
     ModalTwo: {
         width: '90%',
@@ -475,5 +638,83 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500',
         color: color.teal_800
+    },
+    ModalFour: {
+        width: '90%',
+        height: '20%',
+        backgroundColor: color.gray_50,
+        borderRadius: 5,
+        alignSelf: 'center'
+    },
+    TextModalTwo: {
+        marginHorizontal: 30,
+        marginTop: 20,
+        fontSize: 20,
+        fontWeight: '500',
+        color: color.B_000,
+        width: '60%'
+    },
+    TextTouch: {
+        alignSelf: 'flex-end',
+        marginRight: 30,
+        marginTop: 30,
+        fontSize: 16,
+        fontWeight: '500',
+        color: color.teal_800
+    },
+    ModalFive: {
+        width: '90%',
+        height: '42%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'center',
+        borderRadius: 5
+    },
+    Modalflex: {
+        flexDirection: 'row',
+        marginHorizontal: 30,
+        marginTop: 20
+    },
+    ModalSix: {
+        width: '60%',
+        height: '35%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'flex-end',
+        borderRadius: 5,
+    },
+    ModalTextFour: {
+        fontSize: 17,
+        fontWeight: '500',
+        color: color.B_000,
+        marginHorizontal: 16,
+        marginTop: 20
+    },
+    ModalStyle: {
+        width: '90%',
+        height: '60%',
+        backgroundColor: color.gray_50,
+        alignSelf: 'center',
+        borderRadius: 5
+    },
+    ModalStyleTwo: {
+        flexDirection: 'row',
+        marginTop: 20,
+        marginHorizontal: 30
+    },
+    TextModalThree: {
+        marginHorizontal: 30,
+        fontSize: 18,
+        fontWeight: '500',
+        color: color.B_000
+    },
+    ViewLine: {
+        width: '100%',
+        height: 0.4,
+        backgroundColor: color.B_000,
+        marginTop: 20
+    },
+    Chackbox: {
+        marginHorizontal: 30,
+        flexDirection: 'row',
+        marginTop: 20
     }
 })

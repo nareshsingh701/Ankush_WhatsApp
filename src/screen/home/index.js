@@ -73,13 +73,13 @@ class MainHome extends React.Component {
       <Chats navigation={this.props.navigation} />
     )
   }
-  renderStatus = () =>{
-    return(
+  renderStatus = () => {
+    return (
       <Status navigation={this.props.navigation} />
     )
   }
-  renderCalls =() => {
-    return(
+  renderCalls = () => {
+    return (
       <Calls navigation={this.props.navigation} />
     )
   }
@@ -94,39 +94,43 @@ class MainHome extends React.Component {
     const { index } = this.state;
     if (index === 0) {
       return (
-        <React.Fragment>
-
-          <TouchableOpacity onPress={() => this.setTwoVisible(true)} style={{ marginLeft: 200 }}  >
-            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setModalVisible(true)} >
-            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
-          </TouchableOpacity>
-
+        <React.Fragment >
+          
+          <View style={{ flexDirection: 'row',marginLeft:200}}>
+            <TouchableOpacity onPress={() => this.setTwoVisible(true)} >
+              <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.setModalVisible(true)} >
+              <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
+            </TouchableOpacity>
+          </View>
+        
         </React.Fragment>
       )
     } else if (index === 1) {
       return (
         <React.Fragment>
-          <TouchableOpacity onPress={() => this.setViewVisible(true)} style={{ marginLeft: 200 }}  >
-            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setmostVisible(true)} >
-            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
-          </TouchableOpacity>
-
+          <View style={{ flexDirection: 'row',marginLeft:200}}>
+            <TouchableOpacity onPress={() => this.setViewVisible(true)} >
+              <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.setmostVisible(true)} >
+              <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
+            </TouchableOpacity>
+          </View>
         </React.Fragment>
       )
     } else if (index === 2) {
       return (
         <React.Fragment >
-          <TouchableOpacity onPress={() => this.setbestVisible(true)} style={{ marginLeft: 200 }} >
-            <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setfoldVisible(true)} >
-            <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
-          </TouchableOpacity>
-
+          <View style={{ flexDirection: 'row',marginLeft:200}}>
+            <TouchableOpacity onPress={() => this.setbestVisible(true)}>
+              <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/two.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.setfoldVisible(true)} >
+              <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/home.png')} />
+            </TouchableOpacity>
+          </View>
         </React.Fragment>
       )
     }
@@ -164,29 +168,47 @@ class MainHome extends React.Component {
               </View>
               <View style={styles.ModalView}>
                 <View style={styles.ViewTwo}>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Photos')} style={styles.ViewOne} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Photos')
+                  }} style={styles.ViewOne} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/photo.png')} />
                     <Text style={styles.TextStyle}>photo</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Videos')} style={styles.ViewOne} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Videos')
+                  }} style={styles.ViewOne} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/Video2.png')} />
                     <Text style={styles.TextStyle}>Video</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Links')} style={styles.ViewOne} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Links')
+                  }} style={styles.ViewOne} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/Links.png')} />
                     <Text style={styles.TextStyle}>Links</Text>
                   </TouchableOpacity>
                 </View>
                 <View style={styles.ViewTwo}>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Gifs')} style={styles.ViewOne} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Gifs')
+                  }} style={styles.ViewOne} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/GIFs.png')} />
                     <Text style={styles.TextStyle}>GIFs</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Audio')} style={styles.ViewOne} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Audio')
+                  }} style={styles.ViewOne} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/Audio.png')} />
                     <Text style={styles.TextStyle}>Audio</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('Documents')} style={styles.ViewOnes} >
+                  <TouchableOpacity onPress={() => {
+                    this.setTwoVisible(!twoVisible)
+                    this.props.navigation.navigate('Documents')
+                  }} style={styles.ViewOnes} >
                     <Image resizeMode={'cover'} style={styles.Image} source={require('../../assets/images/Documents.png')} />
                     <Text style={styles.TextStyle}>Documents</Text>
                   </TouchableOpacity>
@@ -204,22 +226,40 @@ class MainHome extends React.Component {
           >
             <Pressable onPress={() => this.setModalVisible(!modalVisible)} style={{ flex: 1, }}>
               <View style={styles.Modal}  >
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('NewGroup')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('NewGroup')
+                }}>
                   <Text style={styles.ModalText} >New group</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('NewBroadcase')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('NewBroadcase')
+                }}>
                   <Text style={styles.ModalText} >New broadcase</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('LinkedDevices')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('LinkedDevices')
+                }}>
                   <Text style={styles.ModalText} >Linked devices</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('StarredMessages')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('StarredMessages')
+                }}>
                   <Text style={styles.ModalText} >Starred messages</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Payments')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('Payments')
+                }}>
                   <Text style={styles.ModalText} >payments</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')}>
+                <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.props.navigation.navigate('Settings')
+                }}>
                   <Text style={styles.ModalText} >Settings</Text>
                 </TouchableOpacity>
               </View>
@@ -258,10 +298,16 @@ class MainHome extends React.Component {
             <Pressable onPress={() => this.setmostVisible(!mostVisible)} style={{ flex: 1 }}>
 
               <View style={styles.ViewFore}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Statusprofile')} >
+                <TouchableOpacity onPress={() => {
+                  this.setmostVisible(!mostVisible)
+                  this.props.navigation.navigate('Statusprofile')
+                }} >
                   <Text style={styles.TextStyleModal}>Staturs Privacy</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.pros.navigation.navigate('Settings')} >
+                <TouchableOpacity onPress={() => {
+                  this.setmostVisible(!mostVisible)
+                  this.props.navigation.navigate('Settings')
+                }} >
                   <Text style={styles.TextStyleModal}>Settings</Text>
                 </TouchableOpacity>
               </View>
@@ -299,7 +345,10 @@ class MainHome extends React.Component {
             <Pressable onPress={() => this.setfoldVisible(!foldVisible)} style={{ flex: 1 }} >
 
               <View style={styles.ViewFive}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')}>
+                <TouchableOpacity onPress={() => {
+                  this.setfoldVisible(!foldVisible)
+                  this.props.navigation.navigate('Settings')
+                }}>
                   <Text style={styles.TextTwo}>Settings</Text>
                 </TouchableOpacity>
               </View>
