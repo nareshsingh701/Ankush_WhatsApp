@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, Modal, Pressable, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import color from '../../utils/color'
 
 const data = [
 
     {
-        name: "Anshika",
+        name: "8957729509",
         secendName: "Home",
         imagesone: require('../../assets/images/pravesh.jpg'),
     },
@@ -54,9 +54,10 @@ const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalOneVisible, setModalOneVisible] = useState(false);
     const [uri, setURI] = useState("")
+    const [dataOne, setDataOne] = useState("")
     const [showTip, setTip] = useState("");
     console.log('props', props);
-    
+
     const renderListData = (listData) => {
         const { item, index } = listData;
 
@@ -66,14 +67,16 @@ const Chats = (props) => {
                     <TouchableOpacity onPress={() => {
 
                         setURI(item.imagesone)
-
+                        setDataOne(item.imagesone)
                         setModalVisible(true)
+                        setTip(item.name)
                     }} style={styles.ViewStyleOne}>
                         <Image style={styles.ImageSix} resizeMode={'cover'} source={item.imagesone} />
 
                     </TouchableOpacity>
 
                     <View style={{ width: '60%' }}>
+
                         <Text numberOfLines={1} style={styles.text}>{item.name}</Text>
                         <Text numberOfLines={1} style={styles.text}>{item.secendName}</Text>
 
@@ -114,9 +117,23 @@ const Chats = (props) => {
                     setModalVisible(!modalVisible)
                 }} style={{ flex: 1 }}>
                     <View style={styles.Modal}>
-                        <Image onPress={() => setModalOneVisible(true)} style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
+
+                        <TouchableOpacity onPress={() => {
+
+                            setModalVisible(!modalVisible)
+                            setModalOneVisible(true)
+                        }}>
+                            <ImageBackground onPress={() => {
+                                setModalVisible(true)
+                            }} style={styles.ImagesTwo} resizeMode={'cover'} source={uri} >
+                                <Text style={styles.TextTwo}>{showTip}</Text>
+                            </ImageBackground>
+
+                        </TouchableOpacity>
                         <View style={styles.flex}>
-                            <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} >
+                            <TouchableOpacity onPress={() => {
+                                props.navigation.navigate('Chating')
+                            }}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/chating.png')} />
                             </TouchableOpacity>
                             <TouchableOpacity>
@@ -136,6 +153,31 @@ const Chats = (props) => {
                         </View>
                     </View>
                 </Pressable>
+            </Modal>
+            <Modal
+                animationType="none"
+                transparent={true}
+                visible={modalOneVisible}
+                onRequestClose={() => {
+                    setModalOneVisible(!modalOneVisible);
+                    setDataOne("")
+
+                }}
+            >
+                <View style={styles.ModalThree}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TouchableOpacity onPress={()=> {
+                            setDataOne("")
+                            setModalOneVisible(!modalOneVisible)}}>
+
+                            <Image resizeMode={'cover'} style={styles.ImagesStylesThree} source={require('../../assets/images/LeftTwo.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.TextTwo}>{showTip}</Text>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                        <Image style={styles.ImagesThree} resizeMode={'cover'} source={dataOne} />
+                    </View>
+                </View>
             </Modal>
         </View>
 
@@ -197,6 +239,12 @@ const styles = StyleSheet.create({
         width: 30,
         marginTop: 10
     },
+    ImagesStylesThree: {
+        height: 30,
+        width: 30,
+        marginTop: 10,
+        marginHorizontal: 30
+    },
     ViewStyleOne: {
         height: 50,
         width: 50,
@@ -204,23 +252,39 @@ const styles = StyleSheet.create({
     },
     Modal: {
         width: '80%',
-        height: '62%',
+        height: 300,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
         marginTop: '25%'
     },
     ImagesTwo: {
-        height: '87%',
+        height: 250,
         width: '100%',
+    },
+    ImagesThree: {
+        height: '60%',
+        width: '100%',
+        alignSelf: 'center',
+
+
     },
     flex: {
         flexDirection: 'row',
         justifyContent: 'space-around',
+
     },
-    ModalTwo: {
+
+    ModalThree: {
         width: '100%',
-        height: '110%',
-        backgroundColor: color.B_000
+        height: '100%',
+        backgroundColor: color.B_000,
+    },
+    TextTwo: {
+        marginHorizontal: 16,
+        color: color.B_00,
+        fontSize: 20,
+        fontWeight: '500',
+        marginTop: 5
     }
 })
 

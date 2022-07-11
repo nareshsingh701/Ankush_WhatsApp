@@ -1,9 +1,9 @@
 import React from 'react'
-import {Provider} from 'react-redux';
+// import {Provider} from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native'
 
 //Custom Imports
-// import store from './src/redux/store';
+//  import store from './src/redux/store';
 import Navigation from './src/navigation/rootNavigation'
 
 const App = () => {

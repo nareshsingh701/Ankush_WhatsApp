@@ -98,7 +98,7 @@ const DefaultMessageTime = (props) => {
                 <View style={styles.View} />
                 <TouchableOpacity onPress={()=>props.navigation.navigate('Defaultmessage')} style={styles.flex} >
                     <View >
-                        <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/LeftTwo.png')} />
+                        <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/timer.png')} />
                     </View>
                     <View>
                         <Text style={styles.TextTT}>Try a default message timer</Text>
