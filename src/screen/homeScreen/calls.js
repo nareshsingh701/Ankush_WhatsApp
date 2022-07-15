@@ -1,77 +1,87 @@
-import { StyleSheet, Text, View, ScrollView, FlatList, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
-import React, {  useState } from 'react'
+import { StyleSheet, Text, View, ScrollView, FlatList, ImageBackground, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
+import React, { useState } from 'react'
 import color from '../../utils/color'
+const data = [
 
+  {
+    name: "+91 8957729509",
+    Icon: require('../../assets/images/videocalling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/Anshika.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Ankush",
+    Icon: require('../../assets/images/colling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/pravesh.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Anshika",
+    Icon: require('../../assets/images/videocalling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/Anshu.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Naresh",
+    Icon: require('../../assets/images/videocalling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/ankush.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Anshu",
+    Icon: require('../../assets/images/colling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/priyanshu.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Naresh",
+    Icon: require('../../assets/images/videocalling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/ankush.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Anshu",
+    Icon: require('../../assets/images/colling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/priyanshu.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Naresh",
+    Icon: require('../../assets/images/videocalling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/ankush.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Anshu",
+    Icon: require('../../assets/images/colling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/priyanshu.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+  {
+    name: "Anshu",
+    Icon: require('../../assets/images/colling.png'),
+    secendName: "Today, 9:07 am",
+    imagesone: require('../../assets/images/priyanshu.jpg'),
+    user: "Hey there! I am using WhatsApp",
+  },
+
+]
 const Calls = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [uri, setURI] = useState("")
-  const data = [
+  const [modaloneVisible, setModalOneVisible] = useState(false);
+  const [uri, setURI] = useState({})
+  const [dataOne, setDataOne] = useState({})
+  const [datatwo, setDataTwo] = useState("")
 
-    {
-      Name: "+91 8957729509",
-      Icon: require('../../assets/images/videocalling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/Anshika.jpg'),
-
-    },
-    {
-      Name: "Ankush",
-      Icon: require('../../assets/images/colling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/pravesh.jpg'),
-
-    },
-    {
-      Name: "Anshika",
-      Icon: require('../../assets/images/videocalling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/Anshu.jpg'),
-
-    },
-    {
-      Name: "Naresh",
-      Icon: require('../../assets/images/videocalling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/ankush.jpg'),
-
-    },
-    {
-      Name: "Anshu",
-      Icon: require('../../assets/images/colling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/priyanshu.jpg'),
-
-    },
-    {
-      Name: "Naresh",
-      Icon: require('../../assets/images/videocalling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/ankush.jpg'),
-
-    },
-    {
-      Name: "Anshu",
-      Icon: require('../../assets/images/colling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/priyanshu.jpg'),
-
-    },
-    {
-      Name: "Naresh",
-      Icon: require('../../assets/images/videocalling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/ankush.jpg'),
-
-    },
-    {
-      Name: "Anshu",
-      Icon: require('../../assets/images/colling.png'),
-      secendName: "Today, 9:07 am",
-      Image: require('../../assets/images/priyanshu.jpg'),
-
-    },
-
-  ]
   const [showTip, setTip] = useState(true);
 
   const renderListData = (listData) => {
@@ -80,18 +90,22 @@ const Calls = (props) => {
 
 
       <View style={styles.Container}>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => props.navigation.navigate('Callinfo', {
+          item
+        })}>
           <View style={styles.Image} >
             <TouchableOpacity
               onPress={() => {
-                setURI(item.Image)
+                setURI(item)
+                setDataOne(item.imagesone)
                 setModalVisible(true)
+                setDataTwo(item.name)
               }}>
-              <Image style={styles.ImageSix} resizeMode={'cover'} source={item.Image} />
+              <Image style={styles.ImageSix} resizeMode={'cover'} source={item.imagesone} />
             </TouchableOpacity>
             <View style={styles.flex} >
               <View>
-                <Text style={styles.text}>{item.Name}</Text>
+                <Text style={styles.text}>{item.name}</Text>
                 <Text style={styles.text}>{item.secendName}</Text>
               </View>
               <TouchableOpacity style={styles.Video}>
@@ -101,40 +115,53 @@ const Calls = (props) => {
 
           </View>
         </TouchableOpacity>
+
       </View >
 
     )
   }
   return (
-    <View style={{ flex: 1,backgroundColor:color.B_00}}>
+    <View style={{ flex: 1, backgroundColor: color.B_00 }}>
       <FlatList
         data={data}
         keyExtractor={(item, index,) => index.toString()}
         renderItem={renderListData}
       />
-      <View style={{ flex: 1, justifyContent: 'flex-end', marginRight: 20, marginBottom: 20 }}>
+      <View style={{ flex: 1, }}>
         <TouchableOpacity style={styles.ViewStyle}>
           <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/calls.png')} />
         </TouchableOpacity>
       </View>
       <Modal
-      
+
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
-          setURI("")
+          setURI({})
         }}
       >
         <Pressable onPress={() => {
-          setURI("")
+          setURI({})
           setModalVisible(!modalVisible)
         }}
           style={{ flex: 1 }}>
           <View style={styles.Modal}>
-            <Image style={styles.ImagesTwo} resizeMode={'cover'} source={uri} />
+            <TouchableOpacity onPress={() => {
+              setModalVisible(!modalVisible)
+              setModalOneVisible(true)
+            }}>
+              <ImageBackground style={styles.ImagesTwo} resizeMode={'cover'} source={uri.imagesone} >
+                <Text style={styles.TextThree}>{datatwo}</Text>
+              </ImageBackground>
+            </TouchableOpacity>
             <View style={styles.flexTwo}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {
+                setModalVisible(!modalVisible)
+                props.navigation.navigate('Chating', {
+                  item: uri
+                })
+              }}>
                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chating.png')} />
               </TouchableOpacity>
               <TouchableOpacity>
@@ -143,7 +170,12 @@ const Calls = (props) => {
               <TouchableOpacity>
                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/videocalling.png')} />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {
+                setModalVisible(!modalVisible)
+                props.navigation.navigate('DataChange', {
+                  item: uri
+                })
+              }}>
                 <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/info.png')} />
               </TouchableOpacity>
             </View>
@@ -151,6 +183,33 @@ const Calls = (props) => {
 
         </Pressable>
       </Modal>
+      <Modal
+        transparent={true}
+        visible={modaloneVisible}
+        onRequestClose={() => {
+          setModalOneVisible(!modaloneVisible);
+          setDataOne("")
+          setDataTwo("")
+        }}
+      >
+        <Pressable onPress={() => {
+          setDataTwo("")
+          setModalOneVisible(!modaloneVisible)
+        }}
+          style={{ flex: 1 }}>
+          <View style={styles.ModalTwo}>
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity onPress={() => setModalOneVisible(!modaloneVisible)}>
+                <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/colorLeft.png')} />
+              </TouchableOpacity>
+              <Text style={styles.TextTwo}>{datatwo}</Text>
+            </View>
+            <View style={{ flex: 1, justifyContent: 'center' }}>
+              <Image style={styles.ImagesThree} resizeMode={'cover'} source={dataOne} />
+            </View>
+          </View>
+        </Pressable>
+      </Modal >
     </View >
 
   )
@@ -208,7 +267,9 @@ const styles = StyleSheet.create({
     width: 50,
     backgroundColor: color.teal_800,
     borderRadius: 50,
-    alignSelf: 'flex-end',
+    right: 10,
+    bottom: 10,
+    elevation: 2
 
   },
   ImagesStyles: {
@@ -225,8 +286,14 @@ const styles = StyleSheet.create({
     marginTop: 100
   },
   ImagesTwo: {
-    height: '85%',
+    height: 350,
     width: '100%'
+  },
+  ImagesThree: {
+    height: '60%',
+    width: '100%',
+
+
   },
   flexTwo: {
     flexDirection: 'row',
@@ -238,4 +305,28 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginTop: 12
   },
+  ModalTwo: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: color.B_000
+  },
+  Images: {
+    width: 30,
+    height: 30,
+    marginHorizontal: 30,
+    marginTop: 25
+  },
+  TextTwo: {
+    color: color.B_00,
+    marginTop: 25,
+    fontSize: 20,
+    fontWeight: '500'
+  },
+  TextThree: {
+    color: color.B_00,
+    marginTop: 15,
+    fontSize: 20,
+    fontWeight: '500',
+    marginHorizontal: 30
+  }
 })

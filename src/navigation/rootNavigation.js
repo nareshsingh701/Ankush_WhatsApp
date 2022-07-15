@@ -70,6 +70,8 @@ import Two from '../screen/text/two';
 import DataChange from '../screen/dataChange/dataChange';
 import DefaultMessageTime from '../screen/account/defaultMessageTime';
 import Chating from '../chats/chating';
+import Callinfo from '../screen/homeScreen/callinfo';
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -141,6 +143,7 @@ const Navigation = () => {
                 <Stack.Screen options={{ headerShown: false }} name="DataChange" component={DataChange} />
                 <Stack.Screen options={{ headerShown: false }} name="DefaultMessageTime" component={DefaultMessageTime} />
                 <Stack.Screen name="Chating" component={Chating} />
+                <Stack.Screen name="Callinfo" component={Callinfo} />
 
             </Stack.Navigator>
         </NavigationContainer>

@@ -9,7 +9,7 @@ const data = [
         secendName: "Top to add status update",
         Image: require('../../assets/images/Anshika.jpg'),
     },
-    
+
 
 ]
 const Status = (props) => {
@@ -30,20 +30,20 @@ const Status = (props) => {
         )
     }
     return (
-        <View style={{ flex: 1,backgroundColor:color.B_00 }}>
+        <View style={{ flex: 1, backgroundColor: color.B_00 }}>
             <FlatList
                 data={data}
                 keyExtractor={(item, index,) => index.toString()}
                 renderItem={renderListData}
             />
-            <View style={{ flex: 1, alignItems: 'flex-end', marginRight: 20, marginBottom: 20 ,justifyContent:'flex-end'}}>
+            
                 <TouchableOpacity style={styles.ViewStyles}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyle} source={require('../../assets/images/pan.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.ViewStyle}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/three.png')} />
                 </TouchableOpacity>
-            </View>
+            
         </View>
     )
 }
@@ -76,17 +76,21 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         backgroundColor: color.teal_800,
-        marginTop: 60,
         borderRadius: 50,
-        position: 'absolute'
+         position: 'absolute',
+        elevation: 2,
+         bottom: 10,
+         right: 10,
     },
     ViewStyles: {
         height: 40,
         width: 40,
         backgroundColor: color.gray_50,
         borderRadius: 50,
-        marginRight: 8,
-        position: 'absolute'
+        position: 'absolute',
+         elevation: 2,
+         bottom: 90,
+         right: 20
     },
     ImagesStyles: {
         height: 25,

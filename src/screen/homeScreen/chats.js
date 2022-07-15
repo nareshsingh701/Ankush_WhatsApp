@@ -8,65 +8,91 @@ const data = [
         name: "8957729509",
         secendName: "Home",
         imagesone: require('../../assets/images/pravesh.jpg'),
+        PhoneNumber: "8957729609",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "ANKUSH",
         secendName: "KHAGA",
         imagesone: require('../../assets/images/priyanshu.jpg'),
+        PhoneNumber: "26643457788",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "Anshu",
         secendName: "KHAGA",
         imagesone: require('../../assets/images/party.jpg'),
+        PhoneNumber: "234567765423",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "NARESH",
         secendName: "KHAGA",
         imagesone: require('../../assets/images/Anshika.jpg'),
+        PhoneNumber: "06666544333",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "sonu",
         secendName: "Arra",
         imagesone: require('../../assets/images/sugreev.jpg'),
+        PhoneNumber: "12234455577",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "Ankush",
         secendName: "khaga",
         imagesone: require('../../assets/images/ankush.jpg'),
+        PhoneNumber: "9733468856",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "NARESH",
         secendName: "KHAGA",
         imagesone: require('../../assets/images/Anshika.jpg'),
+        PhoneNumber: "12345987345",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "sonu",
         secendName: "Arra",
         imagesone: require('../../assets/images/sugreev.jpg'),
+        PhoneNumber: "234564323456",
+        user: "Hey there! I am using WhatsApp",
     },
     {
         name: "Ankush",
         secendName: "khaga",
         imagesone: require('../../assets/images/ankush.jpg'),
+        PhoneNumber: "8123456709",
+        user: "Hey there! I am using WhatsApp",
+    },
+    {
+        name: "Ankush",
+        secendName: "khaga",
+        imagesone: require('../../assets/images/ankush.jpg'),
+        PhoneNumber: "8123456709",
+        user: "Hey there! I am using WhatsApp",
     },
 ]
 const Chats = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalOneVisible, setModalOneVisible] = useState(false);
-    const [uri, setURI] = useState("")
-    const [dataOne, setDataOne] = useState("")
+    const [uri, setURI] = useState({})
+    const [dataOne, setDataOne] = useState({})
     const [showTip, setTip] = useState("");
+
     console.log('props', props);
 
     const renderListData = (listData) => {
         const { item, index } = listData;
 
         return (
-            <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} style={styles.Container} >
+            <TouchableOpacity onPress={() => props.navigation.navigate('Chating', { item })
+            } style={styles.Container} >
                 <View style={styles.Image} >
                     <TouchableOpacity onPress={() => {
-
-                        setURI(item.imagesone)
+                        setURI(item)
                         setDataOne(item.imagesone)
                         setModalVisible(true)
                         setTip(item.name)
@@ -95,7 +121,7 @@ const Chats = (props) => {
                 keyExtractor={(item, index,) => index.toString()}
                 renderItem={renderListData}
             />
-            <View style={{ flex: 1, justifyContent: 'flex-end', marginRight: 20, marginBottom: 20 }}>
+            <View style={{ flex: 1 }}>
                 <TouchableOpacity
                     style={styles.ViewStyle}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chats.png')} />
@@ -107,12 +133,12 @@ const Chats = (props) => {
                 visible={modalVisible}
                 onRequestClose={() => {
                     setModalVisible(!modalVisible);
-                    setURI("")
+                    setURI({})
 
                 }}
             >
                 <Pressable onPress={() => {
-                    setURI("")
+                    setURI({})
 
                     setModalVisible(!modalVisible)
                 }} style={{ flex: 1 }}>
@@ -125,14 +151,14 @@ const Chats = (props) => {
                         }}>
                             <ImageBackground onPress={() => {
                                 setModalVisible(true)
-                            }} style={styles.ImagesTwo} resizeMode={'cover'} source={uri} >
+                            }} style={styles.ImagesTwo} resizeMode={'cover'} source={uri.imagesone} >
                                 <Text style={styles.TextTwo}>{showTip}</Text>
                             </ImageBackground>
 
                         </TouchableOpacity>
                         <View style={styles.flex}>
                             <TouchableOpacity onPress={() => {
-                                props.navigation.navigate('PhoneNumber')
+                                props.navigation.navigate('Chating', { item: uri })
                             }}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/chating.png')} />
                             </TouchableOpacity>
@@ -145,7 +171,7 @@ const Chats = (props) => {
                             <TouchableOpacity onPress={() => {
                                 setModalVisible(!modalVisible)
                                 props.navigation.navigate('DataChange', {
-                                    data
+                                    item: uri
                                 })
                             }}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/info.png')} />
@@ -166,9 +192,10 @@ const Chats = (props) => {
             >
                 <View style={styles.ModalThree}>
                     <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity onPress={()=> {
+                        <TouchableOpacity onPress={() => {
                             setDataOne("")
-                            setModalOneVisible(!modalOneVisible)}}>
+                            setModalOneVisible(!modalOneVisible)
+                        }}>
 
                             <Image resizeMode={'cover'} style={styles.ImagesStylesThree} source={require('../../assets/images/LeftTwo.png')} />
                         </TouchableOpacity>
@@ -224,9 +251,11 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         backgroundColor: color.teal_800,
-        alignSelf: 'flex-end',
         borderRadius: 50,
         position: 'absolute',
+        elevation: 2,
+        right: 10,
+        bottom: 10
     },
     ImagesStyles: {
         height: 25,

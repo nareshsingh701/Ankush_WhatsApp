@@ -3,12 +3,15 @@ import React, { useState } from 'react'
 import color from '../../utils/color'
 import CircleCheckBox, { LABEL_POSITION } from 'react-native-circle-checkbox';
 import CheckBox from '@react-native-community/checkbox';
+import { DrawerItem } from '@react-navigation/drawer';
 
 const DataChange = (props) => {
+    
     const { route } = props;
     const { params } = route;
-    const {data}=params;
-    console.log("route", props.route.params.data);
+    const {item}=params;
+    
+    console.log("route", props.route.params.item);
     const [modalVisible, setModalVisible] = useState(false);
     const [modaloneVisible, setModalOneVisible] = useState(false);
     const [modaltwoVisible, setModalTwoVisible] = useState(false);
@@ -28,51 +31,43 @@ const DataChange = (props) => {
         setDataOne(true);
         setDataTwo(false);
         setDataThree(false);
-
     }
     const two = () => {
         setDataOne(false)
         setDataTwo(true);
         setDataThree(false);
-
     }
-
     const three = () => {
         setDataOne(false)
         setDataTwo(false);
         setDataThree(true);
-
     }
     const four = () => {
         setDataFour(true);
         setDataFive(false);
         setDataSix(false);
-
     }
     const five = () => {
         setDataFour(false);
         setDataFive(true);
         setDataSix(false);
-
     }
-
     const six = () => {
         setDataFour(false);
         setDataFive(false);
         setDataSix(true);
-
     }
     return (
         <View style={styles.container}>
             <View style={styles.flex}>
-                <TouchableOpacity onPress={() => props.navigation.navigate('MainHome')}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/Rite.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setModalVisible(true)}>
-                    <Image resizeMode={'cover'} style={styles.Images} source={require('../../assets/images/ankush.jpg')} />
+                    <Image resizeMode={'cover'} style={styles.Images} source={item.imagesone} />
                 </TouchableOpacity>
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
-                    <Text style={styles.Text}>Atul Singh</Text>
+                    <Text style={styles.Text}>{item.name}</Text>
                     <TouchableOpacity onPress={() => setModalFourVisible(true)}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/i.png')} />
                     </TouchableOpacity>
@@ -88,21 +83,21 @@ const DataChange = (props) => {
             >
                 <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flex: 1 }}>
                     <View style={styles.Modal}>
-                        <Image resizeMode={'cover'} style={styles.ImagesTwo} source={require('../../assets/images/ankush.jpg')} />
+                        <Image resizeMode={'cover'} style={styles.ImagesTwo} source={item.imagesone} />
                     </View>
                 </Pressable>
             </Modal>
             <ScrollView>
                 <TouchableOpacity onPress={() => setModalVisible(true)}>
-                    <Image resizeMode={'cover'} style={styles.ImagesThree} source={require('../../assets/images/ankush.jpg')} />
+                    <Image resizeMode={'cover'} style={styles.ImagesThree} source={item.imagesone} />
                 </TouchableOpacity>
-                <Text style={styles.TextThree}>Atul Singh</Text>
-                <Text style={styles.TextTwo}>+91 9172808510</Text>
+                <Text style={styles.TextThree}>{item.name}</Text>
+                <Text style={styles.TextTwo}>{item.PhoneNumber}</Text>
                 <View style={styles.View}>
                     <Text style={{ alignSelf: 'center', fontWeight: '500', marginTop: 2 }}>Last seen today at 6:25 am</Text>
                 </View>
                 <View style={styles.flexTwo}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> props.navigation.navigate('Chating',{item})}>
                         <Image resizeMode={'cover'} style={styles.ImagesStyles} source={require('../../assets/images/chating.png')} />
                         <Text style={styles.Textcolor}>message</Text>
                     </TouchableOpacity>
@@ -121,8 +116,8 @@ const DataChange = (props) => {
                 </View>
                 <View style={styles.Viewcolor} />
                 <View style={styles.ViewTwo}>
-                    <Text style={styles.TextFour}>At the gym</Text>
-                    <Text style={{ marginHorizontal: 16 }}>16 january</Text>
+                    <Text style={styles.TextFour}>{item.user}</Text>
+                    {/* <Text style={{ marginHorizontal: 16 }}>16 january</Text> */}
                 </View>
                 <View style={styles.Viewcolor} />
                 <View style={styles.ViewFive}>
@@ -133,7 +128,7 @@ const DataChange = (props) => {
                             <Image resizeMode={'cover'} style={styles.ImageFour} source={require('../../assets/images/right.png')} />
                         </View>
                     </View>
-                    <Image resizeMode={'cover'} style={styles.ImagesFour} source={require('../../assets/images/ankush.jpg')} />
+                    <Image resizeMode={'cover'} style={styles.ImagesFour} source={item.imagesone} />
                 </View>
 
                 <View style={styles.ViewSix}>
@@ -184,7 +179,7 @@ const DataChange = (props) => {
                         <Text style={styles.TextNine}>create group with Atul</Text>
                     </View>
                     <View style={styles.flexFour}>
-                        <Image resizeMode={'cover'} style={styles.ImagesStylesThree} source={require('../../assets/images/ankush.jpg')} />
+                        <Image resizeMode={'cover'} style={styles.ImagesStylesThree} source={item.imagesone} />
                         <Text style={styles.TextNine} >Bhai - Bhai = Tabhahi</Text>
                     </View>
                     <Text style={styles.TextTen}>Atul,Bablu,you</Text>
@@ -193,11 +188,11 @@ const DataChange = (props) => {
                 <View style={styles.ViewThree}>
                     <TouchableOpacity onPress={() => setModalTwoVisible(true)} style={styles.flexFour}>
                         <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/block.png')} />
-                        <Text style={styles.TextOne} >Block Atul Singh</Text>
+                        <Text style={styles.TextOne} >Block <Text>{item.name}</Text></Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => setModalThreeVisible(true)} style={styles.flexFour}>
                         <Image resizeMode={'cover'} style={styles.ImagesStylesFour} source={require('../../assets/images/unlike.png')} />
-                        <Text style={styles.TextOne} >Report Atul Singh</Text>
+                        <Text style={styles.TextOne} >Report <Text>{item.name}</Text></Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -608,7 +603,7 @@ const styles = StyleSheet.create({
     },
     ModalTwo: {
         width: '90%',
-        height: '50%',
+        height: '400',
         alignSelf: 'center',
         borderRadius: 5,
         backgroundColor: color.gray_50
@@ -676,7 +671,7 @@ const styles = StyleSheet.create({
     },
     ModalSix: {
         width: '60%',
-        height: '35%',
+        height: 200,
         backgroundColor: color.gray_50,
         alignSelf: 'flex-end',
         borderRadius: 5,
@@ -690,7 +685,7 @@ const styles = StyleSheet.create({
     },
     ModalStyle: {
         width: '90%',
-        height: '60%',
+        height: 350,
         backgroundColor: color.gray_50,
         alignSelf: 'center',
         borderRadius: 5
