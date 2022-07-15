@@ -76,7 +76,7 @@ const Navigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='MainHome'>
-                {/* <Stack.Screen options={{headerShown: false}}  name="phoneNumber" component={PhoneNumber} />  */}
+                <Stack.Screen options={{headerShown: false}}  name="PhoneNumber" component={PhoneNumber} /> 
                 <Stack.Screen options={{ headerShown: false }} name="search" component={Search} />
                 <Stack.Screen options={{ headerShown: false }} name="openScreen" component={OpenScreen} />
                 <Stack.Screen options={{ headerShown: false }} name="logIn" component={LogIn} />

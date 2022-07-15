@@ -1,18 +1,19 @@
-import React from 'react'
-// import {Provider} from 'react-redux';
+import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-
 //Custom Imports
-//  import store from './src/redux/store';
+import { Provider } from 'react-redux';
+import store from './src/store/store'
+// import Counter from './src/data/counter';
 import Navigation from './src/navigation/rootNavigation'
 
-const App = () => {
+
+const App = (props) => {
   return (
     <View style={styles.container}>
-      {/* <Provider store={store}> */}
-        <Navigation/>
-       
-      {/* </Provider> */}
+      <Provider store={store}>
+        <Navigation />
+        {/* <Counter /> */}
+      </Provider>
     </View>
   )
 }

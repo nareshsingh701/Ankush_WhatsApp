@@ -132,7 +132,7 @@ const Chats = (props) => {
                         </TouchableOpacity>
                         <View style={styles.flex}>
                             <TouchableOpacity onPress={() => {
-                                props.navigation.navigate('Chating')
+                                props.navigation.navigate('PhoneNumber')
                             }}>
                                 <Image resizeMode={'cover'} style={styles.ImagesStylesTwo} source={require('../../assets/images/chating.png')} />
                             </TouchableOpacity>
